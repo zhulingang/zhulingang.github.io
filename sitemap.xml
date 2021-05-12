@@ -4,7 +4,7 @@
   <url>
     <loc>https://godweiyang.com/2020/11/12/es-study/</loc>
     
-    <lastmod>2021-05-12T05:25:45.157Z</lastmod>
+    <lastmod>2021-05-12T05:27:01.586Z</lastmod>
     
   </url>
   
@@ -37,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://godweiyang.com/about/index.html</loc>
-    
-    <lastmod>2021-03-30T23:38:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://godweiyang.com/categories/index.html</loc>
     
     <lastmod>2021-03-30T23:38:08.000Z</lastmod>
@@ -51,7 +44,7 @@
   </url>
   
   <url>
-    <loc>https://godweiyang.com/tags/index.html</loc>
+    <loc>https://godweiyang.com/about/index.html</loc>
     
     <lastmod>2021-03-30T23:38:08.000Z</lastmod>
     
@@ -59,6 +52,13 @@
   
   <url>
     <loc>https://godweiyang.com/archives/index.html</loc>
+    
+    <lastmod>2021-03-30T23:38:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://godweiyang.com/tags/index.html</loc>
     
     <lastmod>2021-03-30T23:38:08.000Z</lastmod>
     
