@@ -964,6 +964,28 @@ POST /demo1/_doc/<span class="token number">1</span>/_update/
     </div>
 
     
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'fc5c269b6194bcdff5bd',
+        clientSecret: 'fd7d361583c463c78458ed258b1b68ea7d9bbb57',
+        repo: 'zhulingang.github.io',
+        owner: 'zhulingang',
+        admin: "zhulingang",
+        id: '2020/11/12/es-study/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
