@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhulingang.com/"/>
-  <updated>2021-05-16T10:53:00.618Z</updated>
+  <updated>2021-05-16T19:17:05.382Z</updated>
   <id>https://zhulingang.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客部署Gitalk评论踩坑</title>
+    <link href="https://zhulingang.com/2021/05/17/hexo-bo-ke-bu-shu-gitalk-ping-lun-cai-keng/"/>
+    <id>https://zhulingang.com/2021/05/17/hexo-bo-ke-bu-shu-gitalk-ping-lun-cai-keng/</id>
+    <published>2021-05-16T19:11:00.000Z</published>
+    <updated>2021-05-16T19:17:05.382Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Hexo博客部署Gitalk评论踩坑&quot;&gt;&lt;a href=&quot;#Hexo博客部署Gitalk评论踩坑&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="服务部署" scheme="https://zhulingang.com/categories/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"/>
+    
+    
+      <category term="博客" scheme="https://zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="Gitalk" scheme="https://zhulingang.com/tags/Gitalk/"/>
+    
+  </entry>
   
   <entry>
     <title>菊花细粒度识别模型可视化软件</title>
