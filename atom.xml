@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhulingang.com/"/>
-  <updated>2021-05-13T17:30:55.311Z</updated>
+  <updated>2021-05-16T10:53:00.618Z</updated>
   <id>https://zhulingang.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>菊花细粒度识别模型可视化软件</title>
+    <link href="https://zhulingang.com/2021/05/13/chrysanthemum/"/>
+    <id>https://zhulingang.com/2021/05/13/chrysanthemum/</id>
+    <published>2021-05-13T07:59:31.000Z</published>
+    <updated>2021-05-16T10:53:00.618Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;菊花细粒度识别模型可视化软件&quot;&gt;&lt;a href=&quot;#菊花细粒度识别模型可视化软件&quot; class=&quot;headerlink&quot; title=&quot;菊花细粒度识别模型可视化软件&quot;&gt;&lt;/a&gt;菊花细粒度识别模型可视化软件&lt;/h1&gt;&lt;h2 id=&quot;Requirements&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="图像识别" scheme="https://zhulingang.com/categories/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+    
+      <category term="博客" scheme="https://zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Es学习</title>

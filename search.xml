@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>菊花细粒度识别模型可视化软件</title>
+      <link href="/2021/05/13/chrysanthemum/"/>
+      <url>/2021/05/13/chrysanthemum/</url>
+      
+        <content type="html"><![CDATA[<h1 id="菊花细粒度识别模型可视化软件"><a href="#菊花细粒度识别模型可视化软件" class="headerlink" title="菊花细粒度识别模型可视化软件"></a>菊花细粒度识别模型可视化软件</h1><h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><ul><li>Python==3.7</li><li>torch==1.7.0</li><li>Pyqt5 </li></ul><h2 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h2><ol><li><p>图片初始打开路径修改</p><p>由于系统原因，需要修改系统路径，在main.py中修改</p><p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514171323.png" alt="image-20210514171317547"></p></li></ol><ol start="2"><li><p>运行main.py</p><ul><li>选择图像</li></ul><p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514171528.png" alt="image-20210514171526587"></p><ul><li><p>选择识别模型</p><p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514171802.png" alt="image-20210514171647046"></p></li><li><p>开始识别</p></li><li><p>查看识别过程</p><p>识别过程图片会保存在当前目录的NTSfeautures和BCNNfeautures目录下</p></li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图像识别 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Es学习</title>
       <link href="/2020/11/12/es-study/"/>
       <url>/2020/11/12/es-study/</url>
