@@ -5,9 +5,9 @@
   <subtitle>不当凡客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://zhulingang.com/"/>
+  <link href="www.zhulingang.com/"/>
   <updated>2021-05-16T19:38:49.183Z</updated>
-  <id>https://zhulingang.com/</id>
+  <id>www.zhulingang.com/</id>
   
   <author>
     <name>朱林刚</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo博客部署Gitalk评论踩坑</title>
-    <link href="https://zhulingang.com/2021/05/17/hexo-gitalk/"/>
-    <id>https://zhulingang.com/2021/05/17/hexo-gitalk/</id>
+    <link href="www.zhulingang.com/2021/05/17/hexo-gitalk/"/>
+    <id>www.zhulingang.com/2021/05/17/hexo-gitalk/</id>
     <published>2021-05-16T19:38:00.000Z</published>
     <updated>2021-05-16T19:38:49.183Z</updated>
     
@@ -35,19 +35,19 @@
     
     </summary>
     
-      <category term="服务部署" scheme="https://zhulingang.com/categories/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"/>
+      <category term="服务部署" scheme="www.zhulingang.com/categories/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"/>
     
     
-      <category term="博客" scheme="https://zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="Gitalk" scheme="https://zhulingang.com/tags/Gitalk/"/>
+      <category term="Gitalk" scheme="www.zhulingang.com/tags/Gitalk/"/>
     
   </entry>
   
   <entry>
     <title>菊花细粒度识别模型可视化软件</title>
-    <link href="https://zhulingang.com/2021/05/13/chrysanthemum/"/>
-    <id>https://zhulingang.com/2021/05/13/chrysanthemum/</id>
+    <link href="www.zhulingang.com/2021/05/13/chrysanthemum/"/>
+    <id>www.zhulingang.com/2021/05/13/chrysanthemum/</id>
     <published>2021-05-13T07:59:31.000Z</published>
     <updated>2021-05-16T10:53:00.618Z</updated>
     
@@ -63,17 +63,17 @@
     
     </summary>
     
-      <category term="图像识别" scheme="https://zhulingang.com/categories/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+      <category term="图像识别" scheme="www.zhulingang.com/categories/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
     
     
-      <category term="博客" scheme="https://zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title>Es学习</title>
-    <link href="https://zhulingang.com/2020/11/12/es-study/"/>
-    <id>https://zhulingang.com/2020/11/12/es-study/</id>
+    <link href="www.zhulingang.com/2020/11/12/es-study/"/>
+    <id>www.zhulingang.com/2020/11/12/es-study/</id>
     <published>2020-11-12T10:59:31.000Z</published>
     <updated>2021-05-13T17:30:55.311Z</updated>
     
@@ -90,10 +90,10 @@
     
     </summary>
     
-      <category term="数据库" scheme="https://zhulingang.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="www.zhulingang.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="博客" scheme="https://zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
