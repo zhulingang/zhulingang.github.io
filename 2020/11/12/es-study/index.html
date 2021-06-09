@@ -501,7 +501,7 @@ filter DSL
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012832.png" alt="image-20201017094844293"></p>
+                <p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012832.png" alt></p>
 <h1 id="ES查询"><a href="#ES查询" class="headerlink" title="ES查询"></a>ES查询</h1><h2 id="filter-DSL和query-DSL"><a href="#filter-DSL和query-DSL" class="headerlink" title="filter DSL和query DSL"></a>filter DSL和query DSL</h2><ul>
 <li><p>filter DSL</p>
 <p>在过滤器上下文中，查询会回答这个问题——“这个文档匹不匹配？”</p>
@@ -520,13 +520,13 @@ filter DSL
 <li><p>term方法</p>
 <p>term是代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇。主要用于精确匹配哪些值，比如数字，日期，布尔值或 not_analyzed 的字符串</p>
 <p>term 必须对应 keyword的属性，不然查询不出，所谓keyword就是必须完全匹配，text可以模糊查询</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012843.png" alt="image-20201024141941130"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012843.png" alt></p>
 <p>如果仅用s.value 查询不出，因为s.value是text属性，</p>
 </li>
 <li><p>match</p>
 <p>match查询会先对搜索词进行分词,分词完毕后再逐个对分词结果进行匹配，因此相比于term的精确搜索.</p>
 <p>match 是queryDSL</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012852.png" alt="image-20201024143455482"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012852.png" alt></p>
 </li>
 </ul>
 <h2 id="term"><a href="#term" class="headerlink" title="term"></a>term</h2><p>term是代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇。主要用于精确匹配哪些值，比如数字，日期，布尔值或 not_analyzed 的字符串</p>
@@ -764,7 +764,7 @@ filter DSL
 <span class="token punctuation">}</span>
 <span class="token punctuation">}</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="ES添加文档（数据）"><a href="#ES添加文档（数据）" class="headerlink" title="ES添加文档（数据）"></a>ES添加文档（数据）</h1><p>POST 或PUT</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012919.png" alt="image-20201024155701063"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012919.png" alt></p>
 <p>demo1为index，_doc为类型，3位id，id可以省略（省略就系统自动生成)</p>
 <pre class="line-numbers language-json"><code class="language-json">POST demo1/_doc/<span class="token number">3</span>
 <span class="token punctuation">{</span>
@@ -789,7 +789,7 @@ filter DSL
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>批量插入需要id，命令行使用_bulk命令</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012930.png" alt="image-20201024160402045"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012930.png" alt></p>
 <p>/index/type/_bulk </p>
 <p>跟上id，再跟里面的数据。</p>
 <pre class="line-numbers language-json"><code class="language-json">POST /demo6/_doc/_bulk
@@ -865,21 +865,21 @@ filter DSL
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">" down!\n success_num:\t %d"</span> <span class="token operator">%</span> success <span class="token operator">+</span> <span class="token string">" \n errors_num:\t %d"</span> <span class="token operator">%</span> errors<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="ES查看数据"><a href="#ES查看数据" class="headerlink" title="ES查看数据"></a>ES查看数据</h1><p>GET 索引名/文档类型/文档id</p>
 <pre class="line-numbers language-json"><code class="language-json">GET /demo6/_doc/<span class="token number">20</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012944.png" alt="image-20201024161227999"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012944.png" alt></p>
 <h1 id="ES数据修改"><a href="#ES数据修改" class="headerlink" title="ES数据修改"></a>ES数据修改</h1><p>put方式修改</p>
 <pre class="line-numbers language-json"><code class="language-json">put /索引名/文档类型/文档Id
 <span class="token punctuation">{</span>
   <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">19</span><span class="token punctuation">,</span>(修改的新值<span class="token punctuation">)</span>
   <span class="token property">"content"</span><span class="token operator">:</span><span class="token string">"1"</span>(修改的新值<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012959.png" alt="image-20201024161804421"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514012959.png" alt></p>
 <pre class="line-numbers language-json"><code class="language-json">PUT /demo6/_doc/<span class="token number">20</span>
 <span class="token punctuation">{</span>
   <span class="token property">"s.type"</span><span class="token operator">:</span><span class="token string">"uri"</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>要注意的是，当只修改一个属性的时候，如果只填这个属性，其他属性的值会消失。</p>
 <p>如</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514013008.png" alt="image-20201024162138531"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514013008.png" alt></p>
 <p>s.value p.value 等属性消失。</p>
 <p>Post 方式修改，当只修改一个属性，不会让其他属性消失。</p>
 <pre class="line-numbers language-json"><code class="language-json">POST /索引名/文档类型/文档Id/_update
@@ -887,7 +887,7 @@ filter DSL
    <span class="token property">"name"</span><span class="token operator">:</span><span class="token string">"张三的名字叫李四"</span>
 <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514013016.png" alt="image-20201024164249470"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514013016.png" alt></p>
 <pre class="line-numbers language-json"><code class="language-json">POST /demo6/_doc/<span class="token number">6</span>/_update
 <span class="token punctuation">{</span><span class="token property">"doc"</span><span class="token operator">:</span><span class="token punctuation">{</span>
   <span class="token property">"s"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"u1u1"</span><span class="token punctuation">}</span>
@@ -901,7 +901,7 @@ POST /demo1/_doc/<span class="token number">1</span>/_update/
 <p>假如属性值不存在 则会追加这个属性</p>
 <h1 id="删除文档-amp-索引"><a href="#删除文档-amp-索引" class="headerlink" title="删除文档&amp;索引"></a>删除文档&amp;索引</h1><p><strong>删除索引</strong>：delete 索引名</p>
 <p><strong>删除文档</strong>：delete 索引名/文档类型/文档id</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514013024.png" alt="image-20201024164459110"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210514013024.png" alt></p>
 
             </div>
             <hr />

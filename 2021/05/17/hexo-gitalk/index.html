@@ -501,7 +501,7 @@
             <div id="articleContent">
                 <h1 id="Hexo博客部署Gitalk评论踩坑"><a href="#Hexo博客部署Gitalk评论踩坑" class="headerlink" title="Hexo博客部署Gitalk评论踩坑"></a>Hexo博客部署Gitalk评论踩坑</h1><p>算了算自己瞎折腾好久，查了好久的百度都没能解决，最后在Google和Github上找到了正确的方案。只能说Github yyds～</p>
 <h2 id="在OAuth已搭建Gitalk"><a href="#在OAuth已搭建Gitalk" class="headerlink" title="在OAuth已搭建Gitalk"></a>在OAuth已搭建Gitalk</h2><p>搭建步骤可自行百度，主要搭建完毕之后的后续步骤坑较大</p>
-<h2 id="起因：Request-failed-with-status-code-403"><a href="#起因：Request-failed-with-status-code-403" class="headerlink" title="起因：Request failed with status code 403"></a>起因：Request failed with status code 403</h2><p>一直不明白这个原因是怎么造成的<img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517022318.jpg" alt="2211621189354_.pic"></p>
+<h2 id="起因：Request-failed-with-status-code-403"><a href="#起因：Request-failed-with-status-code-403" class="headerlink" title="起因：Request failed with status code 403"></a>起因：Request failed with status code 403</h2><p>一直不明白这个原因是怎么造成的<img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517022318.jpg" alt></p>
 <p>最后参考了这篇博客<a href="https://cuiqingcai.com/30010.html" target="_blank" rel="noopener">Gitalk 评论登录 403 问题解决</a></p>
 <p>原因是：主题模版中的cors-anywhere反向代理已不支持直接使用，Gitalk的默认proxy为</p>
 <pre><code>Default: https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token.</code></pre><p>所以在代理访问Github时会直接forbidden。参考博客中，对403出现的原因做了详细说明</p>
@@ -523,12 +523,12 @@
 <p>于是参考了另一篇博客<a href="https://www.chenhanpeng.com/create-own-cors-anywhere-to-resolve-the-request-with-403/" target="_blank" rel="noopener">在cloudflare上创建一个免费的在线代理来解决gitalk授权登录报403问题</a></p>
 <p>首先创建自己的一个ClOUDFLARE账号  点击<a href="https://dash.cloudflare.com/login" target="_blank" rel="noopener">CLOUDFLARE注册</a></p>
 <p>选择Workers，创建免费的Workers</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517025103.png" alt="image-20210517025101581"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517025103.png" alt></p>
 <p>免费版只有10w次请求，但是个人使用足以，填写二级域名后就可以创建完成。</p>
 <p>随后：</p>
 <ol>
 <li><p>将脚本代码删除</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517025939.png" alt="image-20210517025842965"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517025939.png" alt></p>
 </li>
 </ol>
 <ol start="2">
@@ -536,21 +536,21 @@
 <p>我看许多人的index.js都是参考他的，我是直接复制参考博主的index.js  指路<a href="https://github.com/Hanpeng-Chen/cloudflare-cors-anywhere" target="_blank" rel="noopener">博主仓库</a></p>
 </li>
 <li><p>保存并部署，复制自己的域名</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517030725.png" alt="image-20210517030524711"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517030725.png" alt></p>
 </li>
 </ol>
 <ol start="4">
 <li><p>修改_config.yml里的proxy</p>
 <p>将上述复制的值，作为proxy</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517030720.png" alt="image-20210517030719157"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517030720.png" alt></p>
 <p>一定要注意连接的地方，要加?,不然会出现no access token的错误</p>
 </li>
 <li><p>最后重新部署博客，搞定</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517030933.png" alt="image-20210517030931909"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517030933.png" alt></p>
 </li>
 </ol>
 <h2 id="出现Error-Validation-Failed"><a href="#出现Error-Validation-Failed" class="headerlink" title="出现Error: Validation Failed."></a>出现Error: Validation Failed.</h2><p>原因文章对应的 URL 过长，修改文件名长度，建议用英文，不然中文很容易太长</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517033739.png" alt="image-20210517033737893"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210517033739.png" alt></p>
 <p>Github真的yyds，上面有好多百度不到的问题解决方案，所以还是练好英文，多看看Google和Github吧～～终于解决问题了，可以睡个好觉了，现在是凌晨3：38.</p>
 
             </div>

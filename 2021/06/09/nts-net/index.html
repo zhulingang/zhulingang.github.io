@@ -508,14 +508,14 @@
             <div id="articleContent">
                 <h1 id="菊花细粒度识别——NTS-Net模型详解"><a href="#菊花细粒度识别——NTS-Net模型详解" class="headerlink" title="菊花细粒度识别——NTS-Net模型详解"></a>菊花细粒度识别——NTS-Net模型详解</h1><p>​    Nts-Net(Navigator-Teacher-Scrutinizer Network,Nts-Net)应用于细粒度图像识别中。NTS-Net 将整张图像以及那些具有能强烈表示类别特征的区域所提取 的特征进行融合，有利于细粒度图像识别。所以，NTS-Net 进行识别的关键是如何定位最具有语义信息的局部区域。</p>
 <p>​    如NTS-Net的名字所示，模型主要由三个网络部分组成：Navigator、Teacher、Scrutinizer网络。</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210608210935.png" alt="image-20210608210928688"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210608210935.png" alt></p>
 <p>​    Navigator 的作用是让整个模型关注最具判别性的区域，Navigator 通过预测图像各个区域的信息量，提取出最具判别性的局部区域。当图像输入 Navigator 网络后，Navigator 网络会根据不同的比例和尺寸产生一系列矩形信息区域，并根据信息丰富度 排序。最后取其中信息度最大的 <em>M</em> 个区域，随后从完整的图像中映射对应的区域，把它们按照规定的尺寸，提取特征并送入到 Teacher 网络中，得到这 <em>M</em> 个区域的置信度并排序。局部区域的信息度反映的是对物体细粒度分类的表征能力，如果对 Teacher网络中的置信度进行排序，区域置信度的排序应与信息度的排序一致。所以，我们可以计算区域信息度和置信度的一致性的损失值，来对 Navigator 网络进行训练和优化。</p>
 <p>​    下图是Teacher网络和Navigator网络自监督机制示意图：</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210608211044.png" alt="image-20210608211043003"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210608211044.png" alt="自监督机制示意图"></p>
 <p>​    需要注意的是：局部区域经过特征提取网络提取特征后送入Teacher网络，经Teacher网络的全连接层得到菊花分类向量，再与标签进行交叉熵得到置信度。</p>
 <p>​    Navigator网络将信息度最大的K个区域送往Scrutinizer网络，Scrutinizer网络提取这些局部区域的特征，然后将全局图像的特征和局部区域的特征拼接，最后送入全连接层分类。</p>
 <p>​    下图是NTS-Net的检测过程：</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210608211445.png" alt="image-20210608211443922"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210608211445.png" alt="NTS-Net的检测过程"></p>
 <p>需要注意的是：局部区域是根据特征图与全局图像的映射关系上采样得到的。</p>
 <h2 id="核心代码理解："><a href="#核心代码理解：" class="headerlink" title="核心代码理解："></a>核心代码理解：</h2><h3 id="NTS-Net的网络代码：model-py"><a href="#NTS-Net的网络代码：model-py" class="headerlink" title="NTS-Net的网络代码：model.py"></a>NTS-Net的网络代码：model.py</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> torch <span class="token keyword">import</span> nn
 <span class="token keyword">import</span> torch
