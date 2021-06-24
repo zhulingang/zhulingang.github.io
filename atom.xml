@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.zhulingang.com/"/>
-  <updated>2021-06-09T15:33:24.134Z</updated>
+  <updated>2021-06-24T07:13:45.723Z</updated>
   <id>www.zhulingang.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>毕业啦</title>
+    <link href="www.zhulingang.com/2021/06/24/graduation/"/>
+    <id>www.zhulingang.com/2021/06/24/graduation/</id>
+    <published>2021-06-24T07:13:00.000Z</published>
+    <updated>2021-06-24T07:13:45.723Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;毕业啦&quot;&gt;&lt;a href=&quot;#毕业啦&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="www.zhulingang.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="生活" scheme="www.zhulingang.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>细粒度识别模型-BCNN模型详解</title>
