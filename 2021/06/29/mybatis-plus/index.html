@@ -613,12 +613,12 @@ QueryWrapper<span class="token operator">&lt;</span>User<span class="token opera
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testLogicDelete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     userMapper<span class="token punctuation">.</span><span class="token function">deleteById</span><span class="token punctuation">(</span>1L<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629161254.png" alt="image-20210629161252634"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629161254.png" alt></p>
 <p>可以看到走的是更新操作：</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629161337.png" alt="image-20210629161336069"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629161337.png" alt></p>
 <p>同样，我们假如对逻辑表的查询和更新操作，会自动帮我们加上deleted=0的属性值，</p>
 <p>如查询：</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629161530.png" alt="image-20210629161529207"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629161530.png" alt></p>
 <p>deleted=1的已经删除的记录，查询不出</p>
 </li>
 </ol>
@@ -780,7 +780,7 @@ QueryWrapper<span class="token operator">&lt;</span>User<span class="token opera
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实际上，MyBatisPlus 的分页底层采用的还是 limit</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629180726.png" alt="image-20210629180725582"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629180726.png" alt></p>
 </li>
 </ol>
 <h3 id="使用-3"><a href="#使用-3" class="headerlink" title="使用"></a>使用</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//下面是许多查询操作</span>
@@ -818,7 +818,7 @@ QueryWrapper<span class="token operator">&lt;</span>User<span class="token opera
     maps<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>out<span class="token operator">:</span><span class="token operator">:</span>println<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Wrapper构造器"><a href="#Wrapper构造器" class="headerlink" title="Wrapper构造器"></a>Wrapper构造器</h2><h3 id="Wrapper类的结构"><a href="#Wrapper类的结构" class="headerlink" title="Wrapper类的结构"></a>Wrapper类的结构</h3><p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629190144.png" alt="image-20210629190142779"></p>
+<h2 id="Wrapper构造器"><a href="#Wrapper构造器" class="headerlink" title="Wrapper构造器"></a>Wrapper构造器</h2><h3 id="Wrapper类的结构"><a href="#Wrapper类的结构" class="headerlink" title="Wrapper类的结构"></a>Wrapper类的结构</h3><p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629190144.png" alt="Wrapper类构造图"></p>
 <ol>
 <li>AbstractWrapper: 用于查询条件封装，生成sql的where条件</li>
 <li>AbstractLambdaWrapper: Lambda语法使用Wrapper统一处理解析lambda获取column</li>
@@ -875,9 +875,9 @@ QueryWrapper<span class="token operator">&lt;</span>User<span class="token opera
 <li><p>mapper接口文件中定义好方法，然后在对应的xml文件中，编写对应的SQL就好，最后还是要在service层上将mapper的函数进行封装。</p>
 <p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629191356.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629191304.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629192918.png" alt></p>
 </li>
 </ol>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20210629192918.png" alt="image-20210629192917135"></p>
 
             </div>
             <hr />
