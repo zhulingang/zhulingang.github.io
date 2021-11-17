@@ -1247,20 +1247,20 @@ x <span class="token operator">=</span> unsafe<span class="token punctuation">.<
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-escape/">
+                <a href="/2021/11/18/go-contex/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Go内存逃逸">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go Contex">
                         
-                        <span class="card-title">Go内存逃逸</span>
+                        <span class="card-title">Go Contex</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
-go语言编译器会自动决定把一个变量放在栈还是
+                            Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
+在 Go 语言中 context 包容许您传递一个 “context” 到您
                         
                     </div>
                     <div class="publish-info">
@@ -1305,24 +1305,25 @@ go语言编译器会自动决定把一个变量放在栈还是
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/gofunc/">
+                <a href="/2021/11/18/go-gc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go函数">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Go GC">
                         
-                        <span class="card-title">Go函数</span>
+                        <span class="card-title">Go GC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go函数Go函数定义func name(params)(return params){
-function body
-}
-//eg,如果相邻的参数类型是相同的，则可以省略前一个类型
-func cal(a,b int) int{
-  retur
+                            Go GCGo GC“GC Roots” 的对象选择JAVA的GC Root对象选择
+
+虚拟机栈(栈帧中的本地变量表)中引用的对象；
+本地方法栈(Native 方法)中引用的对象；
+方法区中类静态属性引用的对象；
+方法区中常量引用的对象；
+
                         
                     </div>
                     <div class="publish-info">
