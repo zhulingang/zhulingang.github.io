@@ -1225,19 +1225,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-management-allocation/">
+                <a href="/2021/11/18/go-container/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go内存管理与分配">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Go容器">
                         
-                        <span class="card-title">Go内存管理与分配</span>
+                        <span class="card-title">Go容器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
+                            Go容器Go容器数组数组的长度不可变
+ var name [size]T
+ //声明时需要指定大小
+ var students [3]int
+ //也可以通过指针操作数组
+ students2 := new([3]int)
+ fmt.Pri
                         
                     </div>
                     <div class="publish-info">
@@ -1282,25 +1288,22 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-container/">
+                <a href="/2021/11/18/go-pointer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Go容器">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go指针">
                         
-                        <span class="card-title">Go容器</span>
+                        <span class="card-title">Go指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go容器Go容器数组数组的长度不可变
- var name [size]T
- //声明时需要指定大小
- var students [3]int
- //也可以通过指针操作数组
- students2 := new([3]int)
- fmt.Pri
+                            指针指针unsafe.Pointerunsafe.Pointer的定义
+从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
+type ArbitraryType int
+type Poi
                         
                     </div>
                     <div class="publish-info">

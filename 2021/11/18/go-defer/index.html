@@ -1141,25 +1141,20 @@ main 正常结束<span aria-hidden="true" class="line-numbers-rows"><span></span
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/go-container/">
+                <a href="/2021/11/18/gomemory-escape/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Go容器">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Go内存逃逸">
                         
-                        <span class="card-title">Go容器</span>
+                        <span class="card-title">Go内存逃逸</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go容器Go容器数组数组的长度不可变
- var name [size]T
- //声明时需要指定大小
- var students [3]int
- //也可以通过指针操作数组
- students2 := new([3]int)
- fmt.Pri
+                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
+go语言编译器会自动决定把一个变量放在栈还是
                         
                     </div>
                     <div class="publish-info">
@@ -1204,25 +1199,25 @@ main 正常结束<span aria-hidden="true" class="line-numbers-rows"><span></span
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-basic-data-type/">
+                <a href="/2021/11/18/go-container/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="GO基本数据类型">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Go容器">
                         
-                        <span class="card-title">GO基本数据类型</span>
+                        <span class="card-title">Go容器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            GO基本数据类型GO基本数据类型整型//按长度分
-int8 int16 int32 int64
-//按有无符号分
-uint8 uint16 uint32 uint64
-//提供了平台自动匹配长度的int类型和uint类型
-int uint
-
+                            Go容器Go容器数组数组的长度不可变
+ var name [size]T
+ //声明时需要指定大小
+ var students [3]int
+ //也可以通过指针操作数组
+ students2 := new([3]int)
+ fmt.Pri
                         
                     </div>
                     <div class="publish-info">

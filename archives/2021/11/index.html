@@ -591,84 +591,22 @@ go语言编译器会自动决定把一个变量放在栈还是
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/11/18/gomemory-management-allocation/">
+                        <a href="/2021/11/18/go-defer/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go内存管理与分配">
+                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Go Defer">
                                 
-                                <span class="card-title">Go内存管理与分配</span>
+                                <span class="card-title">Go Defer</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i
-                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Go/" class="post-category" target="_blank">
-                                        Go
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
-                            
-                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
-                            
-                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>18</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2021/11/18/go-contex/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go Contex">
-                                
-                                <span class="card-title">Go Contex</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
-在 Go 语言中 context 包容许您传递一个 “context” 到您
+                                DeferDeferdefer的执行顺序多个defer出现的时候，它是一个“栈”的关系，也就是先进后出。一个函数中，写在前面的defer会比写在后面的defer调用的晚。
+func main() {
+    defer func1()
+  
                                 
                             </div>
                             <div class="publish-info">
@@ -790,92 +728,20 @@ go语言编译器会自动决定把一个变量放在栈还是
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/11/18/go-defer/">
+                        <a href="/2021/11/18/go-contex/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Go Defer">
+                                <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go Contex">
                                 
-                                <span class="card-title">Go Defer</span>
+                                <span class="card-title">Go Contex</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                DeferDeferdefer的执行顺序多个defer出现的时候，它是一个“栈”的关系，也就是先进后出。一个函数中，写在前面的defer会比写在后面的defer调用的晚。
-func main() {
-    defer func1()
-  
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i
-                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Go/" class="post-category" target="_blank">
-                                        Go
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
-                            
-                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
-                            
-                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>18</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2021/11/18/go-basic-data-type/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="GO基本数据类型">
-                                
-                                <span class="card-title">GO基本数据类型</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                GO基本数据类型GO基本数据类型整型//按长度分
-int8 int16 int32 int64
-//按有无符号分
-uint8 uint16 uint32 uint64
-//提供了平台自动匹配长度的int类型和uint类型
-int uint
-
+                                Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
+在 Go 语言中 context 包容许您传递一个 “context” 到您
                                 
                             </div>
                             <div class="publish-info">
@@ -943,6 +809,70 @@ int uint
 从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
 type ArbitraryType int
 type Poi
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Go/" class="post-category" target="_blank">
+                                        Go
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
+                            
+                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
+                            
+                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>18</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/11/18/gomemory-management-allocation/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go内存管理与分配">
+                                
+                                <span class="card-title">Go内存管理与分配</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
                                 
                             </div>
                             <div class="publish-info">
@@ -1064,25 +994,162 @@ type Poi
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/11/18/go-memory4/">
+                        <a href="/2021/11/18/go-basic-data-type/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Go 内存四区">
+                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="GO基本数据类型">
                                 
-                                <span class="card-title">Go 内存四区</span>
+                                <span class="card-title">GO基本数据类型</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                内存四区内存四区概念：A.数据类型本质：​    固定内存大小的别名
-B. 数据类型的作用：​    编译器预算对象(变量)分配的内存空间大小。
+                                GO基本数据类型GO基本数据类型整型//按长度分
+int8 int16 int32 int64
+//按有无符号分
+uint8 uint16 uint32 uint64
+//提供了平台自动匹配长度的int类型和uint类型
+int uint
 
-C.内存4区
-流程说明
-1、操作系统把物理硬盘代码load到内存
-2、操作系统把c代码分成四
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Go/" class="post-category" target="_blank">
+                                        Go
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
+                            
+                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
+                            
+                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>18</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/11/18/go-interface/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go接口 interface">
+                                
+                                <span class="card-title">Go接口 interface</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                Go接口 interfaceGo接口 interface声明type People interface {
+    Speak(string) string
+  //method(parama)(return param)
+}
+//实现接口
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Go/" class="post-category" target="_blank">
+                                        Go
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
+                            
+                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
+                            
+                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>18</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/11/18/go-sort/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Go 排序">
+                                
+                                <span class="card-title">Go 排序</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                Go 排序排序对整数，浮点数，字符串切片排序对于[]int, []float, []string这种元素类型是基础类型的切片使用sort包提供的下面几个函数进行排序。
+
+sort.Ints
+sort.Floats
+sort.Strings
+
                                 
                             </div>
                             <div class="publish-info">
@@ -1148,71 +1215,6 @@ C.内存4区
                                 
                                 Go并发Go并发进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。
 线程是进程的一个执行实体，是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。一个进程可以创建和撤销多个线程，同一个进程中的多
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i
-                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Go/" class="post-category" target="_blank">
-                                        Go
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
-                            
-                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
-                            
-                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>18</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2021/11/18/go-reflect/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Go 反射">
-                                
-                                <span class="card-title">Go 反射</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                Go 反射Go 反射通过反射可以获取丰富的类型信息，并可以利用这些类型信息做非常灵活的工作。
-支持反射的语言可以在程序编译期将变量的反射信息，如字段名称、类型信息、结构体信息等整合到可执行文件中，并给程序提供接口访问反射信息，这样就可以在程
                                 
                             </div>
                             <div class="publish-info">

@@ -984,22 +984,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/go-pointer/">
+                <a href="/2021/11/18/gomemory-management-allocation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go指针">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go内存管理与分配">
                         
-                        <span class="card-title">Go指针</span>
+                        <span class="card-title">Go内存管理与分配</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            指针指针unsafe.Pointerunsafe.Pointer的定义
-从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
-type ArbitraryType int
-type Poi
+                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
                         
                     </div>
                     <div class="publish-info">
@@ -1044,25 +1041,25 @@ type Poi
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-memory4/">
+                <a href="/2021/11/18/go-basic-data-type/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Go 内存四区">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="GO基本数据类型">
                         
-                        <span class="card-title">Go 内存四区</span>
+                        <span class="card-title">GO基本数据类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            内存四区内存四区概念：A.数据类型本质：​    固定内存大小的别名
-B. 数据类型的作用：​    编译器预算对象(变量)分配的内存空间大小。
+                            GO基本数据类型GO基本数据类型整型//按长度分
+int8 int16 int32 int64
+//按有无符号分
+uint8 uint16 uint32 uint64
+//提供了平台自动匹配长度的int类型和uint类型
+int uint
 
-C.内存4区
-流程说明
-1、操作系统把物理硬盘代码load到内存
-2、操作系统把c代码分成四
                         
                     </div>
                     <div class="publish-info">
