@@ -924,35 +924,30 @@ namePrint<span class="token operator">:=</span><span class="token keyword">func<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gofunc/">
+                <a href="/2021/11/18/gomemory-escape/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go函数">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Go内存逃逸">
                         
-                        <span class="card-title">Go函数</span>
+                        <span class="card-title">Go内存逃逸</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go函数Go函数定义func name(params)(return params){
-function body
-}
-//eg,如果相邻的参数类型是相同的，则可以省略前一个类型
-func cal(a,b int) int{
-  retur
+                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
+go语言编译器会自动决定把一个变量放在栈还是
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -965,7 +960,6 @@ func cal(a,b int) int{
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -992,20 +986,19 @@ func cal(a,b int) int{
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-escape/">
+                <a href="/2021/11/18/gomemory-management-allocation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Go内存逃逸">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go内存管理与分配">
                         
-                        <span class="card-title">Go内存逃逸</span>
+                        <span class="card-title">Go内存管理与分配</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
-go语言编译器会自动决定把一个变量放在栈还是
+                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
                         
                     </div>
                     <div class="publish-info">
