@@ -2,6 +2,132 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>www.zhulingang.com/2021/11/18/go-use/</loc>
+    
+    <lastmod>2021-11-17T16:57:17.685Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-memory4/</loc>
+    
+    <lastmod>2021-11-17T16:56:35.513Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-switch/</loc>
+    
+    <lastmod>2021-11-17T16:55:07.311Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-sort/</loc>
+    
+    <lastmod>2021-11-17T16:54:15.800Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-contex/</loc>
+    
+    <lastmod>2021-11-17T16:53:08.342Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-schedule/</loc>
+    
+    <lastmod>2021-11-17T16:52:22.139Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-concurrence/</loc>
+    
+    <lastmod>2021-11-17T16:50:48.413Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-reflect/</loc>
+    
+    <lastmod>2021-11-17T16:49:35.379Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-gc/</loc>
+    
+    <lastmod>2021-11-17T16:48:51.095Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-pointer/</loc>
+    
+    <lastmod>2021-11-17T16:46:28.213Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/gomemory-escape/</loc>
+    
+    <lastmod>2021-11-17T16:44:20.846Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-container/</loc>
+    
+    <lastmod>2021-11-17T16:44:05.498Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-defer/</loc>
+    
+    <lastmod>2021-11-17T16:41:58.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-struct/</loc>
+    
+    <lastmod>2021-11-17T16:41:49.821Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/gomemory-management-allocation/</loc>
+    
+    <lastmod>2021-11-17T16:41:49.813Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-basic-data-type/</loc>
+    
+    <lastmod>2021-11-17T16:40:25.343Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/go-interface/</loc>
+    
+    <lastmod>2021-11-17T16:40:25.339Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/11/18/gofunc/</loc>
+    
+    <lastmod>2021-11-17T16:40:25.335Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.zhulingang.com/2021/06/29/mybatis-plus/</loc>
     
     <lastmod>2021-06-29T15:34:29.259Z</lastmod>

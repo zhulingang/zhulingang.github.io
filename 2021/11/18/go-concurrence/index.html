@@ -1,0 +1,2054 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Go并发, 朱林刚">
+    <meta name="baidu-site-verification" content="code-vPPxBQrBJe">
+    <meta name="google-site-verification" content="code-vPPxBQrBJe">
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="description" content="Go并发Go并发进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。
+线程是进程的一个执行实体，是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。一个进程可以创建和撤销多个线程，同一个进程中的多">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Go并发 | 朱林刚的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ce84511d3df71640a9378a69f6293044";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+    <script>
+        (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">朱林刚的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">朱林刚的博客</div>
+        <div class="logo-desc">
+            
+            天津大学 | 电子信息
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhulingang/hexo-matery-modified" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhulingang/hexo-matery-modified" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Go并发
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/博客/" target="_blank">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/tags/后端/" target="_blank">
+                            <span class="chip bg-color">后端</span>
+                        </a>
+                        
+                        <a href="/tags/Go/" target="_blank">
+                            <span class="chip bg-color">Go</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/Go/" class="post-category" target="_blank">
+                            Go
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-18
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    朱林刚
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Go并发"><a href="#Go并发" class="headerlink" title="Go并发"></a>Go并发</h1><h2 id="Go并发-1"><a href="#Go并发-1" class="headerlink" title="Go并发"></a>Go并发</h2><p>进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。</p>
+<p>线程是进程的一个执行实体，是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。一个进程可以创建和撤销多个线程，同一个进程中的多个线程之间可以并发执行。</p>
+<p><strong>并发/并行</strong></p>
+<p>并发：在同一时间段内，多条指令在CPU上同时执行；多个线程会被分配一定的执行时间片。</p>
+<p>并行：在同一时刻，多条指令在CPU上同时执行。需要CPU提供多核并行计算的能力。</p>
+<p><strong>协程/线程</strong></p>
+<p>协程：独立的栈空间，共享堆空间，调度由用户自己控制，本质上有点类似于用户级线程，这些用户级线程的调度也是自己实现的。</p>
+<p>线程：一个线程上可以跑多个协程，协程是轻量级的线程。</p>
+<h3 id="Goroutine"><a href="#Goroutine" class="headerlink" title="Goroutine"></a>Goroutine</h3><p>goroutine 是一种非常轻量级的实现，可在单个进程里执行成千上万的并发任务，它是Go语言并发设计的核心。</p>
+<ul>
+<li>占用内存更小（几kb）</li>
+<li>调度更灵活(runtime调度)</li>
+</ul>
+<p>goroutine来自协程的概念，让一组可复用的函数运行在一组线程之上，即使有协程阻塞，该线程的其他协程也可以被<code>runtime</code>调度，转移到其他可运行的线程上。十几个 goroutine 可能体现在底层就是五六个线程，而且Go语言内部也实现了 goroutine 之间的内存共享。</p>
+<p>使用 go 关键字就可以创建 goroutine，将 go 声明放到一个需调用的函数之前，在相同地址空间调用运行这个函数，这样该函数执行时便会作为一个独立的并发线程，这种线程在Go语言中则被称为 goroutine。</p>
+<p><strong>使用匿名函数创建goroutine的格式,或者直接go 声明函数</strong></p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span> 参数列表 <span class="token punctuation">)</span><span class="token punctuation">{</span>
+    函数体
+<span class="token punctuation">}</span><span class="token punctuation">(</span> 调用参数列表 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"printTest"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">go</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> times <span class="token builtin">int</span>
+        <span class="token keyword">for</span> <span class="token punctuation">{</span>
+            times<span class="token operator">++</span>
+            fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"tick"</span><span class="token punctuation">,</span> times<span class="token punctuation">)</span>
+            time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">var</span> input <span class="token builtin">string</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Scanln</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>input<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>所有 goroutine 在 main() 函数结束时会一同结束。</p>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>channel 是Go语言在语言级别提供的 goroutine 间的通信方式。我们可以使用 channel 在两个或多个 goroutine 之间传递消息。</p>
+<p>定义一个 channel 时，也需要定义发送到 channel 的值的类型，注意，必须使用 make 创建 channel，</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a><strong>原理</strong></h4><h5 id="chan数据结构"><a href="#chan数据结构" class="headerlink" title="chan数据结构"></a>chan数据结构</h5><pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> hchan <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    qcount   <span class="token builtin">uint</span>           <span class="token comment" spellcheck="true">// 当前队列中剩余元素个数</span>
+    dataqsiz <span class="token builtin">uint</span>           <span class="token comment" spellcheck="true">// 环形队列长度，即可以存放的元素个数</span>
+    buf      unsafe<span class="token punctuation">.</span>Pointer <span class="token comment" spellcheck="true">// 环形队列指针</span>
+    elemsize <span class="token builtin">uint16</span>         <span class="token comment" spellcheck="true">// 每个元素的大小</span>
+    closed   <span class="token builtin">uint32</span>            <span class="token comment" spellcheck="true">// 标识关闭状态</span>
+    elemtype <span class="token operator">*</span>_type         <span class="token comment" spellcheck="true">// 元素类型</span>
+    sendx    <span class="token builtin">uint</span>           <span class="token comment" spellcheck="true">// 队列下标，指示元素写入时存放到队列中的位置</span>
+    recvx    <span class="token builtin">uint</span>           <span class="token comment" spellcheck="true">// 队列下标，指示元素从队列的该位置读出</span>
+    recvq    waitq          <span class="token comment" spellcheck="true">// 等待读消息的goroutine队列</span>
+    sendq    waitq          <span class="token comment" spellcheck="true">// 等待写消息的goroutine队列</span>
+    lock mutex              <span class="token comment" spellcheck="true">// 互斥锁，chan不允许并发读写</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>从数据结构可以看出channel由队列、类型信息、goroutine等待队列组成，下面分别说明其原理。</p>
+<p>chan内部实现了一个环形队列作为其缓冲区，队列的长度是创建chan时指定的。</p>
+<h5 id="环形队列"><a href="#环形队列" class="headerlink" title="环形队列"></a><strong>环形队列</strong></h5><p>下图展示了一个可缓存6个元素的channel示意图：</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211117235120.png" alt="image-20211030204652497"></p>
+<ul>
+<li>dataqsiz指示了队列长度为6，即可缓存6个元素；</li>
+<li>buf指向队列的内存，队列中还剩余两个元素；</li>
+<li>qcount表示队列中还有两个元素；</li>
+<li>sendx指示后续写入的数据存储的位置，取值[0, 6)；</li>
+<li>recvx指示从该位置读取数据, 取值[0, 6)；</li>
+</ul>
+<h5 id="等待队列"><a href="#等待队列" class="headerlink" title="等待队列"></a><strong>等待队列</strong></h5><p>从channel读数据，如果channel缓冲区为空或者没有缓冲区，当前goroutine会被阻塞。<br>向channel写数据，如果channel缓冲区已满或者没有缓冲区，当前goroutine会被阻塞。</p>
+<p>被阻塞的goroutine将会挂在channel的等待队列中：</p>
+<ul>
+<li>因读阻塞的goroutine会被向channel写入数据的goroutine唤醒；</li>
+<li>因写阻塞的goroutine会被从channel读数据的goroutine唤醒；</li>
+</ul>
+<p>下图展示了一个没有缓冲区的channel，有几个goroutine阻塞等待读数据：</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211117235129.png" alt="image-20211030204923697"></p>
+<p>注意，一般情况下recvq和sendq至少有一个为空。只有一个例外，那就是同一个goroutine使用select语句向channel一边写数据，一边读数据。</p>
+<h5 id="类型信息"><a href="#类型信息" class="headerlink" title="类型信息"></a>类型信息</h5><p>一个channel只能传递一种类型的值，类型信息存储在hchan数据结构中。</p>
+<ul>
+<li>elemtype代表类型，用于数据传递过程中的赋值；</li>
+<li>elemsize代表类型大小，用于在buf中定位元素位置。</li>
+</ul>
+<h5 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h5><p>一个channel同时仅允许被一个goroutine读写，lock mutex ,为简单起见，本章后续部分说明读写过程时不再涉及加锁和解锁。</p>
+<h4 id="channel读写"><a href="#channel读写" class="headerlink" title="channel读写"></a>channel读写</h4><h5 id="创建channel"><a href="#创建channel" class="headerlink" title="创建channel"></a>创建channel</h5><p>创建channel的过程实际上是初始化hchan结构。其中类型信息和缓冲区长度由make语句传入，buf的大小则与元素大小和缓冲区长度共同决定。</p>
+<p>创建channel的伪代码如下所示：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">makechan</span><span class="token punctuation">(</span>t <span class="token operator">*</span>chantype<span class="token punctuation">,</span> size <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">*</span>hchan <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> c <span class="token operator">*</span>hchan
+    c <span class="token operator">=</span> <span class="token function">new</span><span class="token punctuation">(</span>hchan<span class="token punctuation">)</span>
+    c<span class="token punctuation">.</span>buf <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span>元素类型大小<span class="token operator">*</span>size<span class="token punctuation">)</span>
+    c<span class="token punctuation">.</span>elemsize <span class="token operator">=</span> 元素类型大小
+    c<span class="token punctuation">.</span>elemtype <span class="token operator">=</span> 元素类型
+    c<span class="token punctuation">.</span>dataqsiz <span class="token operator">=</span> size
+
+    <span class="token keyword">return</span> c
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="向channel写数据"><a href="#向channel写数据" class="headerlink" title="向channel写数据"></a>向channel写数据</h5><p>向一个channel中写数据简单过程如下：</p>
+<ol>
+<li>如果等待接收队列recvq不为空，说明缓冲区中没有数据或者没有缓冲区，此时直接从recvq取出G,并把数据写入，最后把该G唤醒，结束发送过程；</li>
+<li>如果缓冲区中有空余位置，将数据写入缓冲区，结束发送过程；</li>
+<li>如果缓冲区中没有空余位置，将待发送数据写入G，将当前G加入sendq，进入睡眠，等待被读goroutine唤醒；</li>
+</ol>
+<p>简单流程图如下</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211117235138.png" alt="image-20211030210615089"></p>
+<h5 id="从channel读数据"><a href="#从channel读数据" class="headerlink" title="从channel读数据"></a>从channel读数据</h5><p>从一个channel读数据简单过程如下：</p>
+<ol>
+<li>如果等待发送队列sendq不为空，且没有缓冲区，直接从sendq中取出G，把G中数据读出，最后把G唤醒，结束读取过程；</li>
+<li>如果等待发送队列sendq不为空，此时说明缓冲区已满，从缓冲区中首部读出数据，把G中数据写入缓冲区尾部，把G唤醒，结束读取过程；</li>
+<li>如果缓冲区中有数据，则从缓冲区取出数据，结束读取过程；</li>
+<li>什么都没有，将当前goroutine加入recvq，进入睡眠，等待被写goroutine唤醒；</li>
+</ol>
+<p>简单流程图如下：</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211117235149.png" alt="image-20211030210810149"></p>
+<h5 id="关闭channel"><a href="#关闭channel" class="headerlink" title="关闭channel"></a>关闭channel</h5><p>关闭channel时会把recvq中的G全部唤醒，本该写入G的数据位置为nil。把sendq中的G全部唤醒，但这些G会panic。</p>
+<p>除此之外，panic出现的常见场景还有：</p>
+<ol>
+<li>关闭值为nil的channel</li>
+<li>关闭已经被关闭的channel</li>
+<li>向已经关闭的channel写数据</li>
+</ol>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>channel 是类型相关的，也就是说，一个 channel 只能传递一种类型的值，这个类型需要在声明 channel 时指定。</p>
+<pre class="line-numbers language-go"><code class="language-go">ci <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+cs <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">string</span><span class="token punctuation">)</span>
+cf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="向通道发送数据"><a href="#向通道发送数据" class="headerlink" title="向通道发送数据"></a><strong>向通道发送数据</strong></h5><pre class="line-numbers language-go"><code class="language-go">chanel <span class="token operator">&lt;-</span> val<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果当前通道满了会阻塞当前goroutine</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 创建一个空接口通道</span>
+ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 将0放入通道中</span>
+ch <span class="token operator">&lt;-</span> <span class="token number">0</span>
+<span class="token comment" spellcheck="true">// 将hello字符串放入通道中</span>
+ch <span class="token operator">&lt;-</span> <span class="token string">"hello"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>把数据往通道中发送时，如果接收方一直都没有接收，那么发送操作将持续阻塞。Go 程序运行时能智能地发现一些永远无法发送成功的语句并做出提示，代码如下：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">package</span> mainfunc <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    
+  <span class="token comment" spellcheck="true">// 创建一个整型通道    </span>
+  ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>    
+  <span class="token comment" spellcheck="true">// 尝试将0通过通道发送    </span>
+  ch <span class="token operator">&lt;-</span> <span class="token number">0</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行代码，报错：</p>
+<pre class="line-numbers language-go"><code class="language-go">fatal <span class="token builtin">error</span><span class="token punctuation">:</span> all goroutines are asleep <span class="token operator">-</span> deadlock<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>报错的意思是：运行时发现所有的 goroutine（包括main）都处于等待 goroutine。也就是说所有 goroutine 中的 channel 并没有形成发送和接收对应的代码。</p>
+<h5 id="从通道读数据"><a href="#从通道读数据" class="headerlink" title="从通道读数据"></a><strong>从通道读数据</strong></h5><p>阻塞模式接收数据时，将接收变量作为<code>&lt;-</code>操作符的左值，格式如下：</p>
+<pre class="line-numbers language-go"><code class="language-go">data <span class="token operator">:=</span> <span class="token operator">&lt;-</span>ch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>执行该语句时将会从ch中读取一个数据到data中，如果channal中没有数据，会阻塞读取的goroutine，直到接收到数据并赋值给 data 变量。</p>
+<p>使用非阻塞方式从通道接收数据时，语句不会发生阻塞，格式如下：</p>
+<pre class="line-numbers language-go"><code class="language-go">data<span class="token punctuation">,</span> ok <span class="token operator">:=</span> <span class="token operator">&lt;-</span>ch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>data：表示接收到的数据。未接收到数据时，data 为通道类型的零值。ok：表示是否接收到数据。</p>
+<p><strong>接收任意数据，忽略接收的数据</strong></p>
+<p>阻塞接收数据后，忽略从通道返回的数据，格式如下：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token operator">&lt;-</span>ch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>执行该语句时将会发生阻塞，直到接收到数据，但接收到的数据会被忽略。这个方式实际上只是通过通道在 goroutine 间阻塞收发实现并发同步。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 构建一个通道</span>
+    ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 开启一个并发匿名函数</span>
+    <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"start goroutine"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">// 通过通道通知main的goroutine</span>
+        ch <span class="token operator">&lt;-</span> <span class="token number">0</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"exit goroutine"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"wait goroutine"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 等待匿名goroutine</span>
+    <span class="token operator">&lt;-</span>ch
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"all done"</span><span class="token punctuation">)</span>
+  <span class="token keyword">defer</span> <span class="token function">close</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【示例 1】在网球比赛中，两位选手会把球在两个人之间来回传递。选手总是处在以下两种状态之一，要么在等待接球，要么将球打向对方。可以使用两个 goroutine 来模拟网球比赛，并使用无缓冲的通道来模拟球的来回，代码如下所示。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 这个示例程序展示如何用无缓冲的通道来模拟</span>
+<span class="token comment" spellcheck="true">// 2 个goroutine 间的网球比赛</span>
+<span class="token keyword">package</span> main
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">"fmt"</span>
+    <span class="token string">"math/rand"</span>
+    <span class="token string">"sync"</span>
+    <span class="token string">"time"</span>
+<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// wg 用来等待程序结束</span>
+<span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+<span class="token keyword">func</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    rand<span class="token punctuation">.</span><span class="token function">Seed</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">UnixNano</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// main 是所有Go 程序的入口</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 创建一个无缓冲的通道</span>
+    court <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 计数加 2，表示要等待两个goroutine</span>
+    wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 启动两个选手</span>
+    <span class="token keyword">go</span> <span class="token function">player</span><span class="token punctuation">(</span><span class="token string">"Nadal"</span><span class="token punctuation">,</span> court<span class="token punctuation">)</span>
+    <span class="token keyword">go</span> <span class="token function">player</span><span class="token punctuation">(</span><span class="token string">"Djokovic"</span><span class="token punctuation">,</span> court<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 发球</span>
+    court <span class="token operator">&lt;-</span> <span class="token number">1</span>
+    <span class="token comment" spellcheck="true">// 等待游戏结束</span>
+    wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// player 模拟一个选手在打网球</span>
+<span class="token keyword">func</span> <span class="token function">player</span><span class="token punctuation">(</span>name <span class="token builtin">string</span><span class="token punctuation">,</span> court <span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 在函数退出时调用Done 来通知main 函数工作已经完成</span>
+    <span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 等待球被击打过来</span>
+        ball<span class="token punctuation">,</span> ok <span class="token operator">:=</span> <span class="token operator">&lt;-</span>court
+        <span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 如果通道被关闭，我们就赢了</span>
+            fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Player %s Won\n"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+            <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 选随机数，然后用这个数来判断我们是否丢球</span>
+        n <span class="token operator">:=</span> rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> n<span class="token operator">%</span><span class="token number">13</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+            fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Player %s Missed\n"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">// 关闭通道，表示我们输了</span>
+            <span class="token function">close</span><span class="token punctuation">(</span>court<span class="token punctuation">)</span>
+            <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 显示击球数，并将击球数加1</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Player %s Hit %d\n"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> ball<span class="token punctuation">)</span>
+        ball<span class="token operator">++</span>
+        <span class="token comment" spellcheck="true">// 将球打向对手</span>
+        court <span class="token operator">&lt;-</span> ball
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="循环接收range"><a href="#循环接收range" class="headerlink" title="循环接收range"></a><strong>循环接收range</strong></h5><p>通过range可以持续从channel中读出数据，好像在遍历一个数组一样，当channel中没有数据时会阻塞当前goroutine，与读channel时阻塞处理机制一样。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">for</span> data <span class="token operator">:=</span> <span class="token keyword">range</span> ch <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token function">chanRange</span><span class="token punctuation">(</span>chanName <span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> e <span class="token operator">:=</span> <span class="token keyword">range</span> chanName <span class="token punctuation">{</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Get element from chan: %d\n"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果向此channel写数据的goroutine退出时，系统检测到这种情况后会panic，否则range将会永久阻塞。</p>
+<h5 id="创建有缓冲区的channel"><a href="#创建有缓冲区的channel" class="headerlink" title="创建有缓冲区的channel"></a><strong>创建有缓冲区的channel</strong></h5><pre class="line-numbers language-go"><code class="language-go"> <span class="token comment" spellcheck="true">// 创建一个3个元素缓冲大小的整型通道</span>
+    ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>带缓冲通道在很多特性上和无缓冲通道是类似的。无缓冲通道可以看作是长度永远为 0 的带缓冲通道。因此根据这个特性，带缓冲通道在下面列举的情况下依然会发生阻塞：</p>
+<ul>
+<li>当缓冲通道被填满时，尝试再次发送数据时发生阻塞。</li>
+<li>当缓冲通道为空时，尝试读取数据时发生阻塞。</li>
+</ul>
+<h5 id="select多路复用"><a href="#select多路复用" class="headerlink" title="select多路复用"></a><strong>select多路复用</strong></h5><p>如果在goroutine中需要接受多个channel中的消息时，我们可以使用Go语言中的select关键字提供的多路复用，select的使用方式与switch相类似，但是要求case后面语句必须为I/O操作</p>
+<p>使用select可以监控多channel，比如监控多个channel，当其中某一个channel有数据时，就从其读出数据。</p>
+<p>大体结构如下：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">select</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token operator">&lt;-</span>chan1<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">// 如果chan1成功读到数据，则进行该case处理语句</span>
+    <span class="token keyword">case</span> chan2 <span class="token operator">&lt;-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">// 如果成功向chan2写入数据，则进行该case处理语句</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">// 如果上面都没有成功，则进入default处理流程</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在一个 select 语句中，Go语言会按顺序从头至尾评估每一个发送和接收的语句。</p>
+<p>如果其中的任意一语句可以继续执行（即没有被阻塞），那么就从那些可以执行的语句中任意选择一条来使用。</p>
+<p>如果没有任意一条语句可以执行（即所有的通道都被阻塞），那么有如下两种可能的情况：</p>
+<ul>
+<li>如果给出了 default 语句，那么就会执行 default 语句，同时程序的执行会从 select 语句后的语句中恢复；</li>
+<li>如果没有 default 语句，那么 select 语句将被阻塞，直到至少有一个通信可以进行下去。</li>
+</ul>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+    quit <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">bool</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//新开一个协程</span>
+    <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">{</span>
+            <span class="token keyword">select</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> num <span class="token operator">:=</span> <span class="token operator">&lt;-</span>ch<span class="token punctuation">:</span>
+                fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"num = "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span>
+            <span class="token keyword">case</span> <span class="token operator">&lt;-</span>time<span class="token punctuation">.</span><span class="token function">After</span><span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"超时"</span><span class="token punctuation">)</span>
+                quit <span class="token operator">&lt;-</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//别忘了()</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        ch <span class="token operator">&lt;-</span> i
+        time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">&lt;-</span>quit
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"程序结束"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行结果</p>
+<pre class="line-numbers language-go"><code class="language-go">num <span class="token operator">=</span>  <span class="token number">0</span>
+num <span class="token operator">=</span>  <span class="token number">1</span>
+num <span class="token operator">=</span>  <span class="token number">2</span>
+num <span class="token operator">=</span>  <span class="token number">3</span>
+num <span class="token operator">=</span>  <span class="token number">4</span>
+超时
+程序结束<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="单向channel"><a href="#单向channel" class="headerlink" title="单向channel"></a>单向channel</h5><p>顾名思义，单向channel指只能用于发送或接收数据，实际上并没有单向channel。</p>
+<p>我们知道channel可以通过参数传递，所谓单向channel只是对channel的一种使用限制，这跟C语言使用const修饰函数参数为只读是一个道理。</p>
+<ul>
+<li>func readChan(chanName &lt;-chan int)： 通过形参限定函数内部只能从channel中读取数据</li>
+<li>func writeChan(chanName chan&lt;- int)： 通过形参限定函数内部只能向channel中写入数据</li>
+</ul>
+<p>一个简单的示例程序如下：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">readChan</span><span class="token punctuation">(</span>chanName <span class="token operator">&lt;-</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">&lt;-</span> chanName
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">writeChan</span><span class="token punctuation">(</span>chanName <span class="token keyword">chan</span><span class="token operator">&lt;-</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    chanName <span class="token operator">&lt;-</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> mychan <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+    <span class="token function">writeChan</span><span class="token punctuation">(</span>mychan<span class="token punctuation">)</span>
+    <span class="token function">readChan</span><span class="token punctuation">(</span>mychan<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>mychan是个正常的channel，而readChan()参数限制了传入的channel只能用来读，writeChan()参数限制了传入的channel只能用来写。</p>
+<h5 id="关闭chan"><a href="#关闭chan" class="headerlink" title="关闭chan"></a>关闭chan</h5><p>注意，最后需要关闭ch</p>
+<pre class="line-numbers language-go"><code class="language-go">ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> T<span class="token punctuation">)</span>
+    <span class="token function">close</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>只关闭一次</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> MyChannel <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    C    <span class="token keyword">chan</span> T
+    once sync<span class="token punctuation">.</span>Once
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">NewMyChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span>MyChannel <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>MyChannel<span class="token punctuation">{</span>C<span class="token punctuation">:</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> T<span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>mc <span class="token operator">*</span>MyChannel<span class="token punctuation">)</span> <span class="token function">SafeClose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mc<span class="token punctuation">.</span>once<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">close</span><span class="token punctuation">(</span>mc<span class="token punctuation">.</span>C<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="sync同步包"><a href="#sync同步包" class="headerlink" title="sync同步包"></a>sync同步包</h3><h4 id="Mutex互斥锁"><a href="#Mutex互斥锁" class="headerlink" title="Mutex互斥锁"></a>Mutex互斥锁</h4><p><code>sync.Mutex</code>称为<code>互斥锁</code>，常用在并发编程里面。互斥锁需要保证的是同一个时间段内不能有多个并发协程同时访问某一个资源(临界区)。这就能够保证在某一时间段内有且仅有一个goroutine访问共享资源，其他申请锁的goroutine将会被阻塞直到锁被释放，然后重新争抢锁的持有权。<br><code>sync.Mutex</code>有2个函数<code>Lock</code>和<code>UnLock</code>分别表示获得锁和释放锁。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>m <span class="token operator">*</span>Mutex<span class="token punctuation">)</span> <span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>m <span class="token operator">*</span>Mutex<span class="token punctuation">)</span> <span class="token function">UnLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>sync.Mutex初始值为UnLock状态，并且sync.Mutex常做为其它结构体的匿名变量使用。</p>
+<p>举个例子: 我们经常使用网上支付购物东西，就会出现同一个银行账户在某一个时间既有支出也有收入，那银行就得保证我们余额准确，保证数据无误。<br>我们可以简单的实现银行的支出和收入来说明Mutex的使用</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Bank <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    sync<span class="token punctuation">.</span>Mutex
+    balance <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">float64</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// In 收入</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>b <span class="token operator">*</span>Bank<span class="token punctuation">)</span> <span class="token function">In</span><span class="token punctuation">(</span>account <span class="token builtin">string</span><span class="token punctuation">,</span> value <span class="token builtin">float64</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 加锁 保证同一时间只有一个协程能访问这段代码</span>
+    b<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">defer</span> b<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    v<span class="token punctuation">,</span> ok <span class="token operator">:=</span> b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">{</span>
+        b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0.0</span>
+    <span class="token punctuation">}</span>
+
+    b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span> <span class="token operator">+=</span> v
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Out 支出</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>b <span class="token operator">*</span>Bank<span class="token punctuation">)</span> <span class="token function">Out</span><span class="token punctuation">(</span>account <span class="token builtin">string</span><span class="token punctuation">,</span> value <span class="token builtin">float64</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 加锁 保证同一时间只有一个协程能访问这段代码</span>
+    b<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">defer</span> b<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    v<span class="token punctuation">,</span> ok <span class="token operator">:=</span> b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token operator">||</span> v <span class="token operator">&lt;</span> value <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token string">"account not enough balance"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span> <span class="token operator">-=</span> value
+    <span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="RWMutex：读写锁"><a href="#RWMutex：读写锁" class="headerlink" title="RWMutex：读写锁"></a>RWMutex：读写锁</h4><p>sync.RWMutex目的是为了能够支持多个并发协程同时读取某一个资源，但只有一个并发协程能够更新资源。也就是说读和写是互斥的，写和写也是互斥的，读和读是不互斥的。</p>
+<p>总结起来如下</p>
+<p>当有一个协程在读的时候，所有写的协程必须等到所有读的协程结束才可以获得锁进行写操作。<br>当有一个协程在读的时候，所有读的协程不受影响都可以进行读操作。<br>当有一个协程在写的时候，所有读、写的协程必须等到写的协程结束才可以获得锁进行读、写操作。</p>
+<p>RWMutex`有5个接口，分别为读和写提供锁操作</p>
+<pre class="line-numbers language-go"><code class="language-go">写操作
+<span class="token keyword">func</span> <span class="token punctuation">(</span>rw <span class="token operator">*</span>RWMutex<span class="token punctuation">)</span> <span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>rw <span class="token operator">*</span>RWMutex<span class="token punctuation">)</span> <span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+读操作
+<span class="token keyword">func</span> <span class="token punctuation">(</span>rw <span class="token operator">*</span>RWMutex<span class="token punctuation">)</span> <span class="token function">RLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>rw <span class="token operator">*</span>RWMutex<span class="token punctuation">)</span> <span class="token function">RUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">RLocker</span><span class="token punctuation">(</span><span class="token punctuation">)</span>能获取读锁，然后传递给其他协程使用。
+<span class="token keyword">func</span> <span class="token punctuation">(</span>rw <span class="token operator">*</span>RWMutex<span class="token punctuation">)</span> <span class="token function">RLocker</span><span class="token punctuation">(</span><span class="token punctuation">)</span> Locker
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>举个例子，<code>sync.Mutex</code>一节例子里面我们没有提供查询操作，如果用Mutex互斥锁就没有办法支持多人同时查询，所以我们使用<code>sync.RWMutex</code>来改写这个代码</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Bank <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    sync<span class="token punctuation">.</span>RWMutex
+    balance <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">float64</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>b <span class="token operator">*</span>Bank<span class="token punctuation">)</span> <span class="token function">In</span><span class="token punctuation">(</span>account <span class="token builtin">string</span><span class="token punctuation">,</span> value <span class="token builtin">float64</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    b<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">defer</span> b<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    v<span class="token punctuation">,</span> ok <span class="token operator">:=</span> b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">{</span>
+        b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0.0</span>
+    <span class="token punctuation">}</span>
+
+    b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span> <span class="token operator">+=</span> v
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>b <span class="token operator">*</span>Bank<span class="token punctuation">)</span> <span class="token function">Out</span><span class="token punctuation">(</span>account <span class="token builtin">string</span><span class="token punctuation">,</span> value <span class="token builtin">float64</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+    b<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">defer</span> b<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    v<span class="token punctuation">,</span> ok <span class="token operator">:=</span> b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token operator">||</span> v <span class="token operator">&lt;</span> value <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token string">"account not enough balance"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span> <span class="token operator">-=</span> value
+    <span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>b <span class="token operator">*</span>Bank<span class="token punctuation">)</span> <span class="token function">Query</span><span class="token punctuation">(</span>account <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">float64</span> <span class="token punctuation">{</span>
+    b<span class="token punctuation">.</span><span class="token function">RLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">defer</span> b<span class="token punctuation">.</span><span class="token function">RUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    v<span class="token punctuation">,</span> ok <span class="token operator">:=</span> b<span class="token punctuation">.</span>balance<span class="token punctuation">[</span>account<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0.0</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> v
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="WaitGroup：并发等待组"><a href="#WaitGroup：并发等待组" class="headerlink" title="WaitGroup：并发等待组"></a>WaitGroup：并发等待组</h4><p><code>sync.WaitGroup</code>指的是等待组，在Golang并发编程里面非常常见，指的是<code>等待一组工作完成后，再进行下一组工作</code>。</p>
+<p>在goroutine调用waitGroup.Wait进行等待之前，需要保证waitGroup中等待数量大于1，即waitGroup.Add方法需要在waitGroup.Wait之前执行，否则等待就会被忽略。除此之外，还需要保证waitGroup.Done执行次数与waitGroup.Add添加的等待数量一致，过少会导致等待goroutine死锁，过多会导致程序panic。<br>sync. WaitGroup适用于执行批量操作，等待所有goroutine执行结束后统一返回结果的情况。</p>
+<p><code>sync.WaitGroup</code>有3个接口</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>wg <span class="token operator">*</span>WaitGroup<span class="token punctuation">)</span> <span class="token function">Add</span><span class="token punctuation">(</span>delta <span class="token builtin">int</span><span class="token punctuation">)</span>  Add添加n个并发协程
+<span class="token keyword">func</span> <span class="token punctuation">(</span>wg <span class="token operator">*</span>WaitGroup<span class="token punctuation">)</span> <span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  Done完成一个并发协程
+<span class="token keyword">func</span> <span class="token punctuation">(</span>wg <span class="token operator">*</span>WaitGroup<span class="token punctuation">)</span> <span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  Wait等待其它并发协程结束<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-go"><code class="language-go">waitGroup<span class="token operator">:=</span>sync<span class="token punctuation">.</span>WaitGroup<span class="token punctuation">{</span><span class="token punctuation">}</span>
+    waitGroup<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+            waitGroup<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    waitGroup<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"all works done"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>还可以设置最大并行数,如果已经达到10个并发协程，只有某一个协程执行了Done才能启动一个新的协程。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     # 最大<span class="token number">10</span>个并发
+     wg <span class="token operator">:=</span> sizedwaitgroup<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+     <span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+         wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+         fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"hello world ~"</span><span class="token punctuation">)</span>
+     <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     <span class="token punctuation">}</span>
+     <span class="token comment" spellcheck="true">// 等待所有协程结束</span>
+     wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"WaitGroup all process done ~"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Map：自带锁的map"><a href="#Map：自带锁的map" class="headerlink" title="Map：自带锁的map"></a>Map：自带锁的map</h4><p>Go在1.9版本之前自带的map对象是不具有并发安全的，很多时候我们都得自己封装支持并发安全的Map结构，如下所示给map加个读写锁sync.RWMutex。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> MapWithLock <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    sync<span class="token punctuation">.</span>RWMutex
+    M <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span>Kline
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Go1.9版本新增了<code>sync.Map</code>它是原生支持并发安全的map，sync.Map封装了更为复杂的数据结构实现了比之前<code>加读写锁锁map</code>更优秀的性能。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 查询一个key</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>m <span class="token operator">*</span>Map<span class="token punctuation">)</span> <span class="token function">Load</span><span class="token punctuation">(</span>key <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>value <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> ok <span class="token builtin">bool</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 设置key value</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>m <span class="token operator">*</span>Map<span class="token punctuation">)</span> <span class="token function">Store</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 如果key存在则返回key对应的value，否则设置key value</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>m <span class="token operator">*</span>Map<span class="token punctuation">)</span> <span class="token function">LoadOrStore</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>actual <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> loaded <span class="token builtin">bool</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 删除一个key</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>m <span class="token operator">*</span>Map<span class="token punctuation">)</span> <span class="token function">Delete</span><span class="token punctuation">(</span>key <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 遍历map，仍然是无序的</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>m <span class="token operator">*</span>Map<span class="token punctuation">)</span> <span class="token function">Range</span><span class="token punctuation">(</span>f <span class="token keyword">func</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token builtin">bool</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Once：执行一次"><a href="#Once：执行一次" class="headerlink" title="Once：执行一次"></a>Once：执行一次</h4><p><code>sync.Once</code>指的是只执行一次的对象实现，常用来控制某些函数只能被调用一次。<code>sync.Once</code>的使用场景例如单例模式、系统初始化。<br>例如并发情况下多次调用channel的close会导致panic，解决这个问题我们可以使用sync.Once来保证close只会被执行一次。</p>
+<p>sync.Once的结构如下所示，只有一个函数。使用变量done来记录函数的执行状态，使用sync.Mutex和sync.atomic来保证线程安全的读取done。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Once <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    m    Mutex     #互斥锁
+    done <span class="token builtin">uint32</span>    #执行状态
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>o <span class="token operator">*</span>Once<span class="token punctuation">)</span> <span class="token function">Do</span><span class="token punctuation">(</span>f <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>举个例子，1000个并发协程情况下只有一个协程会执行到fmt.Printf，多次执行的情况下输出的内容还不一样，因为这取决于哪个协程先调用到该匿名函数。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     once <span class="token operator">:=</span> <span class="token operator">&amp;</span>sync<span class="token punctuation">.</span>Once<span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+     <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+     <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span>idx <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        once<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"hello world index: %d"</span><span class="token punctuation">,</span> idx<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+     <span class="token punctuation">}</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+     <span class="token punctuation">}</span>
+
+     time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Cond：信号量"><a href="#Cond：信号量" class="headerlink" title="Cond：信号量"></a>Cond：信号量</h4><p><code>sync.Cond</code>指的是同步条件变量，一般需要与互斥锁组合使用，本质上是一些正在等待某个条件的协程的同步机制。</p>
+<pre><code>// NewCond returns a new Cond with Locker l.
+func NewCond(l Locker) *Cond {
+    return &amp;Cond{L: l}
+}
+
+// A Locker represents an object that can be locked and unlocked.
+type Locker interface {
+    Lock()
+    Unlock()
+}</code></pre><p>sync.Cond<code>有3个函数</code>Wait<code>、</code>Signal<code>、</code>Broadcast</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Cond <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// L is held while observing or changing the condition</span>
+        L Locker
+        <span class="token comment" spellcheck="true">// contains filtered or unexported fields</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>Cond<span class="token punctuation">)</span> <span class="token function">Broadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">// 广播唤醒所有wait</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>Cond<span class="token punctuation">)</span> <span class="token function">Signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">// 唤醒其中一个wait</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>Cond<span class="token punctuation">)</span> <span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">// 进入等待状态，释放锁</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Broadcase、Signal<br>唤醒因wait condition而挂起goroutine，Signal只唤醒一个，而Broadcast唤醒所有。允许调用者获取基础锁Locker之后再调用唤醒，但非必需。<br>Wait<br>必须获取该锁之后才能调用Wait()方法，Wait方法在调用时会释放底层锁Locker，并且将当前goroutine挂起，直到另一个goroutine执行Signal或者Broadcase，该goroutine才有机会重新唤醒，并尝试获取Locker，完成后续逻辑。<br>举例：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">var</span> sharedRsc <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+    wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    m <span class="token operator">:=</span> sync<span class="token punctuation">.</span>Mutex<span class="token punctuation">{</span><span class="token punctuation">}</span>
+    c <span class="token operator">:=</span> sync<span class="token punctuation">.</span><span class="token function">NewCond</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m<span class="token punctuation">)</span>
+
+    <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// this go routine wait for changes to the sharedRsc</span>
+        c<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token function">len</span><span class="token punctuation">(</span>sharedRsc<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+            c<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sharedRsc<span class="token punctuation">[</span><span class="token string">"rsc1"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        c<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// this go routine wait for changes to the sharedRsc</span>
+        c<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token function">len</span><span class="token punctuation">(</span>sharedRsc<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+            c<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sharedRsc<span class="token punctuation">[</span><span class="token string">"rsc2"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        c<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// this one writes changes to sharedRsc</span>
+    c<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sharedRsc<span class="token punctuation">[</span><span class="token string">"rsc1"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"foo"</span>
+    sharedRsc<span class="token punctuation">[</span><span class="token string">"rsc2"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"bar"</span>
+    c<span class="token punctuation">.</span><span class="token function">Broadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    c<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">tt</span><span class="token punctuation">(</span>cd <span class="token operator">*</span>sync<span class="token punctuation">.</span>Cond<span class="token punctuation">,</span> wg <span class="token operator">*</span>sync<span class="token punctuation">.</span>WaitGroup<span class="token punctuation">,</span> i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cd<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"lock: %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+    cd<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"wait end: %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+    cd<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    l <span class="token operator">:=</span> <span class="token operator">&amp;</span>sync<span class="token punctuation">.</span>Mutex<span class="token punctuation">{</span><span class="token punctuation">}</span>
+    w <span class="token operator">:=</span> <span class="token operator">&amp;</span>sync<span class="token punctuation">.</span>WaitGroup<span class="token punctuation">{</span><span class="token punctuation">}</span>
+    cd <span class="token operator">:=</span> sync<span class="token punctuation">.</span><span class="token function">NewCond</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        w<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">go</span> <span class="token function">tt</span><span class="token punctuation">(</span>cd<span class="token punctuation">,</span> w<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Send 5 Signal:"</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        cd<span class="token punctuation">.</span><span class="token function">Signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//唤醒一个wait中的goroutine</span>
+    <span class="token punctuation">}</span>
+    time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Send Broadcast:"</span><span class="token punctuation">)</span>
+    cd<span class="token punctuation">.</span><span class="token function">Broadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//广播唤醒所有wait中的goroutine</span>
+    w<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Run end!"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出</p>
+<pre class="line-numbers language-go"><code class="language-go">lock<span class="token punctuation">:</span> <span class="token number">1</span>
+lock<span class="token punctuation">:</span> <span class="token number">2</span>
+lock<span class="token punctuation">:</span> <span class="token number">7</span>
+lock<span class="token punctuation">:</span> <span class="token number">8</span>
+lock<span class="token punctuation">:</span> <span class="token number">9</span>
+lock<span class="token punctuation">:</span> <span class="token number">0</span>
+lock<span class="token punctuation">:</span> <span class="token number">3</span>
+lock<span class="token punctuation">:</span> <span class="token number">6</span>
+lock<span class="token punctuation">:</span> <span class="token number">5</span>
+lock<span class="token punctuation">:</span> <span class="token number">4</span>
+Send <span class="token number">5</span> Signal<span class="token punctuation">:</span>
+wait end<span class="token punctuation">:</span> <span class="token number">7</span>
+wait end<span class="token punctuation">:</span> <span class="token number">9</span>
+wait end<span class="token punctuation">:</span> <span class="token number">2</span>
+wait end<span class="token punctuation">:</span> <span class="token number">8</span>
+wait end<span class="token punctuation">:</span> <span class="token number">1</span>
+Send Broadcast<span class="token punctuation">:</span>
+wait end<span class="token punctuation">:</span> <span class="token number">4</span>
+wait end<span class="token punctuation">:</span> <span class="token number">0</span>
+wait end<span class="token punctuation">:</span> <span class="token number">3</span>
+wait end<span class="token punctuation">:</span> <span class="token number">6</span>
+wait end<span class="token punctuation">:</span> <span class="token number">5</span>
+Run end<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Pool：临时对象池"><a href="#Pool：临时对象池" class="headerlink" title="Pool：临时对象池"></a>Pool：临时对象池</h4><p>sync.Pool指的是临时对象池，Golang和Java具有GC机制，因此很多开发者基本上都不会考虑内存回收问题，不像C++很多时候开发需要自己回收对象。<br>Gc是一把双刃剑，带来了编程的方便但同时也增加了运行时开销，使用不当可能会严重影响程序的性能，因此性能要求高的场景不能任意产生太多的垃圾。<br>sync.Pool正是用来解决这类问题的，Pool可以作为临时对象池来使用，不再自己单独创建对象，而是从临时对象池中获取出一个对象。</p>
+<p>sync.Pool有2个函数Get和Put，Get负责从临时对象池中取出一个对象，Put用于结束的时候把对象放回临时对象池中。</p>
+<p>PS：如果你使用的Pool代码所需的东西不是大概同质的，那么从Pool中转化检索到所需要的内容的时间可能比重新实例化内容要花费的时间更多。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Pool <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+        noCopy noCopy
+
+    local     unsafe<span class="token punctuation">.</span>Pointer <span class="token comment" spellcheck="true">// local fixed-size per-P pool, actual type is [P]poolLocal</span>
+    localSize <span class="token builtin">uintptr</span>        <span class="token comment" spellcheck="true">// size of the local array</span>
+
+    victim     unsafe<span class="token punctuation">.</span>Pointer <span class="token comment" spellcheck="true">// local from previous cycle</span>
+    victimSize <span class="token builtin">uintptr</span>        <span class="token comment" spellcheck="true">// size of victims array</span>
+
+    <span class="token comment" spellcheck="true">// New optionally specifies a function to generate</span>
+    <span class="token comment" spellcheck="true">// a value when Get would otherwise return nil.</span>
+    <span class="token comment" spellcheck="true">// It may not be changed concurrently with calls to Get.</span>
+      New <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// contains filtered or unexported fields</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Local per-P Pool appendix.</span>
+<span class="token keyword">type</span> poolLocalInternal <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    private <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// Can be used only by the respective P.</span>
+    shared  poolChain   <span class="token comment" spellcheck="true">// Local P can pushHead/popHead; any P can popTail.</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> poolLocal <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    poolLocalInternal
+    <span class="token comment" spellcheck="true">// Prevents false sharing on widespread platforms with</span>
+    <span class="token comment" spellcheck="true">// 128 mod (cache line size) = 0 .</span>
+    pad <span class="token punctuation">[</span><span class="token number">128</span> <span class="token operator">-</span> unsafe<span class="token punctuation">.</span><span class="token function">Sizeof</span><span class="token punctuation">(</span>poolLocalInternal<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token builtin">byte</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>local这里面真正的是[P]poolLocal其中P就是GPM模型中的P，有多少个P数组就有多大，也就是每个P维护了一个本地的poolLocal。</p>
+<p>poolLocal里面维护了一个private一个shared，看名字其实就很明显了，private是给自己用的，而shared的是一个队列，可以给别人用的。注释写的也很清楚，自己可以从队列的头部存然后从头部取，而别的P可以从尾部取。</p>
+<p>victim这个从字面上面也可以知道，幸存者嘛，当进行gc的stw时候，会将local中的对象移到victim中去，也就是说幸存了一次gc，</p>
+<p>local和victim两个字段，这两个字段主要用来存储空闲元素。每次垃圾回收的时候，Pool会把victim中的对象移除，然后把local的数据给victim，清空local。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">//function list:</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p <span class="token operator">*</span>Pool<span class="token punctuation">)</span> <span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">//从 Pool 中获取元素，元素数量 -1，当 Pool 中没有元素时，会调用 New 生成元素，新元素不会放入 Pool 中，若 New 未定义，则返回 nil</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p <span class="token operator">*</span>Pool<span class="token punctuation">)</span> <span class="token function">Put</span><span class="token punctuation">(</span>x <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 把用完的元素放回Pool中</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Get的逻辑其实非常清晰。</p>
+<ul>
+<li>如果 private 不是空的，那就直接拿来用</li>
+<li>如果 private 是空的，那就先去本地的shared队列里面从头 pop 一个</li>
+<li>如果本地的 shared 也没有了，那 getSlow 去拿，其实就是去别的P的 shared 里面偷，偷不到回去 victim 幸存者里面找</li>
+<li>如果最后都没有，那就只能调用 New 方法创建一个了</li>
+</ul>
+<p>其实Put就很简单了</p>
+<ul>
+<li>如果 private 没有，就放在 private</li>
+<li>如果 private 有了，那么就放到 shared 队列的头部</li>
+</ul>
+<p>通过<code>New</code>去定义你这个池子里面放的究竟是什么东西，在这个池子里面你只能放一种类型的东西。比如在上面的例子中我就在池子里面放了字符串。</p>
+<p>我们随时可以通过<code>Get</code>方法从池子里面获取我们之前在New里面定义类型的数据。</p>
+<p>当我们用完了之后可以通过<code>Put</code>方法放回去，或者放别的同类型的数据进去。</p>
+<p>那么这个池子的目的是什么呢？其实一句话就可以说明白，就是为了复用已经使用过的对象，来达到优化内存使用和回收的目的。说白了，一开始这个池子会初始化一些对象供你使用，如果不够了呢，自己会通过new产生一些，当你放回去了之后这些对象会被别人进行复用，当对象特别大并且使用非常频繁的时候可以大大的减少对象的创建和回收的时间。</p>
+<p>sync.Pool在init的时候注册了一个poolCleanup函数，它会清除所有的pool里面的所有缓存的对象，该函数注册进去之后会在每次Gc之前都会调用，因此sync.Pool缓存的期限只是两次Gc之间这段时间。正因Gc的时候会清掉缓存对象，所以不用担心pool会无限增大的问题。</p>
+<p>举例</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">var</span> pool <span class="token operator">=</span> sync<span class="token punctuation">.</span>Pool<span class="token punctuation">{</span>
+    New<span class="token punctuation">:</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"123"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    t <span class="token operator">:=</span> pool<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+
+    pool<span class="token punctuation">.</span><span class="token function">Put</span><span class="token punctuation">(</span><span class="token string">"321"</span><span class="token punctuation">)</span>
+
+    t2 <span class="token operator">:=</span> pool<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出 </p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token number">123</span>
+<span class="token number">321</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>举例2</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">var</span> pool <span class="token operator">=</span> sync<span class="token punctuation">.</span>Pool<span class="token punctuation">{</span>
+    New<span class="token punctuation">:</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"123"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    t <span class="token operator">:=</span> pool<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+
+    pool<span class="token punctuation">.</span><span class="token function">Put</span><span class="token punctuation">(</span><span class="token string">"321"</span><span class="token punctuation">)</span>
+    pool<span class="token punctuation">.</span><span class="token function">Put</span><span class="token punctuation">(</span><span class="token string">"321"</span><span class="token punctuation">)</span>
+    pool<span class="token punctuation">.</span><span class="token function">Put</span><span class="token punctuation">(</span><span class="token string">"321"</span><span class="token punctuation">)</span>
+    pool<span class="token punctuation">.</span><span class="token function">Put</span><span class="token punctuation">(</span><span class="token string">"321"</span><span class="token punctuation">)</span>
+
+    runtime<span class="token punctuation">.</span><span class="token function">GC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+
+    t2 <span class="token operator">:=</span> pool<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span>
+
+    runtime<span class="token punctuation">.</span><span class="token function">GC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+
+    t2 <span class="token operator">=</span> pool<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>t2<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token number">123</span><span class="token comment" spellcheck="true">//无对象new一个</span>
+<span class="token number">321</span><span class="token comment" spellcheck="true">//一次GC后 local的对象到victim中，get不到local中的就去victim中取</span>
+<span class="token number">123</span><span class="token comment" spellcheck="true">//再次gc victim中被清楚</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr />
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《Go并发》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/11/18/go-concurrence/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                朱林刚
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'fc5c269b6194bcdff5bd',
+        clientSecret: 'fd7d361583c463c78458ed258b1b68ea7d9bbb57',
+        repo: 'zhulingang.github.io',
+        owner: 'zhulingang',
+        admin: ["zhulingang"],
+        id: '2021/11/18/go-concurrence/',
+        distractionFreeMode: true,  // Facebook-like distraction free mode
+        proxy: 'https://silent-dream-ff28.827308972.workers.dev/?https://github.com/login/oauth/access_token'
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+    <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<!-- <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script> -->
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'SRtruL4V4gE4tvlGuE6gfnyW-gzGzoHsz',
+        appKey: 'uoyawkPuMDOYmJylPRAcgcLz',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '如果你没有GitHub账号，还可以在这里评论啦！'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/11/18/go-basic-data-type/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="GO基本数据类型">
+                        
+                        <span class="card-title">GO基本数据类型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            GO基本数据类型GO基本数据类型整型//按长度分
+int8 int16 int32 int64
+//按有无符号分
+uint8 uint16 uint32 uint64
+//提供了平台自动匹配长度的int类型和uint类型
+int uint
+
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/博客/" target="_blank">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                    <a href="/tags/后端/" target="_blank">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                    <a href="/tags/Go/" target="_blank">
+                        <span class="chip bg-color">Go</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/18/go-pointer/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go指针">
+                        
+                        <span class="card-title">Go指针</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            指针指针unsafe.Pointerunsafe.Pointer的定义
+从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
+type ArbitraryType int
+type Poi
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/博客/" target="_blank">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                    <a href="/tags/后端/" target="_blank">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                    <a href="/tags/Go/" target="_blank">
+                        <span class="chip bg-color">Go</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 朱林刚的博客<br />'
+            + '作者: 朱林刚<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+<!-- <script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script> -->
+<!-- <script> -->
+<!--     const btw = new BTWPlugin(); -->
+<!--     btw.init({ -->
+<!--         id: 'artDetail', -->
+<!--         blogId: '20962-1585405055583-879', -->
+<!--         name: '算法码上来', -->
+<!--         qrcode: 'https://godweiyang.com/medias/gzh.jpg', -->
+<!--         keyword: 'VIP', -->
+<!--     }); -->
+<!-- </script> -->
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2021- Zhu. 版权所有
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">52.8k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhulingang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zlg199810@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=827308972&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/zhulingang" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fa fa-weibo"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 0;
+        var uvcountOffset = 0;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 05, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PNSGNK0MT8"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-PNSGNK0MT8');
+</script>
+
+
+
+    
+    <script src="/libs/others/clicklove.js"></script>
+    
+
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+</body>
+
+</html>
