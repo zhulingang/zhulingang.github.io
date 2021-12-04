@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.zhulingang.com/"/>
-  <updated>2021-11-17T16:40:25.335Z</updated>
+  <updated>2021-12-04T13:36:34.103Z</updated>
   <id>www.zhulingang.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Go函数</title>
-    <link href="www.zhulingang.com/2021/11/18/gofunc/"/>
-    <id>www.zhulingang.com/2021/11/18/gofunc/</id>
-    <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:40:25.335Z</updated>
+    <title>Go 三个点...语法使用</title>
+    <link href="www.zhulingang.com/2021/12/04/go...use/"/>
+    <id>www.zhulingang.com/2021/12/04/go...use/</id>
+    <published>2021-12-04T15:03:00.000Z</published>
+    <updated>2021-12-04T13:36:34.103Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;Go函数&quot;&gt;&lt;a href=&quot;#Go函数&quot; class=&quot;headerlink&quot; title=&quot;Go函数&quot;&gt;&lt;/a&gt;Go函数&lt;/h1&gt;&lt;h2 id=&quot;Go函数-1&quot;&gt;&lt;a href=&quot;#Go函数-1&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Go-三个点…语法使用&quot;&gt;&lt;a href=&quot;#Go-三个点…语法使用&quot; class=&quot;headerlink&quot; title=&quot;Go 三个点…语法使用&quot;&gt;&lt;/a&gt;Go 三个点…语法使用&lt;/h1&gt;&lt;h2 id=&quot;变长的函数参数&quot;&gt;&lt;a href=&quot;#变长的函数参数&quot;
         
       
     
@@ -77,11 +77,11 @@
   </entry>
   
   <entry>
-    <title>Go 三个点...语法使用</title>
-    <link href="www.zhulingang.com/2021/11/18/go...use/"/>
-    <id>www.zhulingang.com/2021/11/18/go...use/</id>
+    <title>Go函数</title>
+    <link href="www.zhulingang.com/2021/11/18/gofunc/"/>
+    <id>www.zhulingang.com/2021/11/18/gofunc/</id>
     <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-12-04T13:34:22.457Z</updated>
+    <updated>2021-11-17T16:40:25.335Z</updated>
     
     <summary type="html">
     
@@ -89,7 +89,7 @@
       
         
         
-          &lt;h1 id=&quot;Go-三个点…语法使用&quot;&gt;&lt;a href=&quot;#Go-三个点…语法使用&quot; class=&quot;headerlink&quot; title=&quot;Go 三个点…语法使用&quot;&gt;&lt;/a&gt;Go 三个点…语法使用&lt;/h1&gt;&lt;h2 id=&quot;变长的函数参数&quot;&gt;&lt;a href=&quot;#变长的函数参数&quot;
+          &lt;h1 id=&quot;Go函数&quot;&gt;&lt;a href=&quot;#Go函数&quot; class=&quot;headerlink&quot; title=&quot;Go函数&quot;&gt;&lt;/a&gt;Go函数&lt;/h1&gt;&lt;h2 id=&quot;Go函数-1&quot;&gt;&lt;a href=&quot;#Go函数-1&quot; class=&quot;headerlink&quot;
         
       
     
@@ -167,6 +167,36 @@
   </entry>
   
   <entry>
+    <title>Go Contex</title>
+    <link href="www.zhulingang.com/2021/11/18/go-contex/"/>
+    <id>www.zhulingang.com/2021/11/18/go-contex/</id>
+    <published>2021-11-18T15:03:00.000Z</published>
+    <updated>2021-11-17T16:53:08.342Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Go-Contex&quot;&gt;&lt;a href=&quot;#Go-Contex&quot; class=&quot;headerlink&quot; title=&quot;Go Contex&quot;&gt;&lt;/a&gt;Go Contex&lt;/h1&gt;&lt;h2 id=&quot;Contex&quot;&gt;&lt;a href=&quot;#Contex&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Go" scheme="www.zhulingang.com/categories/Go/"/>
+    
+    
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Go" scheme="www.zhulingang.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Go Defer</title>
     <link href="www.zhulingang.com/2021/11/18/go-defer/"/>
     <id>www.zhulingang.com/2021/11/18/go-defer/</id>
@@ -197,11 +227,11 @@
   </entry>
   
   <entry>
-    <title>Go Contex</title>
-    <link href="www.zhulingang.com/2021/11/18/go-contex/"/>
-    <id>www.zhulingang.com/2021/11/18/go-contex/</id>
+    <title>Go指针</title>
+    <link href="www.zhulingang.com/2021/11/18/go-pointer/"/>
+    <id>www.zhulingang.com/2021/11/18/go-pointer/</id>
     <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:53:08.342Z</updated>
+    <updated>2021-11-17T16:46:28.213Z</updated>
     
     <summary type="html">
     
@@ -209,7 +239,7 @@
       
         
         
-          &lt;h1 id=&quot;Go-Contex&quot;&gt;&lt;a href=&quot;#Go-Contex&quot; class=&quot;headerlink&quot; title=&quot;Go Contex&quot;&gt;&lt;/a&gt;Go Contex&lt;/h1&gt;&lt;h2 id=&quot;Contex&quot;&gt;&lt;a href=&quot;#Contex&quot;
+          &lt;h1 id=&quot;指针&quot;&gt;&lt;a href=&quot;#指针&quot; class=&quot;headerlink&quot; title=&quot;指针&quot;&gt;&lt;/a&gt;指针&lt;/h1&gt;&lt;h2 id=&quot;指针-1&quot;&gt;&lt;a href=&quot;#指针-1&quot; class=&quot;headerlink&quot;
         
       
     
@@ -287,11 +317,11 @@
   </entry>
   
   <entry>
-    <title>Go指针</title>
-    <link href="www.zhulingang.com/2021/11/18/go-pointer/"/>
-    <id>www.zhulingang.com/2021/11/18/go-pointer/</id>
+    <title>Go 内存四区</title>
+    <link href="www.zhulingang.com/2021/11/18/go-memory4/"/>
+    <id>www.zhulingang.com/2021/11/18/go-memory4/</id>
     <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:46:28.213Z</updated>
+    <updated>2021-11-17T16:56:35.513Z</updated>
     
     <summary type="html">
     
@@ -299,7 +329,7 @@
       
         
         
-          &lt;h1 id=&quot;指针&quot;&gt;&lt;a href=&quot;#指针&quot; class=&quot;headerlink&quot; title=&quot;指针&quot;&gt;&lt;/a&gt;指针&lt;/h1&gt;&lt;h2 id=&quot;指针-1&quot;&gt;&lt;a href=&quot;#指针-1&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;内存四区&quot;&gt;&lt;a href=&quot;#内存四区&quot; class=&quot;headerlink&quot; title=&quot;内存四区&quot;&gt;&lt;/a&gt;内存四区&lt;/h1&gt;&lt;h2 id=&quot;内存四区概念：&quot;&gt;&lt;a href=&quot;#内存四区概念：&quot; class=&quot;headerlink&quot;
         
       
     
@@ -347,11 +377,11 @@
   </entry>
   
   <entry>
-    <title>Go 内存四区</title>
-    <link href="www.zhulingang.com/2021/11/18/go-memory4/"/>
-    <id>www.zhulingang.com/2021/11/18/go-memory4/</id>
+    <title>Go并发</title>
+    <link href="www.zhulingang.com/2021/11/18/go-concurrence/"/>
+    <id>www.zhulingang.com/2021/11/18/go-concurrence/</id>
     <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:56:35.513Z</updated>
+    <updated>2021-11-17T16:50:48.413Z</updated>
     
     <summary type="html">
     
@@ -359,37 +389,7 @@
       
         
         
-          &lt;h1 id=&quot;内存四区&quot;&gt;&lt;a href=&quot;#内存四区&quot; class=&quot;headerlink&quot; title=&quot;内存四区&quot;&gt;&lt;/a&gt;内存四区&lt;/h1&gt;&lt;h2 id=&quot;内存四区概念：&quot;&gt;&lt;a href=&quot;#内存四区概念：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Go" scheme="www.zhulingang.com/categories/Go/"/>
-    
-    
-      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-      <category term="Go" scheme="www.zhulingang.com/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go 反射</title>
-    <link href="www.zhulingang.com/2021/11/18/go-reflect/"/>
-    <id>www.zhulingang.com/2021/11/18/go-reflect/</id>
-    <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:49:35.379Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Go-反射&quot;&gt;&lt;a href=&quot;#Go-反射&quot; class=&quot;headerlink&quot; title=&quot;Go 反射&quot;&gt;&lt;/a&gt;Go 反射&lt;/h1&gt;&lt;h2 id=&quot;Go-反射-1&quot;&gt;&lt;a href=&quot;#Go-反射-1&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Go并发&quot;&gt;&lt;a href=&quot;#Go并发&quot; class=&quot;headerlink&quot; title=&quot;Go并发&quot;&gt;&lt;/a&gt;Go并发&lt;/h1&gt;&lt;h2 id=&quot;Go并发-1&quot;&gt;&lt;a href=&quot;#Go并发-1&quot; class=&quot;headerlink&quot;
         
       
     
@@ -437,11 +437,11 @@
   </entry>
   
   <entry>
-    <title>Go并发</title>
-    <link href="www.zhulingang.com/2021/11/18/go-concurrence/"/>
-    <id>www.zhulingang.com/2021/11/18/go-concurrence/</id>
+    <title>Go 反射</title>
+    <link href="www.zhulingang.com/2021/11/18/go-reflect/"/>
+    <id>www.zhulingang.com/2021/11/18/go-reflect/</id>
     <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:50:48.413Z</updated>
+    <updated>2021-11-17T16:49:35.379Z</updated>
     
     <summary type="html">
     
@@ -449,7 +449,7 @@
       
         
         
-          &lt;h1 id=&quot;Go并发&quot;&gt;&lt;a href=&quot;#Go并发&quot; class=&quot;headerlink&quot; title=&quot;Go并发&quot;&gt;&lt;/a&gt;Go并发&lt;/h1&gt;&lt;h2 id=&quot;Go并发-1&quot;&gt;&lt;a href=&quot;#Go并发-1&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Go-反射&quot;&gt;&lt;a href=&quot;#Go-反射&quot; class=&quot;headerlink&quot; title=&quot;Go 反射&quot;&gt;&lt;/a&gt;Go 反射&lt;/h1&gt;&lt;h2 id=&quot;Go-反射-1&quot;&gt;&lt;a href=&quot;#Go-反射-1&quot; class=&quot;headerlink&quot;
         
       
     
@@ -467,11 +467,11 @@
   </entry>
   
   <entry>
-    <title>Go调度模型</title>
-    <link href="www.zhulingang.com/2021/11/18/go-schedule/"/>
-    <id>www.zhulingang.com/2021/11/18/go-schedule/</id>
+    <title>Go 使用</title>
+    <link href="www.zhulingang.com/2021/11/18/go-use/"/>
+    <id>www.zhulingang.com/2021/11/18/go-use/</id>
     <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:52:22.139Z</updated>
+    <updated>2021-11-17T16:57:17.685Z</updated>
     
     <summary type="html">
     
@@ -479,37 +479,7 @@
       
         
         
-          &lt;h1 id=&quot;Go调度模型&quot;&gt;&lt;a href=&quot;#Go调度模型&quot; class=&quot;headerlink&quot; title=&quot;Go调度模型&quot;&gt;&lt;/a&gt;Go调度模型&lt;/h1&gt;&lt;h2 id=&quot;Go调度模型-1&quot;&gt;&lt;a href=&quot;#Go调度模型-1&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Go" scheme="www.zhulingang.com/categories/Go/"/>
-    
-    
-      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-      <category term="Go" scheme="www.zhulingang.com/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go结构体</title>
-    <link href="www.zhulingang.com/2021/11/18/go-struct/"/>
-    <id>www.zhulingang.com/2021/11/18/go-struct/</id>
-    <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:41:49.821Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Go结构体&quot;&gt;&lt;a href=&quot;#Go结构体&quot; class=&quot;headerlink&quot; title=&quot;Go结构体&quot;&gt;&lt;/a&gt;Go结构体&lt;/h1&gt;&lt;h2 id=&quot;Go结构体-1&quot;&gt;&lt;a href=&quot;#Go结构体-1&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Go-使用&quot;&gt;&lt;a href=&quot;#Go-使用&quot; class=&quot;headerlink&quot; title=&quot;Go 使用&quot;&gt;&lt;/a&gt;Go 使用&lt;/h1&gt;&lt;h2 id=&quot;Go-使用-1&quot;&gt;&lt;a href=&quot;#Go-使用-1&quot; class=&quot;headerlink&quot;
         
       
     
@@ -557,11 +527,11 @@
   </entry>
   
   <entry>
-    <title>Go 使用</title>
-    <link href="www.zhulingang.com/2021/11/18/go-use/"/>
-    <id>www.zhulingang.com/2021/11/18/go-use/</id>
+    <title>Go结构体</title>
+    <link href="www.zhulingang.com/2021/11/18/go-struct/"/>
+    <id>www.zhulingang.com/2021/11/18/go-struct/</id>
     <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:57:17.685Z</updated>
+    <updated>2021-11-17T16:41:49.821Z</updated>
     
     <summary type="html">
     
@@ -569,7 +539,37 @@
       
         
         
-          &lt;h1 id=&quot;Go-使用&quot;&gt;&lt;a href=&quot;#Go-使用&quot; class=&quot;headerlink&quot; title=&quot;Go 使用&quot;&gt;&lt;/a&gt;Go 使用&lt;/h1&gt;&lt;h2 id=&quot;Go-使用-1&quot;&gt;&lt;a href=&quot;#Go-使用-1&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Go结构体&quot;&gt;&lt;a href=&quot;#Go结构体&quot; class=&quot;headerlink&quot; title=&quot;Go结构体&quot;&gt;&lt;/a&gt;Go结构体&lt;/h1&gt;&lt;h2 id=&quot;Go结构体-1&quot;&gt;&lt;a href=&quot;#Go结构体-1&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Go" scheme="www.zhulingang.com/categories/Go/"/>
+    
+    
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Go" scheme="www.zhulingang.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go调度模型</title>
+    <link href="www.zhulingang.com/2021/11/18/go-schedule/"/>
+    <id>www.zhulingang.com/2021/11/18/go-schedule/</id>
+    <published>2021-11-18T15:03:00.000Z</published>
+    <updated>2021-11-17T16:52:22.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Go调度模型&quot;&gt;&lt;a href=&quot;#Go调度模型&quot; class=&quot;headerlink&quot; title=&quot;Go调度模型&quot;&gt;&lt;/a&gt;Go调度模型&lt;/h1&gt;&lt;h2 id=&quot;Go调度模型-1&quot;&gt;&lt;a href=&quot;#Go调度模型-1&quot; class=&quot;headerlink&quot;
         
       
     
