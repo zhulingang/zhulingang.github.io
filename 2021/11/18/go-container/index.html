@@ -322,7 +322,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1540,20 +1540,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-escape/">
+                <a href="/2021/11/18/gomemory-management-allocation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Go内存逃逸">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Go内存管理与分配">
                         
-                        <span class="card-title">Go内存逃逸</span>
+                        <span class="card-title">Go内存管理与分配</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
-go语言编译器会自动决定把一个变量放在栈还是
+                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
                         
                     </div>
                     <div class="publish-info">
@@ -1598,22 +1597,25 @@ go语言编译器会自动决定把一个变量放在栈还是
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-pointer/">
+                <a href="/2021/11/18/go-gc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go指针">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go GC">
                         
-                        <span class="card-title">Go指针</span>
+                        <span class="card-title">Go GC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            指针指针unsafe.Pointerunsafe.Pointer的定义
-从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
-type ArbitraryType int
-type Poi
+                            Go GCGo GC“GC Roots” 的对象选择JAVA的GC Root对象选择
+
+虚拟机栈(栈帧中的本地变量表)中引用的对象；
+本地方法栈(Native 方法)中引用的对象；
+方法区中类静态属性引用的对象；
+方法区中常量引用的对象；
+
                         
                     </div>
                     <div class="publish-info">
@@ -1830,7 +1832,7 @@ type Poi
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">52.8k</span>
+            <span class="white-color">53.1k</span>
             
 
             <br>

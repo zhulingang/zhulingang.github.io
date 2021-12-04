@@ -317,7 +317,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1225,19 +1225,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-management-allocation/">
+                <a href="/2021/11/18/go-interface/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go内存管理与分配">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Go接口 interface">
                         
-                        <span class="card-title">Go内存管理与分配</span>
+                        <span class="card-title">Go接口 interface</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
+                            Go接口 interfaceGo接口 interface声明type People interface {
+    Speak(string) string
+  //method(parama)(return param)
+}
+//实现接口
                         
                     </div>
                     <div class="publish-info">
@@ -1282,20 +1286,22 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-escape/">
+                <a href="/2021/11/18/go-pointer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Go内存逃逸">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go指针">
                         
-                        <span class="card-title">Go内存逃逸</span>
+                        <span class="card-title">Go指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
-go语言编译器会自动决定把一个变量放在栈还是
+                            指针指针unsafe.Pointerunsafe.Pointer的定义
+从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
+type ArbitraryType int
+type Poi
                         
                     </div>
                     <div class="publish-info">
@@ -1512,7 +1518,7 @@ go语言编译器会自动决定把一个变量放在栈还是
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">52.8k</span>
+            <span class="white-color">53.1k</span>
             
 
             <br>
