@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Go GC, 朱林刚">
+    <meta name="keywords" content="Go 三个点...语法使用, 朱林刚">
     <meta name="baidu-site-verification" content="code-vPPxBQrBJe">
     <meta name="google-site-verification" content="code-vPPxBQrBJe">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Go GC | 朱林刚的博客</title>
+    <title>Go 三个点...语法使用 | 朱林刚的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -317,13 +317,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Go GC
+                        Go 三个点...语法使用
                     </div>
                 </div>
             </div>
@@ -558,7 +558,7 @@ SliceA<span class="token operator">=</span><span class="token punctuation">(</sp
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Go GC》
+                    《Go 三个点...语法使用》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/11/18/go...use/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -889,24 +889,20 @@ SliceA<span class="token operator">=</span><span class="token punctuation">(</sp
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gofunc/">
+                <a href="/2021/11/18/gomemory-escape/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Go函数">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go内存逃逸">
                         
-                        <span class="card-title">Go函数</span>
+                        <span class="card-title">Go内存逃逸</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go函数Go函数定义func name(params)(return params){
-function body
-}
-//eg,如果相邻的参数类型是相同的，则可以省略前一个类型
-func cal(a,b int) int{
-  retur
+                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
+go语言编译器会自动决定把一个变量放在栈还是
                         
                     </div>
                     <div class="publish-info">
@@ -951,20 +947,19 @@ func cal(a,b int) int{
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-escape/">
+                <a href="/2021/11/18/gomemory-management-allocation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go内存逃逸">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Go内存管理与分配">
                         
-                        <span class="card-title">Go内存逃逸</span>
+                        <span class="card-title">Go内存管理与分配</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
-go语言编译器会自动决定把一个变量放在栈还是
+                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
                         
                     </div>
                     <div class="publish-info">

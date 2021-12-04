@@ -912,22 +912,25 @@ f <span class="token operator">:=</span><span class="token string">"Golanga编�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/go-defer/">
+                <a href="/2021/11/18/go-gc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Go Defer">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go GC">
                         
-                        <span class="card-title">Go Defer</span>
+                        <span class="card-title">Go GC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            DeferDeferdefer的执行顺序多个defer出现的时候，它是一个“栈”的关系，也就是先进后出。一个函数中，写在前面的defer会比写在后面的defer调用的晚。
-func main() {
-    defer func1()
-  
+                            Go GCGo GC“GC Roots” 的对象选择JAVA的GC Root对象选择
+
+虚拟机栈(栈帧中的本地变量表)中引用的对象；
+本地方法栈(Native 方法)中引用的对象；
+方法区中类静态属性引用的对象；
+方法区中常量引用的对象；
+
                         
                     </div>
                     <div class="publish-info">
@@ -972,23 +975,22 @@ func main() {
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-interface/">
+                <a href="/2021/11/18/go-pointer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Go接口 interface">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go指针">
                         
-                        <span class="card-title">Go接口 interface</span>
+                        <span class="card-title">Go指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go接口 interfaceGo接口 interface声明type People interface {
-    Speak(string) string
-  //method(parama)(return param)
-}
-//实现接口
+                            指针指针unsafe.Pointerunsafe.Pointer的定义
+从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
+type ArbitraryType int
+type Poi
                         
                     </div>
                     <div class="publish-info">

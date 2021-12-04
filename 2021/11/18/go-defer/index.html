@@ -1141,25 +1141,25 @@ main 正常结束<span aria-hidden="true" class="line-numbers-rows"><span></span
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/go-gc/">
+                <a href="/2021/11/18/go-container/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go GC">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Go容器">
                         
-                        <span class="card-title">Go GC</span>
+                        <span class="card-title">Go容器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go GCGo GC“GC Roots” 的对象选择JAVA的GC Root对象选择
-
-虚拟机栈(栈帧中的本地变量表)中引用的对象；
-本地方法栈(Native 方法)中引用的对象；
-方法区中类静态属性引用的对象；
-方法区中常量引用的对象；
-
+                            Go容器Go容器数组数组的长度不可变
+ var name [size]T
+ //声明时需要指定大小
+ var students [3]int
+ //也可以通过指针操作数组
+ students2 := new([3]int)
+ fmt.Pri
                         
                     </div>
                     <div class="publish-info">
@@ -1204,25 +1204,20 @@ main 正常结束<span aria-hidden="true" class="line-numbers-rows"><span></span
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-basic-data-type/">
+                <a href="/2021/11/18/go-contex/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="GO基本数据类型">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go Contex">
                         
-                        <span class="card-title">GO基本数据类型</span>
+                        <span class="card-title">Go Contex</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            GO基本数据类型GO基本数据类型整型//按长度分
-int8 int16 int32 int64
-//按有无符号分
-uint8 uint16 uint32 uint64
-//提供了平台自动匹配长度的int类型和uint类型
-int uint
-
+                            Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
+在 Go 语言中 context 包容许您传递一个 “context” 到您
                         
                     </div>
                     <div class="publish-info">
