@@ -659,6 +659,71 @@ func cal(a,b int) int{
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
+                        <a href="/2021/11/18/gomemory-escape/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Go内存逃逸">
+                                
+                                <span class="card-title">Go内存逃逸</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
+go语言编译器会自动决定把一个变量放在栈还是
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Go/" class="post-category" target="_blank">
+                                        Go
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
+                            
+                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
+                            
+                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>18</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
                         <a href="/2021/11/18/gomemory-management-allocation/">
                             <div class="card-image">
                                 
@@ -723,20 +788,90 @@ func cal(a,b int) int{
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/11/18/gomemory-escape/">
+                        <a href="/2021/11/18/go-container/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Go内存逃逸">
+                                <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go容器">
                                 
-                                <span class="card-title">Go内存逃逸</span>
+                                <span class="card-title">Go容器</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
-go语言编译器会自动决定把一个变量放在栈还是
+                                Go容器Go容器数组数组的长度不可变
+ var name [size]T
+ //声明时需要指定大小
+ var students [3]int
+ //也可以通过指针操作数组
+ students2 := new([3]int)
+ fmt.Pri
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Go/" class="post-category" target="_blank">
+                                        Go
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
+                            
+                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
+                            
+                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>18</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/11/18/go-contex/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go Contex">
+                                
+                                <span class="card-title">Go Contex</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
+在 Go 语言中 context 包容许您传递一个 “context” 到您
                                 
                             </div>
                             <div class="publish-info">
@@ -925,25 +1060,20 @@ func main() {
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/11/18/go-container/">
+                        <a href="/2021/11/18/go-concurrence/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go容器">
+                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Go并发">
                                 
-                                <span class="card-title">Go容器</span>
+                                <span class="card-title">Go并发</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                Go容器Go容器数组数组的长度不可变
- var name [size]T
- //声明时需要指定大小
- var students [3]int
- //也可以通过指针操作数组
- students2 := new([3]int)
- fmt.Pri
+                                Go并发Go并发进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。
+线程是进程的一个执行实体，是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。一个进程可以创建和撤销多个线程，同一个进程中的多
                                 
                             </div>
                             <div class="publish-info">
@@ -995,20 +1125,25 @@ func main() {
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/11/18/go-contex/">
+                        <a href="/2021/11/18/go-memory4/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go Contex">
+                                <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go 内存四区">
                                 
-                                <span class="card-title">Go Contex</span>
+                                <span class="card-title">Go 内存四区</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
-在 Go 语言中 context 包容许您传递一个 “context” 到您
+                                内存四区内存四区概念：A.数据类型本质：​    固定内存大小的别名
+B. 数据类型的作用：​    编译器预算对象(变量)分配的内存空间大小。
+
+C.内存4区
+流程说明
+1、操作系统把物理硬盘代码load到内存
+2、操作系统把c代码分成四
                                 
                             </div>
                             <div class="publish-info">
@@ -1079,139 +1214,6 @@ uint8 uint16 uint32 uint64
 //提供了平台自动匹配长度的int类型和uint类型
 int uint
 
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i
-                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Go/" class="post-category" target="_blank">
-                                        Go
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
-                            
-                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
-                            
-                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>18</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2021/11/18/go-interface/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go接口 interface">
-                                
-                                <span class="card-title">Go接口 interface</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                Go接口 interfaceGo接口 interface声明type People interface {
-    Speak(string) string
-  //method(parama)(return param)
-}
-//实现接口
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i
-                                        class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Go/" class="post-category" target="_blank">
-                                        Go
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/博客/"><span class="chip bg-color">博客</span></a>
-                            
-                            <a href="/tags/后端/"><span class="chip bg-color">后端</span></a>
-                            
-                            <a href="/tags/Go/"><span class="chip bg-color">Go</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>18</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2021/11/18/go-concurrence/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Go并发">
-                                
-                                <span class="card-title">Go并发</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                Go并发Go并发进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。
-线程是进程的一个执行实体，是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。一个进程可以创建和撤销多个线程，同一个进程中的多
                                 
                             </div>
                             <div class="publish-info">
