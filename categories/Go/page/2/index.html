@@ -356,19 +356,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 
                 
-                <a href="/categories/Go/" title="Go: 19">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F9EBEA;">Go
-                        <span class="tag-length">19</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/categories/图像识别/" title="图像识别: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">图像识别
+                            style="background-color: #F9EBEA;">图像识别
                         <span class="tag-length">3</span>
                     </span>
                 </a>
@@ -377,8 +368,17 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/categories/数据库/" title="数据库: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">数据库
+                            style="background-color: #F5EEF8;">数据库
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Go/" title="Go: 19">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #D5F5E3;">Go
+                        <span class="tag-length">19</span>
                     </span>
                 </a>
                 
@@ -392,10 +392,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/服务部署/" title="服务部署: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">服务部署
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/计算机网络/" title="计算机网络: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">计算机网络
+                            style="background-color: #F8F9F9;">计算机网络
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -404,7 +413,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/categories/SpringBoot/" title="SpringBoot: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8F9F9;">SpringBoot
+                            style="background-color: #82E0AA;">SpringBoot
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -413,16 +422,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/categories/生活/" title="生活: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">生活
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/服务部署/" title="服务部署: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D7BDE2;">服务部署
+                            style="background-color: #D7BDE2;">生活
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -504,20 +504,24 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-schedule/">
+                    <a href="/2021/11/18/go-sort/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Go调度模型">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Go 排序">
                             
-                            <span class="card-title">Go调度模型</span>
+                            <span class="card-title">Go 排序</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Go调度模型Go调度模型GO CSP模型常见的线程模型
-线程之间的调度永远是一个复杂的话题，但是并发编程必然会涉及到操作系统对线程的调度。根据资源访问权限的不同，操作系统会把内存分为内核空间和用户空间，内核空间的指令代码具备直接调度计算机底
+                                Go 排序排序对整数，浮点数，字符串切片排序对于[]int, []float, []string这种元素类型是基础类型的切片使用sort包提供的下面几个函数进行排序。
+
+sort.Ints
+sort.Floats
+sort.Strings
+
                             
                         </div>
                         <div class="publish-info">
@@ -675,6 +679,121 @@ u2 := new(user)
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2021/11/18/go-schedule/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Go调度模型">
+                            
+                            <span class="card-title">Go调度模型</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Go调度模型Go调度模型GO CSP模型常见的线程模型
+线程之间的调度永远是一个复杂的话题，但是并发编程必然会涉及到操作系统对线程的调度。根据资源访问权限的不同，操作系统会把内存分为内核空间和用户空间，内核空间的指令代码具备直接调度计算机底
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/博客/" target="_blank">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/tags/后端/" target="_blank">
+                            <span class="chip bg-color">后端</span>
+                        </a>
+                        
+                        <a href="/tags/Go/" target="_blank">
+                            <span class="chip bg-color">Go</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/11/18/go-memory4/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Go 内存四区">
+                            
+                            <span class="card-title">Go 内存四区</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                内存四区内存四区概念：A.数据类型本质：​    固定内存大小的别名
+B. 数据类型的作用：​    编译器预算对象(变量)分配的内存空间大小。
+
+C.内存4区
+流程说明
+1、操作系统把物理硬盘代码load到内存
+2、操作系统把c代码分成四
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/博客/" target="_blank">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/tags/后端/" target="_blank">
+                            <span class="chip bg-color">后端</span>
+                        </a>
+                        
+                        <a href="/tags/Go/" target="_blank">
+                            <span class="chip bg-color">Go</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/11/18/go-interface/">
                         <div class="card-image tag-image">
                             
@@ -692,120 +811,6 @@ u2 := new(user)
   //method(parama)(return param)
 }
 //实现接口
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Go/" class="post-category" target="_blank">
-                                    Go
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/博客/" target="_blank">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                        <a href="/tags/后端/" target="_blank">
-                            <span class="chip bg-color">后端</span>
-                        </a>
-                        
-                        <a href="/tags/Go/" target="_blank">
-                            <span class="chip bg-color">Go</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/11/18/go-reflect/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Go 反射">
-                            
-                            <span class="card-title">Go 反射</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Go 反射Go 反射通过反射可以获取丰富的类型信息，并可以利用这些类型信息做非常灵活的工作。
-支持反射的语言可以在程序编译期将变量的反射信息，如字段名称、类型信息、结构体信息等整合到可执行文件中，并给程序提供接口访问反射信息，这样就可以在程
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Go/" class="post-category" target="_blank">
-                                    Go
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/博客/" target="_blank">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                        <a href="/tags/后端/" target="_blank">
-                            <span class="chip bg-color">后端</span>
-                        </a>
-                        
-                        <a href="/tags/Go/" target="_blank">
-                            <span class="chip bg-color">Go</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/11/18/go-sort/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Go 排序">
-                            
-                            <span class="card-title">Go 排序</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Go 排序排序对整数，浮点数，字符串切片排序对于[]int, []float, []string这种元素类型是基础类型的切片使用sort包提供的下面几个函数进行排序。
-
-sort.Ints
-sort.Floats
-sort.Strings
-
                             
                         </div>
                         <div class="publish-info">

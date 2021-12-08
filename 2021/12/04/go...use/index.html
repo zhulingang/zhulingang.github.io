@@ -943,24 +943,20 @@ HTTP/2兼容HTTP 1.1，例
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/gofunc/">
+                <a href="/2021/11/18/gomemory-escape/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go函数">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Go内存逃逸">
                         
-                        <span class="card-title">Go函数</span>
+                        <span class="card-title">Go内存逃逸</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go函数Go函数定义func name(params)(return params){
-function body
-}
-//eg,如果相邻的参数类型是相同的，则可以省略前一个类型
-func cal(a,b int) int{
-  retur
+                            Go内存逃逸Go内存逃逸简单来说就是原本应在栈上分配内存的对象，逃逸到了堆上进行分配。如果能在栈上进行分配，那么只需要两个指令，入栈和出栈，GC压力也小了。所以相比之下，在栈上分配代价会小很多。
+go语言编译器会自动决定把一个变量放在栈还是
                         
                     </div>
                     <div class="publish-info">
