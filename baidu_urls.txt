@@ -6,5 +6,5 @@ www.zhulingang.com/2021/11/18/gomemory-escape/
 www.zhulingang.com/2021/11/18/gomemory-management-allocation/
 www.zhulingang.com/2021/11/18/go-contex/
 www.zhulingang.com/2021/11/18/go-defer/
-www.zhulingang.com/2021/11/18/go-gc/
 www.zhulingang.com/2021/11/18/go-basic-data-type/
+www.zhulingang.com/2021/11/18/go-gc/
