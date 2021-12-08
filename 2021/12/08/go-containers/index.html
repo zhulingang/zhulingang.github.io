@@ -322,7 +322,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -471,7 +471,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-18
+                    2021-12-08
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -485,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.9k
+                    7.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    32 分
                 </div>
                 
                 
@@ -520,6 +520,21 @@
  students3 <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">}</span>
  <span class="token comment" spellcheck="true">//或者让...根据成员的数量来确定数组的大小</span>
  students4<span class="token operator">:=</span><span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>数组是一个<strong>值类型（value type）</strong>。是真真实实的数组，而不是一个指向数组内存起始位置的指针，也不能和同类型的指针进行转化，这一点严重不同于C语言。所有的值类型变量在赋值和作为参数传递时都将产生一次复制动作。如果将数组作为函数的参数类型，则在函数调用时该参数将发生数据复制。因此，在函数体中无法修改传入的数组的内容，因为函数内操作的只是所传入数组的一个副本。</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">modify</span><span class="token punctuation">(</span>arr <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span>
+   fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"In modify(), arr values:"</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    arr <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span>
+    <span class="token function">modify</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"In main(), arr values:"</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果为：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token punctuation">[</span>root@localhost mygo<span class="token punctuation">]</span># <span class="token keyword">go</span> run test<span class="token punctuation">.</span><span class="token keyword">go</span> 
+In <span class="token function">modify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arr values<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">10</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span><span class="token punctuation">]</span>
+In <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arr values<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><p>切片是对数组一个连续片段的引用，它是一个容量可变的序列，可以理解为动态数组。</p>
 <pre class="line-numbers language-go"><code class="language-go"> <span class="token keyword">type</span> slice <span class="token keyword">struct</span> <span class="token punctuation">{</span>
   array unsafe<span class="token punctuation">.</span>Pointer
@@ -607,6 +622,47 @@
   s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">8888</span>
   fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="slice作为函数参数需要注意"><a href="#slice作为函数参数需要注意" class="headerlink" title="slice作为函数参数需要注意"></a>slice作为函数参数需要注意</h4><pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">testSli</span><span class="token punctuation">(</span>sli <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sli <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>sli<span class="token punctuation">,</span> <span class="token number">777</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sli<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// arry := [3]int{1, 2, 3}</span>
+    <span class="token comment" spellcheck="true">// testArr(arry)</span>
+    <span class="token comment" spellcheck="true">// fmt.Println(arry)</span>
+
+    sli1 <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+    <span class="token function">testSli</span><span class="token punctuation">(</span>sli1<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sli1<span class="token punctuation">)</span>
+    sli2 <span class="token operator">:=</span> sli1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sli2<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">777</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">777</span> <span class="token number">0</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>可以理解为，slice作为函数参数传递也是<strong>值传递</strong>，但由于slice是一个结构体，里面有一个数组的指针，所以append会修改数组里的内容，但是作为值传递，无法修改len，cap的值。所以在外部看到的还是原来的slice，len都没有改变，但是用一个新的slice2去遍历可以看到数组里的内容确实发生了变化。</p>
+<p>如果发生了扩容出现的情况：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">testSli2</span><span class="token punctuation">(</span>sli <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sli <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>sli<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sli<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  sli3 <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token function">testSli2</span><span class="token punctuation">(</span>sli3<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sli3<span class="token punctuation">)</span>
+
+    sli4 <span class="token operator">:=</span> sli3<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sli4<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token punctuation">[</span><span class="token number">2</span> <span class="token number">2</span> <span class="token number">2</span> <span class="token number">2</span> <span class="token number">2</span> <span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>可以这么理解，由于sli3的cap为3，当append需要扩容的时候，改变了数组指针的值，但这个改变只在test内部函数可以见，无法对原来的sli2进行修改，所以当sli4遍历sli3的时候，发现sli2并没有append 2进去。</p>
+<p>如果容量不够，则需要重新申请新的底层数组，一般先申请一个新数组，再将之前数组的拷贝过去，再append</p>
+<p>test2改变的是一个新扩容数组，对原数组并没有变化，然后再将sli2的指针指向了这个新数组。但是值传递，是对原来sli2的拷贝，并不会影响原来的sli2。</p>
+<p>如果append不扩容的话，sli2的指针不会变化，可以看到底层数组发生了变化，但是原来sli的len不会改变（值传递）</p>
 <h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>Go语言中 map 是一种特殊的数据结构，一种元素对（pair）的无序集合，pair 对应一个 key（索引）和一个 value（值），所以这个结构也称为关联数组或字典，这是一种能够快速寻找值的理想结构，给定 key，就可以迅速找到对应的 value。</p>
 <h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><pre class="line-numbers language-go"><code class="language-go">   map1 <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span>
  <span class="token comment" spellcheck="true">//map1 := make(map[int]string)等价于 map1 :=map[int]string{}。</span>
@@ -1211,7 +1267,7 @@
                   property="dct:title" rel="dct:type">
                     《Go容器》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/11/18/go-container/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/12/08/go-containers/" property="cc:attributionName"
                rel="cc:attributionURL">
                 朱林刚
             </a> 采用
@@ -1252,7 +1308,7 @@
         repo: 'zhulingang.github.io',
         owner: 'zhulingang',
         admin: ["zhulingang"],
-        id: '2021/11/18/go-container/',
+        id: '2021/12/08/go-containers/',
         distractionFreeMode: true,  // Facebook-like distraction free mode
         proxy: 'https://silent-dream-ff28.827308972.workers.dev/?https://github.com/login/oauth/access_token'
     });
@@ -1536,29 +1592,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-management-allocation/">
+                <a href="/2021/12/08/go-containers/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Go内存管理与分配">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Go容器">
                         
-                        <span class="card-title">Go内存管理与分配</span>
+                        <span class="card-title">Go容器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
+                            Go容器Go容器数组数组的长度不可变
+ var name [size]T
+ //声明时需要指定大小
+ var students [3]int
+ //也可以通过指针操作数组
+ students2 := new([3]int)
+ fmt.Pri
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-12-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1571,6 +1634,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1597,32 +1661,32 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-contex/">
+                <a href="/2021/12/05/http2-explain/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go Contex">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="HTTP/2详解">
                         
-                        <span class="card-title">Go Contex</span>
+                        <span class="card-title">HTTP/2详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
-在 Go 语言中 context 包容许您传递一个 “context” 到您
+                            HTTP/2详解简介HTTP/2主要是为了解决现HTTP 1.1性能不好的问题才出现的。当初Google为了提高HTTP性能，做出了SPDY，它就是HTTP/2的前身，后来也发展成为HTTP/2的标准。
+HTTP/2兼容HTTP 1.1，例
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-12-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Go/" class="post-category" target="_blank">
-                                    Go
+                            <a href="/categories/计算机网络/" class="post-category" target="_blank">
+                                    计算机网络
                                 </a>
                             
                             
@@ -1632,16 +1696,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/博客/" target="_blank">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/HTTP/" target="_blank">
+                        <span class="chip bg-color">HTTP</span>
                     </a>
                     
-                    <a href="/tags/后端/" target="_blank">
-                        <span class="chip bg-color">后端</span>
-                    </a>
-                    
-                    <a href="/tags/Go/" target="_blank">
-                        <span class="chip bg-color">Go</span>
+                    <a href="/tags/计算机网络/" target="_blank">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
@@ -1827,7 +1887,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">54.7k</span>
+            <span class="white-color">55.4k</span>
             
 
             <br>
