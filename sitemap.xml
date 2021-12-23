@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>www.zhulingang.com/2021/12/24/go-rpc-intro/</loc>
+    
+    <lastmod>2021-12-23T16:24:10.773Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/12/24/go-microsrvintro/</loc>
+    
+    <lastmod>2021-12-23T16:24:10.770Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/12/24/go-protobuf/</loc>
+    
+    <lastmod>2021-12-23T16:22:13.931Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.zhulingang.com/2021/12/24/go-grpc-intro/</loc>
+    
+    <lastmod>2021-12-23T16:22:13.927Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.zhulingang.com/about/index.html</loc>
     
     <lastmod>2021-12-08T08:59:59.182Z</lastmod>
