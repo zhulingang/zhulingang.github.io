@@ -356,23 +356,26 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-pointer/" target="_blank">
+                    <a href="/2021/11/18/go-gc/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go指针">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go GC">
                             
-                            <span class="card-title">Go指针</span>
+                            <span class="card-title">Go GC</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            指针指针unsafe.Pointerunsafe.Pointer的定义
-从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
-type ArbitraryType int
-type Poi
+                            Go GCGo GC“GC Roots” 的对象选择JAVA的GC Root对象选择
+
+虚拟机栈(栈帧中的本地变量表)中引用的对象；
+本地方法栈(Native 方法)中引用的对象；
+方法区中类静态属性引用的对象；
+方法区中常量引用的对象；
+
                             
                         </div>
                         <div class="publish-info">
@@ -414,26 +417,23 @@ type Poi
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-gc/" target="_blank">
+                    <a href="/2021/11/18/go-pointer/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go GC">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go指针">
                             
-                            <span class="card-title">Go GC</span>
+                            <span class="card-title">Go指针</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            Go GCGo GC“GC Roots” 的对象选择JAVA的GC Root对象选择
-
-虚拟机栈(栈帧中的本地变量表)中引用的对象；
-本地方法栈(Native 方法)中引用的对象；
-方法区中类静态属性引用的对象；
-方法区中常量引用的对象；
-
+                            指针指针unsafe.Pointerunsafe.Pointer的定义
+从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
+type ArbitraryType int
+type Poi
                             
                         </div>
                         <div class="publish-info">
@@ -651,21 +651,26 @@ int uint
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-reflect/" target="_blank">
+                    <a href="/2021/11/18/go-memory4/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Go 反射">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Go 内存四区">
                             
-                            <span class="card-title">Go 反射</span>
+                            <span class="card-title">Go 内存四区</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            Go 反射Go 反射通过反射可以获取丰富的类型信息，并可以利用这些类型信息做非常灵活的工作。
-支持反射的语言可以在程序编译期将变量的反射信息，如字段名称、类型信息、结构体信息等整合到可执行文件中，并给程序提供接口访问反射信息，这样就可以在程
+                            内存四区内存四区概念：A.数据类型本质：​    固定内存大小的别名
+B. 数据类型的作用：​    编译器预算对象(变量)分配的内存空间大小。
+
+C.内存4区
+流程说明
+1、操作系统把物理硬盘代码load到内存
+2、操作系统把c代码分成四
                             
                         </div>
                         <div class="publish-info">
@@ -707,26 +712,21 @@ int uint
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-memory4/" target="_blank">
+                    <a href="/2021/11/18/go-reflect/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Go 内存四区">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Go 反射">
                             
-                            <span class="card-title">Go 内存四区</span>
+                            <span class="card-title">Go 反射</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            内存四区内存四区概念：A.数据类型本质：​    固定内存大小的别名
-B. 数据类型的作用：​    编译器预算对象(变量)分配的内存空间大小。
-
-C.内存4区
-流程说明
-1、操作系统把物理硬盘代码load到内存
-2、操作系统把c代码分成四
+                            Go 反射Go 反射通过反射可以获取丰富的类型信息，并可以利用这些类型信息做非常灵活的工作。
+支持反射的语言可以在程序编译期将变量的反射信息，如字段名称、类型信息、结构体信息等整合到可执行文件中，并给程序提供接口访问反射信息，这样就可以在程
                             
                         </div>
                         <div class="publish-info">
@@ -885,6 +885,63 @@ u2 := new(user)
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2021/11/18/go-switch/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go switch 语句">
+                            
+                            <span class="card-title">Go switch 语句</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            switch 语句switch 语句不需要breakgo会帮你隐式break掉。
+case表达式的结果类型的转换要求case表达式的结果能转换为switch表示式结果的类型
+并且如果switch或case表达式的是无类型的常量时，会被自动转
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/博客/" target="_blank">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/tags/后端/" target="_blank">
+                            <span class="chip bg-color">后端</span>
+                        </a>
+                        
+                        <a href="/tags/Go/" target="_blank">
+                            <span class="chip bg-color">Go</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/11/18/go-sort/" target="_blank">
                         <div class="card-image">
                             
@@ -960,63 +1017,6 @@ sort.Strings
                             
                             Go 使用Go 使用包管理GoPath 的坑当使用 go get &lt;package&gt; 时，GoPath 会在 GOPATH 路径（一个环境变量）上安装第三方包。并且在 Go 里，你的代码必须放在 GOPATH 里才能运行。 
 会
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Go/" class="post-category" target="_blank">
-                                    Go
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/博客/" target="_blank">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                        <a href="/tags/后端/" target="_blank">
-                            <span class="chip bg-color">后端</span>
-                        </a>
-                        
-                        <a href="/tags/Go/" target="_blank">
-                            <span class="chip bg-color">Go</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/11/18/go-switch/" target="_blank">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go switch 语句">
-                            
-                            <span class="card-title">Go switch 语句</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                            switch 语句switch 语句不需要breakgo会帮你隐式break掉。
-case表达式的结果类型的转换要求case表达式的结果能转换为switch表示式结果的类型
-并且如果switch或case表达式的是无类型的常量时，会被自动转
                             
                         </div>
                         <div class="publish-info">
