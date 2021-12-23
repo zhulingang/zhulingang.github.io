@@ -984,20 +984,22 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/go-contex/">
+                <a href="/2021/11/18/go-defer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go Contex">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Go Defer">
                         
-                        <span class="card-title">Go Contex</span>
+                        <span class="card-title">Go Defer</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
-在 Go 语言中 context 包容许您传递一个 “context” 到您
+                            DeferDeferdefer的执行顺序多个defer出现的时候，它是一个“栈”的关系，也就是先进后出。一个函数中，写在前面的defer会比写在后面的defer调用的晚。
+func main() {
+    defer func1()
+  
                         
                     </div>
                     <div class="publish-info">
