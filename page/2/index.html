@@ -356,21 +356,23 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-contex/" target="_blank">
+                    <a href="/2021/11/18/go-defer/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go Contex">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Go Defer">
                             
-                            <span class="card-title">Go Contex</span>
+                            <span class="card-title">Go Defer</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            Go ContexContexcontext包能够提供一个请求从API请求边界到各goroutine的请求域数据传递、取消信号及截至时间等能力。详细原理请看下文。
-在 Go 语言中 context 包容许您传递一个 “context” 到您
+                            DeferDeferdefer的执行顺序多个defer出现的时候，它是一个“栈”的关系，也就是先进后出。一个函数中，写在前面的defer会比写在后面的defer调用的晚。
+func main() {
+    defer func1()
+  
                             
                         </div>
                         <div class="publish-info">
@@ -473,6 +475,64 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2021/11/18/go-pointer/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go指针">
+                            
+                            <span class="card-title">Go指针</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            指针指针unsafe.Pointerunsafe.Pointer的定义
+从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
+type ArbitraryType int
+type Poi
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/博客/" target="_blank">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/tags/后端/" target="_blank">
+                            <span class="chip bg-color">后端</span>
+                        </a>
+                        
+                        <a href="/tags/Go/" target="_blank">
+                            <span class="chip bg-color">Go</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/11/18/go-basic-data-type/" target="_blank">
                         <div class="card-image">
                             
@@ -534,23 +594,21 @@ int uint
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-pointer/" target="_blank">
+                    <a href="/2021/11/18/go-concurrence/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go指针">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Go并发">
                             
-                            <span class="card-title">Go指针</span>
+                            <span class="card-title">Go并发</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            指针指针unsafe.Pointerunsafe.Pointer的定义
-从unsate.Pointer的定义如下，从定义中我们可以看出，Pointer的本质是一个int的指针：
-type ArbitraryType int
-type Poi
+                            Go并发Go并发进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。
+线程是进程的一个执行实体，是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。一个进程可以创建和撤销多个线程，同一个进程中的多
                             
                         </div>
                         <div class="publish-info">
@@ -610,62 +668,6 @@ type Poi
   //method(parama)(return param)
 }
 //实现接口
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Go/" class="post-category" target="_blank">
-                                    Go
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/博客/" target="_blank">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                        <a href="/tags/后端/" target="_blank">
-                            <span class="chip bg-color">后端</span>
-                        </a>
-                        
-                        <a href="/tags/Go/" target="_blank">
-                            <span class="chip bg-color">Go</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/11/18/go-concurrence/" target="_blank">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Go并发">
-                            
-                            <span class="card-title">Go并发</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                            Go并发Go并发进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。
-线程是进程的一个执行实体，是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。一个进程可以创建和撤销多个线程，同一个进程中的多
                             
                         </div>
                         <div class="publish-info">
@@ -824,6 +826,66 @@ C.内存4区
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2021/11/18/go-sort/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Go 排序">
+                            
+                            <span class="card-title">Go 排序</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            Go 排序排序对整数，浮点数，字符串切片排序对于[]int, []float, []string这种元素类型是基础类型的切片使用sort包提供的下面几个函数进行排序。
+
+sort.Ints
+sort.Floats
+sort.Strings
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/博客/" target="_blank">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/tags/后端/" target="_blank">
+                            <span class="chip bg-color">后端</span>
+                        </a>
+                        
+                        <a href="/tags/Go/" target="_blank">
+                            <span class="chip bg-color">Go</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/11/18/go-schedule/" target="_blank">
                         <div class="card-image">
                             
@@ -941,82 +1003,21 @@ u2 := new(user)
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/11/18/go-switch/" target="_blank">
+                    <a href="/2021/11/18/go-use/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go switch 语句">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go 使用">
                             
-                            <span class="card-title">Go switch 语句</span>
+                            <span class="card-title">Go 使用</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            switch 语句switch 语句不需要breakgo会帮你隐式break掉。
-case表达式的结果类型的转换要求case表达式的结果能转换为switch表示式结果的类型
-并且如果switch或case表达式的是无类型的常量时，会被自动转
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Go/" class="post-category" target="_blank">
-                                    Go
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/博客/" target="_blank">
-                            <span class="chip bg-color">博客</span>
-                        </a>
-                        
-                        <a href="/tags/后端/" target="_blank">
-                            <span class="chip bg-color">后端</span>
-                        </a>
-                        
-                        <a href="/tags/Go/" target="_blank">
-                            <span class="chip bg-color">Go</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/11/18/go-sort/" target="_blank">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Go 排序">
-                            
-                            <span class="card-title">Go 排序</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                            Go 排序排序对整数，浮点数，字符串切片排序对于[]int, []float, []string这种元素类型是基础类型的切片使用sort包提供的下面几个函数进行排序。
-
-sort.Ints
-sort.Floats
-sort.Strings
-
+                            Go 使用Go 使用包管理GoPath 的坑当使用 go get &lt;package&gt; 时，GoPath 会在 GOPATH 路径（一个环境变量）上安装第三方包。并且在 Go 里，你的代码必须放在 GOPATH 里才能运行。 
+会
                             
                         </div>
                         <div class="publish-info">
