@@ -1074,24 +1074,19 @@ aceld<span class="token punctuation">:</span>test ldb$ <span class="token keywor
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gofunc/">
+                <a href="/2021/11/18/gomemory-management-allocation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Go函数">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go内存管理与分配">
                         
-                        <span class="card-title">Go函数</span>
+                        <span class="card-title">Go内存管理与分配</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go函数Go函数定义func name(params)(return params){
-function body
-}
-//eg,如果相邻的参数类型是相同的，则可以省略前一个类型
-func cal(a,b int) int{
-  retur
+                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
                         
                     </div>
                     <div class="publish-info">
@@ -1136,19 +1131,22 @@ func cal(a,b int) int{
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-management-allocation/">
+                <a href="/2021/11/18/go-defer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Go内存管理与分配">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Go Defer">
                         
-                        <span class="card-title">Go内存管理与分配</span>
+                        <span class="card-title">Go Defer</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
+                            DeferDeferdefer的执行顺序多个defer出现的时候，它是一个“栈”的关系，也就是先进后出。一个函数中，写在前面的defer会比写在后面的defer调用的晚。
+func main() {
+    defer func1()
+  
                         
                     </div>
                     <div class="publish-info">
@@ -1365,7 +1363,7 @@ func cal(a,b int) int{
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">62.4k</span>
+            <span class="white-color">69.2k</span>
             
 
             <br>
