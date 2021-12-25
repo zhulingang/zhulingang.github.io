@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="protobuf, 朱林刚">
+    <meta name="keywords" content="JPA使用, 朱林刚">
     <meta name="baidu-site-verification" content="code-vPPxBQrBJe">
     <meta name="google-site-verification" content="code-vPPxBQrBJe">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="protobuf简介Protobuf是Protocol Buffers的简称，它是Google公司开发的一种数据描述语言，是一种轻便高效的结构化数据存储格式，可以用于结构化数据串行化，或者说序列化。它很适合做数据存储或 RPC 数据交换格式">
+    <meta name="description" content="JPA使用最近在做一个化工实验平台的项目技术栈使用的是SpringBoot+JPA+MySql，刚接触的时候有些棘手，但是上手后发现太香了，感觉比Mybatis好用很多，听人说因为国内主流用的是Mybatis所以大环境下用的都是Mybati">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>protobuf | 朱林刚的博客</title>
+    <title>JPA使用 | 朱林刚的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -316,13 +316,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        protobuf
+                        JPA使用
                     </div>
                 </div>
             </div>
@@ -437,12 +437,20 @@
                             <span class="chip bg-color">博客</span>
                         </a>
                         
-                        <a href="/tags/Go/" target="_blank">
-                            <span class="chip bg-color">Go</span>
+                        <a href="/tags/后端/" target="_blank">
+                            <span class="chip bg-color">后端</span>
                         </a>
                         
-                        <a href="/tags/微服务/" target="_blank">
-                            <span class="chip bg-color">微服务</span>
+                        <a href="/tags/开发/" target="_blank">
+                            <span class="chip bg-color">开发</span>
+                        </a>
+                        
+                        <a href="/tags/JPA/" target="_blank">
+                            <span class="chip bg-color">JPA</span>
+                        </a>
+                        
+                        <a href="/tags/SpringBoot/" target="_blank">
+                            <span class="chip bg-color">SpringBoot</span>
                         </a>
                         
                     </div>
@@ -453,12 +461,12 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Go/" class="post-category" target="_blank">
-                            Go
+                        <a href="/categories/SpringBoot/" class="post-category" target="_blank">
+                            SpringBoot
                         </a>
                         
-                        <a href="/categories/Go/微服务/" class="post-category" target="_blank">
-                            微服务
+                        <a href="/categories/SpringBoot/开发/" class="post-category" target="_blank">
+                            开发
                         </a>
                         
                     </div>
@@ -469,7 +477,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-24
+                    2021-12-25
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -490,7 +498,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
                 
@@ -506,293 +514,166 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="protobuf"><a href="#protobuf" class="headerlink" title="protobuf"></a>protobuf</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Protobuf是Protocol Buffers的简称，它是Google公司开发的一种数据描述语言，是一种轻便高效的结构化数据存储格式，可以用于结构化数据串行化，或者说序列化。它很适合做<strong>数据存储</strong>或 <strong>RPC 数据交换格式</strong>。可用于通讯协议、数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式。目前提供了 C++、Java、Python 三种语言的 API。</p>
-<p>Protobuf刚开源时的定位类似于XML、JSON等数据描述语言，通过附带工具生成代码并实现将结构化数据序列化的功能。这里我们更关注的是Protobuf作为接口规范的描述语言，可以作为设计安全的跨语言RPC接口的基础</p>
-<blockquote>
-<p>protobuf是类似与json一样的数据描述语言（数据格式）</p>
-<p>protobuf非常适合于RPC数据交换格式</p>
-</blockquote>
-<hr>
-<p><strong>优点</strong>：</p>
-<p>1：序列化后体积相比Json和XML很小，适合网络传输 </p>
-<p>2：支持跨平台多语言 </p>
-<p>3：消息格式升级和兼容性还不错 </p>
-<p>4：序列化反序列化速度很快，快于Json的处理速度</p>
-<p><strong>缺点</strong>：</p>
-<p>1：应用不够广(相比xml和json)</p>
-<p>2：二进制格式导致可读性差</p>
-<p>3：缺乏自描述</p>
-<h2 id="protobuf-简单语法"><a href="#protobuf-简单语法" class="headerlink" title="protobuf 简单语法"></a>protobuf 简单语法</h2><p>参考文档：<a href="https://developers.google.com/protocol-buffers/docs/proto3" target="_blank" rel="noopener">https://developers.google.com/protocol-buffers/docs/proto3</a></p>
-<pre class="line-numbers language-go"><code class="language-go">syntax <span class="token operator">=</span> <span class="token string">"proto3"</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//指定生成在哪个文件夹下，；后为包名</span>
-option go_package <span class="token operator">=</span><span class="token string">"/;pb"</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//现在不用package</span>
-<span class="token comment" spellcheck="true">//package pb;</span>
-<span class="token comment" spellcheck="true">// 算术运算请求结构</span>
-message ArithRequest <span class="token punctuation">{</span>
-    <span class="token builtin">int32</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token builtin">int32</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// 算术运算响应结构</span>
-message ArithResponse <span class="token punctuation">{</span>
-    <span class="token builtin">int32</span> pro <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 乘积</span>
-    <span class="token builtin">int32</span> quo <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 商</span>
-    <span class="token builtin">int32</span> rem <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 余数</span>
-<span class="token punctuation">}</span>
-
-
-<span class="token comment" spellcheck="true">// rpc方法</span>
-service ArithService <span class="token punctuation">{</span>
-    rpc <span class="token function">multiply</span> <span class="token punctuation">(</span>ArithRequest<span class="token punctuation">)</span> <span class="token function">returns</span> <span class="token punctuation">(</span>ArithResponse<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 乘法运算方法</span>
-    rpc <span class="token function">divide</span> <span class="token punctuation">(</span>ArithRequest<span class="token punctuation">)</span> <span class="token function">returns</span> <span class="token punctuation">(</span>ArithResponse<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 除法运算方法</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>message的格式说明</strong></p>
-<p>消息由至少一个字段组合而成，类似于Go语言中的结构体，每个字段都有一定的格式：</p>
-<blockquote>
+                <h1 id="JPA使用"><a href="#JPA使用" class="headerlink" title="JPA使用"></a>JPA使用</h1><p>最近在做一个化工实验平台的项目技术栈使用的是SpringBoot+JPA+MySql，刚接触的时候有些棘手，但是上手后发现太香了，感觉比Mybatis好用很多，听人说因为国内主流用的是Mybatis所以大环境下用的都是Mybatis。但不得不承认JPA确实比Mybatis好用，话不多说，让我们来了解一下JPA的使用。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>目的</strong>：实现应用程序的数据访问层一直是很繁琐的，总是要写很多的样板代码来执行简单的查询，比如分页、审计。Spring DataJPA旨在改进数据访问层的实现，减少开发时间。开发者在编写数据库接口时，包括自定义的查询方法，Spring DataJPA会自动提供其实现。</p>
+<p>参考文档：<a href="https://www.cntofu.com/book/88/index.html" target="_blank" rel="noopener">https://www.cntofu.com/book/88/index.html</a></p>
+<p>我们认为它是java ( JVM ) 世界中构建技术的一个飞跃.spring data jpa 提供了:像操作对象一样操作数据库标准的封装。</p>
+<p><strong>Spring Data JPA</strong></p>
+<p>Spring Data JPA不是一个JPA实现，它是一个框架或库，提供了JPA Provider之上的一个额外的抽象层。如果我们决定使用Spring Data JPA，那么应用程序的后端部分至少会包含三层：<br>1) Spring Data JPA<br>Spring Data JPA提供了JPA Provider的抽象层。<br>2) Spring Data Commons<br>  Spring Data Commons提供了共享的基础构件。<br>3)  JPA Provider<br>  java Persistence API的实现。<br>  看起来Spring DataJPA使我们的应用程序变得更复杂，从某些方面来说确实如此。但是要明白，Spring DataJPA减少了我们编写样板代码的时间。</p>
+<p>项目持久层的结构如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211224234657.png" alt="image-20211224234655979"></p>
+<p><strong>Spring Data Repositories介绍</strong><br>    Spring Data JPA依赖于Spring Data Commons一它是一个数据库抽象层，提供了共享的数据库基础构件。<br>我们使用Spring DataJPA时无需关注任何数据库抽象层的实现，但必须熟悉Spring Data数据库接口。这些接口的描述如下：<br>1、Spring Data Commons提供了如下接口</p>
 <ul>
-<li><p>唯一的编号标签：代表每个字段的一个唯一的编号标签，在同一个消息里不可以重复。这些编号标签用与在消息二进制格式中标识你的字段，并且消息一旦定义就不能更改。需要说明的是标签在1到15范围的采用一个字节进行编码，所以通常将标签1到15用于频繁发生的消息字段。编号标签大小的范围是1到2的29次。19000-19999是官方预留的值，不能使用。</p>
-</li>
-<li><p>注释格式：向.proto文件添加注释，可以使用C/C++/java/Go风格的双斜杠（//） 语法格式或者<code>/*.....*/</code></p>
-</li>
+<li>Repository&lt;T，ID extends Serializable&gt;接口它是一个标记接口，有两个目标：<br>一是捕获托管实体的类型和实体ID的类型<br>二是在类路径扫描期间，帮助Spring容器找到具体的数据仓库接口。</li>
+<li>CrudRepository&lt;T，ID extends Serializable&gt;接口<br>提供了对托管实体的CRUD操作。</li>
+<li>PagingAndSortingRepository&lt;T，ID extends Serializable&gt;接口<br>提供了对从数据库取回的实体的分页和排序操作方法。</li>
+<li>QueryDslPredicateExecutor<t>接口<br>此接口不是数据仓库接口。它声明了通过查询DSL谓词对象检索数据库的方法。</t></li>
 </ul>
-</blockquote>
-<p><em><em>message常见的数据类型与go中类型对比 </em></em></p>
-<table>
-<thead>
-<tr>
-<th>.proto类型</th>
-<th>Go类型</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>double</td>
-<td>float64</td>
-<td>64位浮点数</td>
-</tr>
-<tr>
-<td>float</td>
-<td>float32</td>
-<td>32位浮点数</td>
-</tr>
-<tr>
-<td>int32</td>
-<td>int32</td>
-<td>使用可变长度编码。编码负数效率低下——如果你的字段可能有负值，请改用sint32。</td>
-</tr>
-<tr>
-<td>int64</td>
-<td>int64</td>
-<td>使用可变长度编码。编码负数效率低下——如果你的字段可能有负值，请改用sint64。</td>
-</tr>
-<tr>
-<td>uint32</td>
-<td>uint32</td>
-<td>使用可变长度编码。</td>
-</tr>
-<tr>
-<td>uint64</td>
-<td>uint64</td>
-<td>使用可变长度编码。</td>
-</tr>
-<tr>
-<td>sint32</td>
-<td>int32</td>
-<td>使用可变长度编码。符号整型值。这些比常规int32s编码负数更有效。</td>
-</tr>
-<tr>
-<td>sint64</td>
-<td>int64</td>
-<td>使用可变长度编码。符号整型值。这些比常规int64s编码负数更有效。</td>
-</tr>
-<tr>
-<td>fixed32</td>
-<td>uint32</td>
-<td>总是四字节。如果值通常大于228，则比uint 32更有效</td>
-</tr>
-<tr>
-<td>fixed64</td>
-<td>uint64</td>
-<td>总是八字节。如果值通常大于256，则比uint64更有效</td>
-</tr>
-<tr>
-<td>sfixed32</td>
-<td>int32</td>
-<td>总是四字节。</td>
-</tr>
-<tr>
-<td>sfixed64</td>
-<td>int64</td>
-<td>总是八字节。</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>bool</td>
-<td>布尔类型</td>
-</tr>
-<tr>
-<td>string</td>
-<td>string</td>
-<td>字符串必须始终包含UTF - 8编码或7位ASCII文本</td>
-</tr>
-<tr>
-<td>bytes</td>
-<td>[]byte</td>
-<td>可以包含任意字节序列</td>
-</tr>
-</tbody></table>
-<h2 id="protobuf-高级用法"><a href="#protobuf-高级用法" class="headerlink" title="protobuf 高级用法"></a>protobuf 高级用法</h2><p>protobuf除了上面的简单类型还有一些复杂的用法，如下：</p>
-<p><strong>message嵌套</strong></p>
-<p>messsage除了能放简单数据类型外，还能存放另外的message类型，如下：</p>
-<pre class="line-numbers language-protobuf"><code class="language-protobuf">syntax <span class="token operator">=</span> <span class="token string">"proto3"</span><span class="token punctuation">;</span>                         <span class="token comment" spellcheck="true">//指定版本信息，不指定会报错</span>
-
-<span class="token comment" spellcheck="true">//message为关键字，作用为定义一种消息类型</span>
-<span class="token keyword">message</span> Person<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//    名字</span>
-    <span class="token primitive symbol">string</span> name <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//    年龄</span>
-    <span class="token primitive symbol">int32</span>  age <span class="token operator">=</span> <span class="token number">2</span> <span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//定义一个message</span>
-    <span class="token keyword">message</span> PhoneNumber <span class="token punctuation">{</span>
-    <span class="token primitive symbol">string</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token primitive symbol">int64</span> type <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    PhoneNumber phone <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>repeated关键字</strong></p>
-<p>repeadted关键字类似与go中的切片，编译之后对应的也是go的切片，用法如下：</p>
-<pre class="line-numbers language-protobuf"><code class="language-protobuf">syntax <span class="token operator">=</span> <span class="token string">"proto3"</span><span class="token punctuation">;</span>                         <span class="token comment" spellcheck="true">//指定版本信息，不指定会报错</span>
-<span class="token comment" spellcheck="true">//message为关键字，作用为定义一种消息类型</span>
-<span class="token keyword">message</span> Person<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//    名字</span>
-    <span class="token primitive symbol">string</span> name <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//    年龄</span>
-    <span class="token primitive symbol">int32</span>  age <span class="token operator">=</span> <span class="token number">2</span> <span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//定义一个message</span>
-    <span class="token keyword">message</span> PhoneNumber <span class="token punctuation">{</span>
-    <span class="token primitive symbol">string</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token primitive symbol">int64</span> type <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token builtin">repeated</span> PhoneNumber phone <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>默认值</strong></p>
-<p>解析数据时，如果编码的消息不包含特定的单数元素，则解析对象对象中的相应字段将设置为该字段的默认值。不同类型的默认值不同，具体如下：</p>
+<p>2、Spring Data JPA提供了如下接口</p>
 <ul>
-<li>对于字符串，默认值为空字符串。</li>
-<li>对于字节，默认值为空字节。</li>
-<li>对于bools，默认值为false。</li>
-<li>对于数字类型，默认值为零。</li>
-<li>对于枚举，默认值是第<strong>一个定义的枚举值</strong>，该<strong>值</strong>必须为0。</li>
-<li>repeated字段默认值是空列表</li>
-<li>message字段的默认值为空对象</li>
+<li>JpaRepository&lt;T，ID extends Serializable&gt;接口<br>它是一个JPA特定的数据仓库接口，是Commons数据仓库接口背后的单一接口声明的方法组合。</li>
+<li>JpaSpecifcationExecutor<t>接口<br>此接口不是数据仓库接口。它声明了通过使用JPA标准API的Specifcation《T》对象从数据库取回实体的方法。</t></li>
 </ul>
-<p><strong>enum关键字</strong></p>
-<p>在定义消息类型时，可能会希望其中一个字段有一个预定义的值列表。比如说，电话号码字段有个类型，这个类型可以是，home,work,mobile。我们可以通过enum在消息定义中添加每个可能值的常量来非常简单的执行此操作。实例如下：</p>
-<pre class="line-numbers language-protobuf"><code class="language-protobuf">syntax <span class="token operator">=</span> <span class="token string">"proto3"</span><span class="token punctuation">;</span>                         <span class="token comment" spellcheck="true">//指定版本信息，不指定会报错</span>
-<span class="token comment" spellcheck="true">//message为关键字，作用为定义一种消息类型</span>
-<span class="token keyword">message</span> Person<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//    名字</span>
-    <span class="token primitive symbol">string</span> name <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//    年龄</span>
-    <span class="token primitive symbol">int32</span>  age <span class="token operator">=</span> <span class="token number">2</span> <span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//定义一个message</span>
-    <span class="token keyword">message</span> PhoneNumber <span class="token punctuation">{</span>
-    <span class="token primitive symbol">string</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    PhoneType type <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token builtin">repeated</span> PhoneNumber phone <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<p>数据仓库的分层看起来如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211224235741.png" alt="image-20211224235738792"></p>
+<p>可以看到IDE中的继承关系</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211225000015.png" alt="image-20211225000013093"></p>
+<p>可以看到还有一个QueryByExampleExecutor，这个可以使用Example进行查询，</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211225000732.png" alt="image-20211225000731157"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211225000045.png" alt="image-20211225000044578"></p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211225000236.png" alt="image-20211225000234801"></p>
+<h2 id="定义依赖"><a href="#定义依赖" class="headerlink" title="定义依赖"></a>定义依赖</h2><pre class="line-numbers language-xml"><code class="language-xml">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-data-jpa<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="定义实体"><a href="#定义实体" class="headerlink" title="定义实体"></a>定义实体</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@Table</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"booking"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BookingEntity</span> <span class="token keyword">extends</span> <span class="token class-name">BaseEntity</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@ManyToOne</span><span class="token comment" spellcheck="true">//定义了一对多的关系，即一个用户有多个预定，在预定表中，有一个外健account_id</span>
+    <span class="token keyword">private</span> Account consumer<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@ManyToOne</span>
+    <span class="token keyword">private</span> TicketEntity ticket<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">//enum为关键字，作用为定义一种枚举类型</span>
-<span class="token keyword">enum</span> PhoneType <span class="token punctuation">{</span>
-    MOBILE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    HOME <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    WORK <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>如上，enum的第一个常量映射为0，每个枚举定义<strong>必须</strong>包含一个映射到零的常量作为其第一个元素。这是因为：</p>
-<ul>
-<li>必须有一个零值，以便我们可以使用0作为数字默认值。</li>
-<li>零值必须是第一个元素，以便与proto2语义兼容，其中第一个枚举值始终是默认值。</li>
-</ul>
-</blockquote>
-<p>enum还可以为不同的枚举常量指定相同的值来定义别名。如果想要使用这个功能必须讲<code>allow_alias</code>选项设置为true，负责编译器将报错。示例如下：</p>
-<pre class="line-numbers language-protobuf"><code class="language-protobuf">syntax <span class="token operator">=</span> <span class="token string">"proto3"</span><span class="token punctuation">;</span>                         <span class="token comment" spellcheck="true">//指定版本信息，不指定会报错</span>
-<span class="token comment" spellcheck="true">//message为关键字，作用为定义一种消息类型</span>
-<span class="token keyword">message</span> Person<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//    名字</span>
-    <span class="token primitive symbol">string</span> name <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//    年龄</span>
-    <span class="token primitive symbol">int32</span>  age <span class="token operator">=</span> <span class="token number">2</span> <span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//定义一个message</span>
-    <span class="token keyword">message</span> PhoneNumber <span class="token punctuation">{</span>
-        <span class="token primitive symbol">string</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        PhoneType type <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token builtin">repeated</span> PhoneNumber phone <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//@ManyToMany的关系，一对多的关系，在数据库中就有除了这两个实体的第三张表</span>
+<span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@Table</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"daily_open_plan"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DailyOpenPlanEntity</span> <span class="token keyword">extends</span> <span class="token class-name">BaseEntity</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@ColumnDefault</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//可以使用注释，对数据库中字段进行设置</span>
+      <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@ManyToMany</span>
+    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>PeriodOfTimeEntity<span class="token operator">></span> periodOfTimes<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">//enum为关键字，作用为定义一种枚举类型</span>
-<span class="token keyword">enum</span> PhoneType <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//如果不设置将报错</span>
-    option allow_alias <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    MOBILE <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    HOME <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    WORK <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    Personal <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>oneof关键字</strong></p>
-<p>如果有一个包含许多字段的消息，并且最多只能同时设置其中的一个字段，则可以使用oneof功能，示例如下：</p>
-<pre class="line-numbers language-protobuf"><code class="language-protobuf"><span class="token keyword">message</span> Person<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//    名字</span>
-    <span class="token primitive symbol">string</span> name <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//    年龄</span>
-    <span class="token primitive symbol">int32</span>  age <span class="token operator">=</span> <span class="token number">2</span> <span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//定义一个message</span>
-    <span class="token keyword">message</span> PhoneNumber <span class="token punctuation">{</span>
-        <span class="token primitive symbol">string</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        PhoneType type <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//还有@OneToOne一对一的关系</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>项目运行，会自动检测连接的数据库是否已经建立好这几个实体的表，如果没有建立，或者一些属性没有添加，可以直接进行修改。</p>
+<h2 id="定义Repository"><a href="#定义Repository" class="headerlink" title="定义Repository"></a>定义Repository</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">AccountRepository</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token operator">&lt;</span>Account<span class="token punctuation">,</span> Long<span class="token operator">></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>声明一个接口继承Repository或其子类，输入实体类型和ID类型。</p>
+<p>从下图可以看到，JpaRepository已经帮我们封装好了一些方法，可以直接使用，用来操作数据库。</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211225003901.png" alt="image-20211225003859822"></p>
+<p>还有父类的CrudRepository的一些方法都可以直接使用</p>
+<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211225004101.png" alt="image-20211225004059976"></p>
+<p>假如我们想要的方法或者说sql没有定义，那JPA提供属性值拼接方法名，以及编写原生Sql的方法，具体看下面章节</p>
+<h2 id="定义查询方法"><a href="#定义查询方法" class="headerlink" title="定义查询方法"></a>定义查询方法</h2><p>query builder机制内置为构建约束查询库的实体。 带前缀的机制<code>findXXBy</code>,<code>readAXXBy</code>,<code>queryXXBy</code>,<code>countXXBy</code>, <code>getXXBy</code>自动解析的其余部分。进一步引入子句可以包含表达式等<code>Distinct</code>设置不同的条件创建查询。 然而,第一个<code>By</code>作为分隔符来表示实际的标准的开始。 在一个非常基础的查询,可以定义条件<code>And</code>或者<code>Or</code>。</p>
+<p>详细看下面例子：</p>
+<h3 id="根据方法名创建查询"><a href="#根据方法名创建查询" class="headerlink" title="根据方法名创建查询"></a>根据方法名创建查询</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">PersonRepository</span> <span class="token keyword">extends</span> <span class="token class-name">Repository</span><span class="token operator">&lt;</span>User<span class="token punctuation">,</span> Long<span class="token operator">></span> <span class="token punctuation">{</span>
 
-    <span class="token builtin">repeated</span> PhoneNumber phone <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-    oneof data<span class="token punctuation">{</span>
-        <span class="token primitive symbol">string</span> school <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-        <span class="token primitive symbol">int32</span> score <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>定义RPC服务</strong></p>
-<p>如果需要将message与RPC一起使用，则可以在<code>.proto</code>文件中定义RPC服务接口，protobuf编译器将根据你选择的语言生成RPC接口代码。示例如下：</p>
-<pre class="line-numbers language-protobuf"><code class="language-protobuf"><span class="token comment" spellcheck="true">//定义RPC服务</span>
-service HelloService <span class="token punctuation">{</span>
-    rpc <span class="token function">Hello</span> <span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token function">returns</span> <span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="protobuf基本编译"><a href="#protobuf基本编译" class="headerlink" title="protobuf基本编译"></a>protobuf基本编译</h2><p>protobuf编译是通过编译器protoc进行的，通过这个编译器，我们可以把.proto文件生成<strong>go</strong>,Java,Python,C++, Ruby, JavaNano, Objective-C,或者C# 代码，生成命令如下：</p>
-<pre class="line-numbers language-shell"><code class="language-shell"> protoc --proto_path=IMPORT_PATH --go_out=DST_DIR  path/to/file.proto<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findByEmailAddressAndLastname</span><span class="token punctuation">(</span>EmailAddress emailAddress<span class="token punctuation">,</span> String lastname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// Enables the distinct flag for the query</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findDistinctPeopleByLastnameOrFirstname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> String firstname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findPeopleDistinctByLastnameOrFirstname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> String firstname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// Enabling ignoring case for an individual property</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findByLastnameIgnoreCase</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// Enabling ignoring case for all suitable properties</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findByLastnameAndFirstnameAllIgnoreCase</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> String firstname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// Enabling static ORDER BY for a query</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findByLastnameOrderByFirstnameAsc</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findByLastnameOrderByFirstnameDesc</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//对于时间属性还可以用Befor和After来选择时间段要求</span>
+  <span class="token keyword">public</span> PeriodOfTimeEntity <span class="token function">getPeriodOfTimeEntityByStartTimeBeforeAndAndEndTimeAfter</span><span class="token punctuation">(</span>LocalTime starTime<span class="token punctuation">,</span>LocalTime endTime<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>遍历表达式通常结合运算符连接。您可以把表达式<code>And</code>和<code>Or</code>,<code>Between</code>,<code>LessThan</code>(不超过) , <code>GreaterThan</code>,<code>Like</code>等运算符，这些操作对不同的数据库可能有所不同，具体参考各参考文档</li>
+<li>方法解析支持设置<code>IgnoreCase</code>在属性上面（如，<code>findByLastnameIgnoreCase(…)</code>),或者支持查询所有属性忽略大小写（如，<code>findByLastnameAndFirstnameAllIgnoreCase(…)</code>), 忽略大小写支持所有的数据库，其它的查询参考相关文档</li>
+<li>您可以应用静态排序通过附加一个<code>OrderBy</code>基准进行排序,引用属性和方向提供了一个排序(<code>asc</code>或 <code>Desc</code>)。 创建一个支持动态排序的查询方法,明白了特殊参数处理 。</li>
+</ul>
+<h3 id="使用-Query，来写复杂的Sql语句"><a href="#使用-Query，来写复杂的Sql语句" class="headerlink" title="使用@Query，来写复杂的Sql语句"></a>使用@Query，来写复杂的Sql语句</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">AccountRepository</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token operator">&lt;</span>Account<span class="token punctuation">,</span> Long<span class="token operator">></span> <span class="token punctuation">{</span>
+    Account <span class="token function">findByUsername</span><span class="token punctuation">(</span>String username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Query</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"select  a from Account a left join Role r on a.id=r.account.id where r.roleName=?1"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//@Query(nativeQuery = true,value = "select * from account a left join role r on r.account_id=a.id where r.roleName=?1") 纯原生</span>
+    Page<span class="token operator">&lt;</span>Account<span class="token operator">></span> <span class="token function">findAcccounts</span><span class="token punctuation">(</span>String roleName<span class="token punctuation">,</span>Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BookingRepository</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token operator">&lt;</span>BookingEntity<span class="token punctuation">,</span>Long<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Query</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"select * "</span> <span class="token operator">+</span>
+            <span class="token string">"from booking  b "</span> <span class="token operator">+</span>
+            <span class="token string">"left join ticket t on b.ticket_id=t.id "</span> <span class="token operator">+</span>
+            <span class="token string">"left join resource r on t.resource_id=r.id "</span><span class="token operator">+</span>
+            <span class="token string">"left join Account account on b.consumer_id=account.id"</span> <span class="token operator">+</span>
+            <span class="token string">" where r.id=?1 and if(IFNULL(?2,'') !='',account.grade=?2,1=1) and if(IFNULL(?3,'') !='',account.username=?3,1=1) and if(IFNULL(?4,'') !='',t.date between ?4 and ?5,1=1) "</span><span class="token punctuation">,</span>nativeQuery <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    Page<span class="token operator">&lt;</span>BookingEntity<span class="token operator">></span> <span class="token function">findHaveDoneExp</span><span class="token punctuation">(</span>Long resourceId<span class="token punctuation">,</span> String grade<span class="token punctuation">,</span> String username<span class="token punctuation">,</span> LocalDate startDate<span class="token punctuation">,</span> LocalDate endDate<span class="token punctuation">,</span> Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//if(IFNULL(?2,'') !='',account.grade=?2,1=1)这个表达式可以让这个查询属性为null的时候不参与条件筛选，做到动态拼接条件</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BoardRepository</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token operator">&lt;</span>Board<span class="token punctuation">,</span> Long<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Query</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"select new cn.edu.tju.cs.experimenting.vo.BoardVo("</span> <span class="token operator">+</span>
+            <span class="token string">"b.createTime,a.username,b.message)  from Board as b,Account  as a "</span> <span class="token operator">+</span>
+            <span class="token string">"where b.ticket.id = ?1 AND b.account.id=a.id"</span><span class="token punctuation">)</span>
+    List<span class="token operator">&lt;</span>BoardVo<span class="token operator">></span> <span class="token function">returnBoardVoList</span><span class="token punctuation">(</span>Long ticketId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//返回自定义的类</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>目前还有使用Example查询器，以及Specification等构造复杂查询的，这个留到等到真正用到的时候再写。</p>
+<h3 id="限制查询结果"><a href="#限制查询结果" class="headerlink" title="限制查询结果"></a>限制查询结果</h3><p>用<code>Top</code>和<code>First</code>查询限制结果大小</p>
+<pre class="line-numbers language-java"><code class="language-java">Page<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">queryFirst10ByLastname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     Slice<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">findTop3ByLastname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">findFirst10ByLastname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> Sort sort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">findTop10ByLastname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="排序和分页"><a href="#排序和分页" class="headerlink" title="排序和分页"></a>排序和分页</h3><p><strong>排序</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//应用静态排序通过附加一个OrderBy基准进行排序,引用属性和方向提供了一个排序(asc或 Desc)。</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findByLastnameOrderByFirstnameAsc</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  List<span class="token operator">&lt;</span>Person<span class="token operator">></span> <span class="token function">findByLastnameOrderByFirstnameDesc</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//在@Query中自己写order by</span>
+<span class="token comment" spellcheck="true">//asc 升序或 Desc降序</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong><code>Pageable</code>和<code>Sort</code>应用动态查询分页和排序</strong></p>
+<pre class="line-numbers language-java"><code class="language-java">List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">findByLastname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> Sort sort<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Pageable 里可以包含排序方法</span>
+<span class="token comment" spellcheck="true">//Page里包含了 总页数</span>
+Page<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">findByLastname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//可以直接返回分页结果，即List</span>
+List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">findByLastname</span><span class="token punctuation">(</span>String lastname<span class="token punctuation">,</span> Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//看具体例子</span>
+<span class="token comment" spellcheck="true">//Repo里的方法</span>
+Page<span class="token operator">&lt;</span>BookingEntity<span class="token operator">></span> <span class="token function">findHaveDoneExp</span><span class="token punctuation">(</span>Long resourceId<span class="token punctuation">,</span> String grade<span class="token punctuation">,</span> String username<span class="token punctuation">,</span> LocalDate startDate<span class="token punctuation">,</span> LocalDate endDate<span class="token punctuation">,</span> Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//具体使用</span>
+Pageable pageable<span class="token operator">=</span>PageRequest<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>PageNum<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>pageSize<span class="token punctuation">,</span>Sort<span class="token punctuation">.</span>Direction<span class="token punctuation">.</span>ASC<span class="token punctuation">,</span> <span class="token string">"t.date"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Page<span class="token operator">&lt;</span>BookingEntity<span class="token operator">></span> haveDoneExp<span class="token operator">=</span>bookingRepository<span class="token punctuation">.</span><span class="token function">findHaveDoneExp</span><span class="token punctuation">(</span>searchExpVo<span class="token punctuation">.</span><span class="token function">getResourceId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//只使用分页功能</span>
+<span class="token comment" spellcheck="true">//Repo里的方法</span>
+Page<span class="token operator">&lt;</span>Account<span class="token operator">></span> <span class="token function">findAcccounts</span><span class="token punctuation">(</span>String roleName<span class="token punctuation">,</span>Pageable pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//具体使用</span>
+Pageable pageable<span class="token operator">=</span>PageRequest<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>pageNum<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<ol>
-<li>–proto_path=IMPORT_PATH，IMPORT_PATH是 .proto 文件所在的路径，如果忽略则默认当前目录。如果有多个目录则可以多次调用–proto_path，它们将会顺序的被访问并执行导入。</li>
-<li>–go_out=DST_DIR， 指定了生成的go语言代码文件放入的文件夹</li>
-<li>允许使用 <code>protoc --go_out=./   *.proto</code> 的方式一次性编译多个 .proto 文件</li>
-<li>go语言编译时，protobuf 编译器会把 .proto 文件编译成 .pd.go 文件</li>
-</ol>
+<p>注：Example查询器可以和Pageable结合使用</p>
 </blockquote>
-<p>一般在使用的时候我们都是使用下面这种简单的命令：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">protoc --go_out=./ *.proto<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>编译当前文件夹下的所有.proto文件，并把生成的go文件放置在当前文件夹下。</p>
-</blockquote>
-<p>给这个<code>.proto</code>文件中添加一个RPC服务，再次进行编译，发现生成的go文件没有发生变化。这是因为世界上的RPC实现有很多种，protoc编译器并不知道该如何为HelloService服务生成代码。不过在protoc-gen-go内部已经集成了一个叫grpc的插件，可以针对grpc生成代码：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">protoc --go_out=plugins=grpc:. *.proto<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>查看生成的文件arith-pb.go：</p>
-<p>包含：client接口待实现</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211223235459.png" alt="image-20211223222405885"></p>
-<p>service 端：接口待实现</p>
-<p><img src="https://raw.githubusercontent.com/zhulingang/BlogImage/main/images/20211223222448.png" alt="image-20211223222447294"></p>
-<p>其实就是之前我们写的客户端和服务器端的封装，我们接下来只要继承服务端接口，实现下函数即可，具体请看GRPC的使用。</p>
+<h3 id="异步查询结果"><a href="#异步查询结果" class="headerlink" title="异步查询结果"></a>异步查询结果</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Async</span>
+Future<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">findByFirstname</span><span class="token punctuation">(</span>String firstname<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    JPA能像操作对象一样操作数据库，帮助我们减轻了对数据库语句的编写压力，让后端业务的开发更加关注于业务。使用JPA开发，对小型简单项目来说十分方便。</p>
+<p>当然我目前使用到的JPA功能只是他的冰山一角，后续有更进阶的一些用法，后续会补充～</p>
 
             </div>
             <hr />
@@ -827,9 +708,9 @@ service HelloService <span class="token punctuation">{</span>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《protobuf》
+                    《JPA使用》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/12/24/go-protobuf/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/12/25/jpa-use/" property="cc:attributionName"
                rel="cc:attributionURL">
                 朱林刚
             </a> 采用
@@ -870,7 +751,7 @@ service HelloService <span class="token punctuation">{</span>
         repo: 'zhulingang.github.io',
         owner: 'zhulingang',
         admin: ["zhulingang"],
-        id: '2021/12/24/go-protobuf/',
+        id: '2021/12/25/jpa-use/',
         distractionFreeMode: true,  // Facebook-like distraction free mode
         proxy: 'https://silent-dream-ff28.827308972.workers.dev/?https://github.com/login/oauth/access_token'
     });
@@ -1154,48 +1035,47 @@ service HelloService <span class="token punctuation">{</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/12/24/go-microsrvintro/">
+                <a href="/2021/12/25/jpa-use/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="微服务简介">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="JPA使用">
                         
-                        <span class="card-title">微服务简介</span>
+                        <span class="card-title">JPA使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            微服务简介单体式架构服务特点：
-
-复杂性逐渐变高
-
-中软国际   boss计费系统   十几年了     移动联通缴费平台   几个亿
-自己封装函数    代码冗余度特别大
-
-比如有几十万行代码的大项目，代码越多复杂性越高，越难解决遇到的问
+                            JPA使用最近在做一个化工实验平台的项目技术栈使用的是SpringBoot+JPA+MySql，刚接触的时候有些棘手，但是上手后发现太香了，感觉比Mybatis好用很多，听人说因为国内主流用的是Mybatis所以大环境下用的都是Mybati
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-12-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-12-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/微服务/" class="post-category" target="_blank">
-                                    微服务
+                            <a href="/categories/SpringBoot/" class="post-category" target="_blank">
+                                    SpringBoot
+                                </a>
+                            
+                            <a href="/categories/SpringBoot/开发/" class="post-category" target="_blank">
+                                    开发
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1203,8 +1083,20 @@ service HelloService <span class="token punctuation">{</span>
                         <span class="chip bg-color">博客</span>
                     </a>
                     
-                    <a href="/tags/微服务/" target="_blank">
-                        <span class="chip bg-color">微服务</span>
+                    <a href="/tags/后端/" target="_blank">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                    <a href="/tags/开发/" target="_blank">
+                        <span class="chip bg-color">开发</span>
+                    </a>
+                    
+                    <a href="/tags/JPA/" target="_blank">
+                        <span class="chip bg-color">JPA</span>
+                    </a>
+                    
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>
@@ -1218,22 +1110,19 @@ service HelloService <span class="token punctuation">{</span>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/24/go-rpc-intro/">
+                <a href="/2021/12/24/go-grpc-intro/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="RPC简介">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="GRPC框架">
                         
-                        <span class="card-title">RPC简介</span>
+                        <span class="card-title">GRPC框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            RPC简介Remote Procedure Call Protocol   —— 远程过程调用协议
-RPC(Remote Procedure Call Protocol)，是远程过程调用的缩写，通俗的说就是调用远处的一个函数。
-
-理解RPC
+                            GRPC框架GRPC是Google公司基于Protobuf开发的跨语言的开源RPC框架。GRPC基于HTTP/2协议设计，可以基于一个HTTP/2链接提供多个服务，对于移动设备更加友好。目前提供 C、Java 和 Go 语言版本，分别是：g
                         
                     </div>
                     <div class="publish-info">

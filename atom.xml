@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.zhulingang.com/"/>
-  <updated>2021-12-23T16:22:13.927Z</updated>
+  <updated>2021-12-25T05:42:42.644Z</updated>
   <id>www.zhulingang.com/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JPA使用</title>
+    <link href="www.zhulingang.com/2021/12/25/jpa-use/"/>
+    <id>www.zhulingang.com/2021/12/25/jpa-use/</id>
+    <published>2021-12-25T05:42:00.000Z</published>
+    <updated>2021-12-25T05:42:42.644Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;JPA使用&quot;&gt;&lt;a href=&quot;#JPA使用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="www.zhulingang.com/categories/SpringBoot/"/>
+    
+      <category term="开发" scheme="www.zhulingang.com/categories/SpringBoot/%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="开发" scheme="www.zhulingang.com/tags/%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="JPA" scheme="www.zhulingang.com/tags/JPA/"/>
+    
+      <category term="SpringBoot" scheme="www.zhulingang.com/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>GRPC框架</title>
@@ -77,11 +113,11 @@
   </entry>
   
   <entry>
-    <title>RPC简介</title>
-    <link href="www.zhulingang.com/2021/12/24/go-rpc-intro/"/>
-    <id>www.zhulingang.com/2021/12/24/go-rpc-intro/</id>
+    <title>protobuf</title>
+    <link href="www.zhulingang.com/2021/12/24/go-protobuf/"/>
+    <id>www.zhulingang.com/2021/12/24/go-protobuf/</id>
     <published>2021-12-23T16:19:00.000Z</published>
-    <updated>2021-12-23T16:24:10.773Z</updated>
+    <updated>2021-12-23T16:22:13.931Z</updated>
     
     <summary type="html">
     
@@ -89,7 +125,7 @@
       
         
         
-          &lt;h1 id=&quot;RPC简介&quot;&gt;&lt;a href=&quot;#RPC简介&quot; class=&quot;headerlink&quot; title=&quot;RPC简介&quot;&gt;&lt;/a&gt;RPC简介&lt;/h1&gt;&lt;p&gt;Remote Procedure Call Protocol   ——
+          &lt;h1 id=&quot;protobuf&quot;&gt;&lt;a href=&quot;#protobuf&quot; class=&quot;headerlink&quot; title=&quot;protobuf&quot;&gt;&lt;/a&gt;protobuf&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
         
       
     
@@ -109,11 +145,11 @@
   </entry>
   
   <entry>
-    <title>protobuf</title>
-    <link href="www.zhulingang.com/2021/12/24/go-protobuf/"/>
-    <id>www.zhulingang.com/2021/12/24/go-protobuf/</id>
+    <title>RPC简介</title>
+    <link href="www.zhulingang.com/2021/12/24/go-rpc-intro/"/>
+    <id>www.zhulingang.com/2021/12/24/go-rpc-intro/</id>
     <published>2021-12-23T16:19:00.000Z</published>
-    <updated>2021-12-23T16:22:13.931Z</updated>
+    <updated>2021-12-23T16:24:10.773Z</updated>
     
     <summary type="html">
     
@@ -121,7 +157,7 @@
       
         
         
-          &lt;h1 id=&quot;protobuf&quot;&gt;&lt;a href=&quot;#protobuf&quot; class=&quot;headerlink&quot; title=&quot;protobuf&quot;&gt;&lt;/a&gt;protobuf&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;RPC简介&quot;&gt;&lt;a href=&quot;#RPC简介&quot; class=&quot;headerlink&quot; title=&quot;RPC简介&quot;&gt;&lt;/a&gt;RPC简介&lt;/h1&gt;&lt;p&gt;Remote Procedure Call Protocol   ——
         
       
     
@@ -437,36 +473,6 @@
   </entry>
   
   <entry>
-    <title>Go指针</title>
-    <link href="www.zhulingang.com/2021/11/18/go-pointer/"/>
-    <id>www.zhulingang.com/2021/11/18/go-pointer/</id>
-    <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:46:28.213Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;指针&quot;&gt;&lt;a href=&quot;#指针&quot; class=&quot;headerlink&quot; title=&quot;指针&quot;&gt;&lt;/a&gt;指针&lt;/h1&gt;&lt;h2 id=&quot;指针-1&quot;&gt;&lt;a href=&quot;#指针-1&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Go" scheme="www.zhulingang.com/categories/Go/"/>
-    
-    
-      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-      <category term="Go" scheme="www.zhulingang.com/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
     <title>GO基本数据类型</title>
     <link href="www.zhulingang.com/2021/11/18/go-basic-data-type/"/>
     <id>www.zhulingang.com/2021/11/18/go-basic-data-type/</id>
@@ -480,36 +486,6 @@
         
         
           &lt;h1 id=&quot;GO基本数据类型&quot;&gt;&lt;a href=&quot;#GO基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;GO基本数据类型&quot;&gt;&lt;/a&gt;GO基本数据类型&lt;/h1&gt;&lt;h2 id=&quot;GO基本数据类型-1&quot;&gt;&lt;a href=&quot;#GO基本数据类型-1&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Go" scheme="www.zhulingang.com/categories/Go/"/>
-    
-    
-      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-      <category term="Go" scheme="www.zhulingang.com/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go并发</title>
-    <link href="www.zhulingang.com/2021/11/18/go-concurrence/"/>
-    <id>www.zhulingang.com/2021/11/18/go-concurrence/</id>
-    <published>2021-11-18T15:03:00.000Z</published>
-    <updated>2021-11-17T16:50:48.413Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Go并发&quot;&gt;&lt;a href=&quot;#Go并发&quot; class=&quot;headerlink&quot; title=&quot;Go并发&quot;&gt;&lt;/a&gt;Go并发&lt;/h1&gt;&lt;h2 id=&quot;Go并发-1&quot;&gt;&lt;a href=&quot;#Go并发-1&quot; class=&quot;headerlink&quot;
         
       
     
@@ -570,6 +546,36 @@
         
         
           &lt;h1 id=&quot;内存四区&quot;&gt;&lt;a href=&quot;#内存四区&quot; class=&quot;headerlink&quot; title=&quot;内存四区&quot;&gt;&lt;/a&gt;内存四区&lt;/h1&gt;&lt;h2 id=&quot;内存四区概念：&quot;&gt;&lt;a href=&quot;#内存四区概念：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Go" scheme="www.zhulingang.com/categories/Go/"/>
+    
+    
+      <category term="博客" scheme="www.zhulingang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="后端" scheme="www.zhulingang.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Go" scheme="www.zhulingang.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go并发</title>
+    <link href="www.zhulingang.com/2021/11/18/go-concurrence/"/>
+    <id>www.zhulingang.com/2021/11/18/go-concurrence/</id>
+    <published>2021-11-18T15:03:00.000Z</published>
+    <updated>2021-11-17T16:50:48.413Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Go并发&quot;&gt;&lt;a href=&quot;#Go并发&quot; class=&quot;headerlink&quot; title=&quot;Go并发&quot;&gt;&lt;/a&gt;Go并发&lt;/h1&gt;&lt;h2 id=&quot;Go并发-1&quot;&gt;&lt;a href=&quot;#Go并发-1&quot; class=&quot;headerlink&quot;
         
       
     

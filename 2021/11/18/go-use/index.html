@@ -317,7 +317,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -893,25 +893,21 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/go-struct/">
+                <a href="/2021/11/18/go-switch/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Go结构体">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go switch 语句">
                         
-                        <span class="card-title">Go结构体</span>
+                        <span class="card-title">Go switch 语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go结构体Go结构体定义type user struct {
-    age  int
-    name string
-}
-初始化//方式1 new方式，返回指针类型*T
-u2 := new(user)
-//方式2 var的方式，返回T类型
+                            switch 语句switch 语句不需要breakgo会帮你隐式break掉。
+case表达式的结果类型的转换要求case表达式的结果能转换为switch表示式结果的类型
+并且如果switch或case表达式的是无类型的常量时，会被自动转
                         
                     </div>
                     <div class="publish-info">
@@ -956,33 +952,38 @@ u2 := new(user)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-switch/">
+                <a href="/2021/06/29/mybatis-plus/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go switch 语句">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Mybatis-Plus增删查改操作">
                         
-                        <span class="card-title">Go switch 语句</span>
+                        <span class="card-title">Mybatis-Plus增删查改操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            switch 语句switch 语句不需要breakgo会帮你隐式break掉。
-case表达式的结果类型的转换要求case表达式的结果能转换为switch表示式结果的类型
-并且如果switch或case表达式的是无类型的常量时，会被自动转
+                            Mybatis-Plus增删查改操作增加增加操作由于Mybatis-plus已经封装好了，所以直接可以调用service层的save函数,或者mapper层的insert函数
+service层//service层包装了几个方法
+
+    b
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Go/" class="post-category" target="_blank">
-                                    Go
+                            <a href="/categories/SpringBoot/" class="post-category" target="_blank">
+                                    SpringBoot
+                                </a>
+                            
+                            <a href="/categories/SpringBoot/开发/" class="post-category" target="_blank">
+                                    开发
                                 </a>
                             
                             
@@ -1000,8 +1001,16 @@ case表达式的结果类型的转换要求case表达式的结果能转换为swi
                         <span class="chip bg-color">后端</span>
                     </a>
                     
-                    <a href="/tags/Go/" target="_blank">
-                        <span class="chip bg-color">Go</span>
+                    <a href="/tags/开发/" target="_blank">
+                        <span class="chip bg-color">开发</span>
+                    </a>
+                    
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
+                    
+                    <a href="/tags/Mybatis/" target="_blank">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>
@@ -1187,7 +1196,7 @@ case表达式的结果类型的转换要求case表达式的结果能转换为swi
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">69.2k</span>
+            <span class="white-color">71.5k</span>
             
 
             <br>
