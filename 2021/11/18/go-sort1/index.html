@@ -8,12 +8,8 @@
     <meta name="baidu-site-verification" content="code-vPPxBQrBJe">
     <meta name="google-site-verification" content="code-vPPxBQrBJe">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="Go 排序排序对整数，浮点数，字符串切片排序对于[]int, []float, []string这种元素类型是基础类型的切片使用sort包提供的下面几个函数进行排序。
-
-sort.Ints
-sort.Floats
-sort.Strings
-">
+    <meta name="description" content="排序对整数，浮点数，字符串切片排序对于[]int, []float, []string这种元素类型是基础类型的切片使用sort包提供的下面几个函数进行排序。
+具体实现见sort.Interface的IntSlice和Float64Slice">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -321,7 +317,7 @@ sort.Strings
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -484,14 +480,14 @@ sort.Strings
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    817
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    9 分
                 </div>
                 
                 
@@ -507,7 +503,8 @@ sort.Strings
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Go-排序"><a href="#Go-排序" class="headerlink" title="Go 排序"></a>Go 排序</h1><h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="对整数，浮点数，字符串切片排序"><a href="#对整数，浮点数，字符串切片排序" class="headerlink" title="对整数，浮点数，字符串切片排序"></a>对整数，浮点数，字符串切片排序</h3><p>对于<code>[]int</code>, <code>[]float</code>, <code>[]string</code>这种元素类型是基础类型的切片使用<code>sort</code>包提供的下面几个函数进行排序。</p>
+                <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="对整数，浮点数，字符串切片排序"><a href="#对整数，浮点数，字符串切片排序" class="headerlink" title="对整数，浮点数，字符串切片排序"></a>对整数，浮点数，字符串切片排序</h3><p>对于<code>[]int</code>, <code>[]float</code>, <code>[]string</code>这种元素类型是基础类型的切片使用<code>sort</code>包提供的下面几个函数进行排序。</p>
+<p>具体实现见sort.Interface的IntSlice和Float64Slice的实现</p>
 <ul>
 <li><code>sort.Ints</code></li>
 <li><code>sort.Floats</code></li>
@@ -516,7 +513,7 @@ sort.Strings
 <pre class="line-numbers language-go"><code class="language-go">s <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span>
 sort<span class="token punctuation">.</span><span class="token function">Ints</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
 fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 输出[1 2 3 4]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="使用自定义比较器排序"><a href="#使用自定义比较器排序" class="headerlink" title="使用自定义比较器排序"></a>使用自定义比较器排序</h3><ul>
+<h3 id="使用自定义比较器排序sort-Slice-和sort-SliceStable"><a href="#使用自定义比较器排序sort-Slice-和sort-SliceStable" class="headerlink" title="使用自定义比较器排序sort.Slice 和sort.SliceStable"></a>使用自定义比较器排序sort.Slice 和sort.SliceStable</h3><ul>
 <li><p>使用sort.Slice函数排序，它使用一个用户提供的函数来对序列进行排序，函数类型为func(i, j int) bool，其中参数i, j是序列中的索引。</p>
 </li>
 <li><p>sort.SliceStable在排序切片时会保留相等元素的原始顺序。</p>
@@ -558,9 +555,9 @@ less <span class="token operator">:=</span> <span class="token keyword">func</sp
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 调用排序函数</span>
 sort<span class="token punctuation">.</span><span class="token function">SliceStable</span><span class="token punctuation">(</span>people<span class="token punctuation">,</span> less<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="排序任意数据结构"><a href="#排序任意数据结构" class="headerlink" title="排序任意数据结构"></a>排序任意数据结构</h3><ul>
-<li>使用<code>sort.Sort</code>或者<code>sort.Stable</code>函数。</li>
-<li>他们可以排序实现了sort.Interface接口的任意类型</li>
+<h3 id="排序任意数据结构-实现sort-Interface"><a href="#排序任意数据结构-实现sort-Interface" class="headerlink" title="排序任意数据结构 实现sort.Interface"></a>排序任意数据结构 实现sort.Interface</h3><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p><strong>模拟 IntSlice 排序</strong></p>
+<ul>
+<li>实现了sort.Interface接口的任意类型</li>
 </ul>
 <p>一个内置的排序算法需要知道三个东西：序列的长度，表示两个元素比较的结果，一种交换两个元素的方式；这就是sort.Interface的三个方法：</p>
 <pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Interface <span class="token keyword">interface</span> <span class="token punctuation">{</span>
@@ -611,6 +608,95 @@ sort<span class="token punctuation">.</span><span class="token function">Sort</s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse()"></a>Reverse()</h4><p><em>sort</em>包提供了 Reverse() 方法，可以允许将数据按 Less() 定义的排序方式逆序排序，而不必修改 Less() 代码。方法定义如下：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Reverse</span><span class="token punctuation">(</span>data Interface<span class="token punctuation">)</span> Interface<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们可以看到 Reverse() 返回的一个 sort.Interface 接口类型，整个 Reverse() 的内部实现比较有趣：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 定义了一个 reverse 结构类型，嵌入 Interface 接口</span>
+<span class="token keyword">type</span> reverse <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    Interface
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//reverse 结构类型的 Less() 方法拥有嵌入的 Less() 方法相反的行为</span>
+<span class="token comment" spellcheck="true">//Len() 和 Swap() 方法则会保持嵌入类型的方法行为</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>r reverse<span class="token punctuation">)</span> <span class="token function">Less</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> r<span class="token punctuation">.</span>Interface<span class="token punctuation">.</span><span class="token function">Less</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 返回新的实现 Interface 接口的数据类型</span>
+<span class="token keyword">func</span> <span class="token function">Reverse</span><span class="token punctuation">(</span>data Interface<span class="token punctuation">)</span> Interface <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>reverse<span class="token punctuation">{</span>data<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>了解内部原理后，可以在学生成绩排序示例中使用 Reverse() 来实现成绩升序排序：</p>
+<pre class="line-numbers language-go"><code class="language-go">sort<span class="token punctuation">.</span><span class="token function">Sort</span><span class="token punctuation">(</span>sort<span class="token punctuation">.</span><span class="token function">Reverse</span><span class="token punctuation">(</span>stus<span class="token punctuation">)</span><span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>stus<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="Search"><a href="#Search" class="headerlink" title="Search()"></a>Search()</h4><pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Search</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">,</span> f <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>该方法会使用“二分查找”算法来找出能使 f(x)(0&lt;=x&lt;n) 返回 ture 的最小值 i。 前提条件 : f(x)(0&lt;=x&lt;i) 均返回 false, f(x)(i&lt;=x&lt;n) 均返回 ture。 如果不存在 i 可以使 f(i) 返回 ture, 则返回 n。</p>
+</blockquote>
+<p><strong>注意 切片必须排序好</strong></p>
+<p>Search() 函数一个常用的使用方式是搜索元素 x 是否在已经升序排好的切片 s 中：</p>
+<pre class="line-numbers language-go"><code class="language-go">x <span class="token operator">:=</span> <span class="token number">11</span>
+s <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 注意已经升序排序</span>
+pos <span class="token operator">:=</span> sort<span class="token punctuation">.</span><span class="token function">Search</span><span class="token punctuation">(</span><span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">>=</span> x <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> pos <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> <span class="token operator">==</span> x <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">" 在 s 中的位置为："</span><span class="token punctuation">,</span> pos<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"s 不包含元素 "</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="IntSlice-类型和Float64Slice和StringSlice"><a href="#IntSlice-类型和Float64Slice和StringSlice" class="headerlink" title="IntSlice 类型和Float64Slice和StringSlice"></a><strong>IntSlice 类型和Float64Slice和StringSlice</strong></h4><p><strong>1.IntSlice 类型及[]int 排序</strong></p>
+<p><em>sort</em>包原生支持[]int、[]float64 和[]string 三种内建数据类型切片的排序操作，即不必我们自己实现相关的 Len()、Less() 和 Swap() 方法。</p>
+<p><em>sort</em>包定义了一个 IntSlice 类型，并且实现了 sort.Interface 接口：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> IntSlice <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p IntSlice<span class="token punctuation">)</span> <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span>           <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">len</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p IntSlice<span class="token punctuation">)</span> <span class="token function">Less</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p IntSlice<span class="token punctuation">)</span> <span class="token function">Swap</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span>      <span class="token punctuation">{</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//IntSlice 类型定义了 Sort() 方法，包装了 sort.Sort() 函数</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p IntSlice<span class="token punctuation">)</span> <span class="token function">Sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">Sort</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//IntSlice 类型定义了 SearchInts() 方法，包装了 SearchInts() 函数</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p IntSlice<span class="token punctuation">)</span> <span class="token function">Search</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">SearchInts</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>并且提供的 sort.Ints() 方法使用了该 IntSlice 类型：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Ints</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">Sort</span><span class="token punctuation">(</span><span class="token function">IntSlice</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>所以，对[]int 切片排序更常使用 sort.Ints()，而不是直接使用 IntSlice 类型：</p>
+<pre class="line-numbers language-go"><code class="language-go">s <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 未排序的切片数据</span>
+sort<span class="token punctuation">.</span><span class="token function">Ints</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 将会输出[1 2 3 4 5 6]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>如果要使用降序排序，显然要用前面提到的 Reverse() 方法：</p>
+<pre class="line-numbers language-go"><code class="language-go">s <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 未排序的切片数据</span>
+sort<span class="token punctuation">.</span><span class="token function">Sort</span><span class="token punctuation">(</span>sort<span class="token punctuation">.</span><span class="token function">Reverse</span><span class="token punctuation">(</span>sort<span class="token punctuation">.</span><span class="token function">IntSlice</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 将会输出[6 5 4 3 2 1]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>如果要查找整数 x 在切片 a 中的位置，相对于前面提到的 Search() 方法，<em>sort</em>包提供了 SearchInts():</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">SearchInts</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> x <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>注意，SearchInts() 的使用条件为：<strong>切片 a 已经升序排序</strong> 以下是一个错误使用的例子：</p>
+<pre class="line-numbers language-go"><code class="language-go">s <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 未排序的切片数据</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>sort<span class="token punctuation">.</span><span class="token function">SearchInts</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 将会输出 0 而不是 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>2.Float64Slice 类型及[]float64 排序</strong></p>
+<p>实现与 Ints 类似，只看一下其内部实现：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Float64Slice <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">float64</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p Float64Slice<span class="token punctuation">)</span> <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span>           <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">len</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p Float64Slice<span class="token punctuation">)</span> <span class="token function">Less</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token function">isNaN</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isNaN</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p Float64Slice<span class="token punctuation">)</span> <span class="token function">Swap</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span>      <span class="token punctuation">{</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p Float64Slice<span class="token punctuation">)</span> <span class="token function">Sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">Sort</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p Float64Slice<span class="token punctuation">)</span> <span class="token function">Search</span><span class="token punctuation">(</span>x <span class="token builtin">float64</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">SearchFloat64s</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>与 Sort()、IsSorted()、Search() 相对应的三个方法：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Float64s</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">float64</span><span class="token punctuation">)</span>  
+<span class="token keyword">func</span> <span class="token function">Float64sAreSorted</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">float64</span><span class="token punctuation">)</span> <span class="token builtin">bool</span>
+<span class="token keyword">func</span> <span class="token function">SearchFloat64s</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">float64</span><span class="token punctuation">,</span> x <span class="token builtin">float64</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>要说明一下的是，在上面 Float64Slice 类型定义的 Less 方法中，有一个内部函数 isNaN()。 isNaN() 与<em>math</em>包中 IsNaN() 实现完全相同，<em>sort</em>包之所以不使用 math.IsNaN()，完全是基于包依赖性的考虑，应当看到，<em>sort</em>包的实现不依赖与其他任何包。</p>
+<p><strong>3. StringSlice 类型及[]string 排序</strong></p>
+<p>两个 string 对象之间的大小比较是基于“字典序”的。</p>
+<p>实现与 Ints 类似，只看一下其内部实现：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> StringSlice <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p StringSlice<span class="token punctuation">)</span> <span class="token function">Len</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span>           <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">len</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p StringSlice<span class="token punctuation">)</span> <span class="token function">Less</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p StringSlice<span class="token punctuation">)</span> <span class="token function">Swap</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span>      <span class="token punctuation">{</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p StringSlice<span class="token punctuation">)</span> <span class="token function">Sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">Sort</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>p StringSlice<span class="token punctuation">)</span> <span class="token function">Search</span><span class="token punctuation">(</span>x <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">SearchStrings</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>与 Sort()、IsSorted()、Search() 相对应的三个方法：</p>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Strings</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token function">StringsAreSorted</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">bool</span>
+<span class="token keyword">func</span> <span class="token function">SearchStrings</span><span class="token punctuation">(</span>a <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">,</span> x <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="排序具体的算法和复杂度"><a href="#排序具体的算法和复杂度" class="headerlink" title="排序具体的算法和复杂度"></a>排序具体的算法和复杂度</h3><p>Go 的sort包中所有的排序算法在最坏的情况下会做 n log n次 比较，n 是被排序序列的长度，所以排序的时间复杂度是 O(n log n)。其大多数的函数都是用改良后的快速排序算法实现的。</p>
 
             </div>
@@ -648,7 +734,7 @@ sort<span class="token punctuation">.</span><span class="token function">Sort</s
                   property="dct:title" rel="dct:type">
                     《Go 排序》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/11/18/go-sort/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/11/18/go-sort1/" property="cc:attributionName"
                rel="cc:attributionURL">
                 朱林刚
             </a> 采用
@@ -689,7 +775,7 @@ sort<span class="token punctuation">.</span><span class="token function">Sort</s
         repo: 'zhulingang.github.io',
         owner: 'zhulingang',
         admin: ["zhulingang"],
-        id: '2021/11/18/go-sort/',
+        id: '2021/11/18/go-sort1/',
         distractionFreeMode: true,  // Facebook-like distraction free mode
         proxy: 'https://silent-dream-ff28.827308972.workers.dev/?https://github.com/login/oauth/access_token'
     });
@@ -977,20 +1063,21 @@ sort<span class="token punctuation">.</span><span class="token function">Sort</s
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/go-schedule/">
+                <a href="/2021/11/18/go-switch/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Go调度模型">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Go switch 语句">
                         
-                        <span class="card-title">Go调度模型</span>
+                        <span class="card-title">Go switch 语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go调度模型Go调度模型GO CSP模型常见的线程模型
-线程之间的调度永远是一个复杂的话题，但是并发编程必然会涉及到操作系统对线程的调度。根据资源访问权限的不同，操作系统会把内存分为内核空间和用户空间，内核空间的指令代码具备直接调度计算机底
+                            switch 语句switch 语句不需要breakgo会帮你隐式break掉。
+case表达式的结果类型的转换要求case表达式的结果能转换为switch表示式结果的类型
+并且如果switch或case表达式的是无类型的常量时，会被自动转
                         
                     </div>
                     <div class="publish-info">
@@ -1035,21 +1122,20 @@ sort<span class="token punctuation">.</span><span class="token function">Sort</s
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/18/go-switch/">
+                <a href="/2021/11/18/go-use/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go switch 语句">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Go 使用">
                         
-                        <span class="card-title">Go switch 语句</span>
+                        <span class="card-title">Go 使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            switch 语句switch 语句不需要breakgo会帮你隐式break掉。
-case表达式的结果类型的转换要求case表达式的结果能转换为switch表示式结果的类型
-并且如果switch或case表达式的是无类型的常量时，会被自动转
+                            Go 使用Go 使用包管理GoPath 的坑当使用 go get &lt;package&gt; 时，GoPath 会在 GOPATH 路径（一个环境变量）上安装第三方包。并且在 Go 里，你的代码必须放在 GOPATH 里才能运行。 
+会
                         
                     </div>
                     <div class="publish-info">
@@ -1266,7 +1352,7 @@ case表达式的结果类型的转换要求case表达式的结果能转换为swi
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">71.5k</span>
+            <span class="white-color">72.9k</span>
             
 
             <br>

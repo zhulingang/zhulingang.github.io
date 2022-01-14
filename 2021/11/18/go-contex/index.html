@@ -317,7 +317,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1225,19 +1225,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/18/gomemory-management-allocation/">
+                <a href="/2021/11/18/go-gc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Go内存管理与分配">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Go GC">
                         
-                        <span class="card-title">Go内存管理与分配</span>
+                        <span class="card-title">Go GC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Go内存管理与分配Go内存管理Go内存会分成堆区（Heap）和栈区（Stack）两个部分，程序在运行期间可以主动从堆区申请内存空间，这些内存由内存分配器分配并由垃圾收集器负责回收。栈区的内存由编译器自动进行分配和释放，栈区中存储着函数的参数
+                            Go GCGo GC“GC Roots” 的对象选择JAVA的GC Root对象选择
+
+虚拟机栈(栈帧中的本地变量表)中引用的对象；
+本地方法栈(Native 方法)中引用的对象；
+方法区中类静态属性引用的对象；
+方法区中常量引用的对象；
+
                         
                     </div>
                     <div class="publish-info">
@@ -1286,7 +1292,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Go Defer">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Go Defer">
                         
                         <span class="card-title">Go Defer</span>
                     </div>
@@ -1514,7 +1520,7 @@ func main() {
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">71.5k</span>
+            <span class="white-color">72.9k</span>
             
 
             <br>
